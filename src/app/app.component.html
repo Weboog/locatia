@@ -1,0 +1,16 @@
+<nav [ngClass]="{ open: expandMenu }">
+  <app-navbar (onClose)="onCloseMenu()"></app-navbar>
+</nav>
+<header>
+  <app-header (showMenu)="onOpenMenu()"></app-header>
+</header>
+<main>
+
+</main>
+<footer>
+
+</footer>
+<div class="overlay">
+  <app-filters></app-filters>
+</div>
+

@@ -1,0 +1,62 @@
+.select_wrapper{
+  margin-bottom: .5rem;
+    svg{
+      transition: all .2s ease-in;
+        width: 2rem;
+        height: 2rem;
+        fill: #FF0099;
+    }
+    .label{
+        display: flex;
+      justify-content: space-between;
+        align-items: center;
+        margin-bottom: .3rem;
+      padding: .5rem 1.5rem;
+      border-radius: .8rem;
+      border: 1px solid rgba(black, .2);
+        button{
+          flex-grow: 1;
+          background: none;
+          border: none;
+          font-family: "Montserrat", sans-serif;
+          font-size: 1.1rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          text-align: left;
+          color: #4e4e4e;
+          outline: none;
+        }
+    }
+    .items{
+      transition: all .2s ease-in;
+      height: 0;
+      overflow: hidden;
+      ul{
+        list-style: none;
+        margin-top: 1rem;
+        padding: 1rem 0;
+        background-color: #4e4e4e;
+        border-radius: .8rem;
+        display: grid;
+        row-gap: .5rem;
+        li{
+          a{
+            display: block;
+            padding: .5rem 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #F7F7F7;
+            text-align: center;
+            &:active{
+              background-color: lighten($color: #4e4e4e, $amount: 5)
+            }
+          }
+        }
+      }
+    }
+
+  .rotateChevron{
+    transform: rotateZ(180deg);
+  }
+}

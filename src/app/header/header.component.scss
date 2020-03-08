@@ -1,0 +1,51 @@
+header{
+  display: grid;
+  grid-template-columns: 25% 1fr 25%;
+  padding: 2rem 0;
+  .menu_icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg{
+      width: 2rem;
+      height: 2rem;
+      fill: #4E4E4E;
+    }
+  }
+  h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg{
+      width: 5.7rem;
+      height: 4.5rem;
+    }
+  }
+  .fav{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg{
+      transform: rotateY(180deg);
+      width: 2rem;
+      height: 2rem;
+      fill: #4E4E4E;
+    }
+    span{
+      position: absolute;
+      right: 1.8rem;
+      top: 1.2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: lighten(#4E4E4E, 65%);
+      border-radius: 50%;
+      width: 2.2rem;
+      height: 2.2rem;
+      color: #4E4E4E;
+      font-weight: 900;
+      border: 2px solid white;
+    }
+  }
+}

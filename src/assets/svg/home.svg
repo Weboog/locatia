@@ -1,0 +1,8 @@
+<svg id="home" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <g transform="matrix(1, 0, 0, 1, -76.335999, -39.204002)">
+    <path style="stroke-linecap: round; stroke-linejoin: round; fill: none;  " d="M 93.015 66.219 L 95.966 66.175 L 101.871 66.175 L 101.871 55.813 L 104.836 54.62 L 98.37 49.405 L 91.903 44.189 L 86.875 47.829 L 81.847 51.469"/>
+    <path d="M 89.648 62.552 C 89.648 64.577 87.452 66.219 84.742 66.219 C 82.032 66.219 79.836 64.577 79.836 62.552 C 79.836 61.836 80.11 61.169 80.584 60.604 C 81.452 61.613 82.99 62.284 84.742 62.284 C 86.494 62.284 88.032 61.613 88.9 60.604 C 89.374 61.169 89.648 61.836 89.648 62.552 Z" style="fill: none;  "/>
+    <path style="stroke-linecap: round; stroke-linejoin: round; fill: none;  " d="M 93.015 56.813 L 97.351 56.813 L 97.351 62.32"/>
+    <ellipse style="stroke-miterlimit: 0; stroke-linecap: round; stroke-linejoin: round; stroke-dashoffset: -7px;  fill: none; " cx="84.742" cy="58.701" rx="4.906" ry="3.583"/>
+  </g>
+</svg>
