@@ -52,7 +52,11 @@
           </div>
         </div>
         <div class="pieces">
-          <h3>pièces</h3>
+          <h3 class="iconed">pièces
+            <svg>
+              <use href="assets/svg/info.svg#info"></use>
+            </svg>
+          </h3>
           <div class="numbers">
             <div *ngFor="let piece of pieces; index as i">
               <input id="p{{i}}" type="checkbox" [value]="piece.value" (change)="onChange($event, 'pieces')">
@@ -61,7 +65,11 @@
           </div>
         </div>
         <div class="rooms">
-          <h3>chambres</h3>
+          <h3 class="iconed">chambres
+            <svg>
+              <use href="assets/svg/info.svg#info"></use>
+            </svg>
+          </h3>
           <div class="numbers">
             <div *ngFor="let piece of pieces; index as i">
               <input id="r{{i}}" type="checkbox" [value]="piece.value" (change)="onChange($event, 'rooms')">

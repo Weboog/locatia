@@ -65,21 +65,34 @@
       }
       .specs{
         display: grid;
-        row-gap: 2rem;
+        row-gap: 2.5rem;
         //padding: 0 1rem;
         > div {
           display: grid;
           grid-template-columns: repeat(2, auto);
           grid-template-rows: repeat(2, auto);
           column-gap: 2rem;
-          row-gap: 1rem;
+          row-gap: 1.3rem;
           h3{
             grid-column: 1 / span 2;
             text-transform: uppercase;
             font-weight: 600;
             font-size: 1rem;
             color: #4E4E4E;
+            float: left;
+            &.iconed{
+              grid-column: unset;
+              display: flex;
+              //background-color: yellowgreen;
+              svg{
+                width: 1.3rem;
+                height: 1.3rem;
+                fill: rgba(black, .7);
+                margin-left: .5rem;
+              }
+            }
           }
+
           div{
             justify-self: center;
             display: flex;
@@ -100,6 +113,9 @@
               padding: .7rem 0 .7rem .5rem;
               font-size: 1.2rem;
               font-weight: 600;
+              &::placeholder{
+                color: rgba(black, .2);
+              }
             }
           }
         }

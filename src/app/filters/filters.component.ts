@@ -19,7 +19,7 @@ export class FiltersComponent implements OnInit {
     {value: 4},
     {value: 5},
   ];
-  piecesArray: FormArray;
+
   selectArray: SelectOption[];
   formFilters: FormGroup;
   constructor( private customSelectService: CustomSelectService) { }
@@ -53,6 +53,13 @@ export class FiltersComponent implements OnInit {
 
   onReset() {
     this.customSelectService.onReset.next();
+    const arrays: string[] = ['pieces', 'rooms'];
+    arrays.forEach( array => {
+      const fa = this.formFilters.get(array)as FormArray;
+      while (fa.length !== 0) {
+        fa.removeAt(0);
+      }
+    });
   }
 
   onChange(event, label: string) {
