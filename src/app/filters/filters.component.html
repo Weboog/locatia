@@ -1,4 +1,4 @@
-<div class="filters">
+<div class="filters" [ngClass]="{slide_up: slideUp}">
     <form [formGroup]="formFilters" (ngSubmit)="onSubmit()">
       <div class="buttons">
         <button role="button" type="reset" (click)="onReset()">annuler</button>

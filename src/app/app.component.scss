@@ -24,14 +24,18 @@ footer{
   left: 0;
 }
 .overlay{
+  transition: all .1s ease-in;
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   background-color: rgba($color: white, $alpha: .7);
-  //Animated properties///////////////////////////////
-  // display: none;
-  // visibility: hidden;
+  visibility: hidden;
+  opacity: 0;
+}
+.showOverlay{
+  visibility: visible;
+  opacity: 1;
 }
 

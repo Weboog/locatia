@@ -1,6 +1,5 @@
-import {Component, ElementRef, EventEmitter, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CustomSelectService, SelectOption} from '../shared/custom-select/custom-select.service';
-import {Subscription} from 'rxjs';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {price} from '../custom-validators/price.validator';
 import {surface} from '../custom-validators/surface.validator';
@@ -20,6 +19,8 @@ export class FiltersComponent implements OnInit {
     {value: 5},
   ];
 
+  @Input() slideUp = false;
+  @Output() onCancel = new EventEmitter<null>();
   selectArray: SelectOption[];
   formFilters: FormGroup;
   constructor( private customSelectService: CustomSelectService) { }
@@ -60,6 +61,8 @@ export class FiltersComponent implements OnInit {
         fa.removeAt(0);
       }
     });
+    this.slideUp = false;
+    this.onCancel.emit();
   }
 
   onChange(event, label: string) {

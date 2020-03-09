@@ -2,7 +2,7 @@
   <app-navbar (onClose)="onCloseMenu()"></app-navbar>
 </nav>
 <header>
-  <app-header (showMenu)="onOpenMenu()"></app-header>
+  <app-header (showMenu)="onOpenMenu()" (showFilters)="filtersShown = true"></app-header>
 </header>
 <main>
 
@@ -10,7 +10,7 @@
 <footer>
 
 </footer>
-<div class="overlay">
-  <app-filters></app-filters>
+<div class="overlay" [ngClass]="{showOverlay: filtersShown}">
+  <app-filters [slideUp]="filtersShown" (onCancel)="filtersShown = false"></app-filters>
 </div>
 

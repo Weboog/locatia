@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   expandMenu = false;
+  filtersShown = false;
 
   onOpenMenu() {
     this.expandMenu = true;
@@ -15,9 +16,5 @@ export class AppComponent {
 
   onCloseMenu() {
     this.expandMenu = false;
-  }
-
-  onScroll(event) {
-    console.log(event);
   }
 }
