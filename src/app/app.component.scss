@@ -1,3 +1,8 @@
+@media (min-width: 500px) {
+  .nav{
+
+  }
+}
 nav{
   transition: all .1s ease-in;
   background-color: white;
@@ -33,6 +38,7 @@ footer{
   background-color: rgba($color: white, $alpha: .7);
   visibility: hidden;
   opacity: 0;
+  z-index: 100;
 }
 .showOverlay{
   visibility: visible;

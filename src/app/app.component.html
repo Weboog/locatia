@@ -1,16 +1,17 @@
-<nav [ngClass]="{ open: expandMenu }">
+<nav class="nav" [ngClass]="{ open: expandMenu }">
   <app-navbar (onClose)="onCloseMenu()"></app-navbar>
 </nav>
 <header>
   <app-header (showMenu)="onOpenMenu()" (showFilters)="filtersShown = true"></app-header>
 </header>
 <main>
-
+<router-outlet></router-outlet>
+  <div class="overlay" [ngClass]="{showOverlay: filtersShown}">
+    <app-filters [slideUp]="filtersShown" (onCancel)="filtersShown = false"></app-filters>
+  </div>
 </main>
 <footer>
-
+<!--  <button role="button" (click)="createComponent()">Dynamic</button>-->
 </footer>
-<div class="overlay" [ngClass]="{showOverlay: filtersShown}">
-  <app-filters [slideUp]="filtersShown" (onCancel)="filtersShown = false"></app-filters>
-</div>
+<!--<ng-template appPlaceholder></ng-template>-->
 

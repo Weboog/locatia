@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, ComponentFactoryResolver, ViewChild} from '@angular/core';
+import {DummyComponent} from './dummy/dummy.component';
+import {PlaceholderDirective} from './placeholder.directive';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +12,10 @@ export class AppComponent {
 
   expandMenu = false;
   filtersShown = false;
+  @ViewChild(PlaceholderDirective, {static: false}) dummyHost: PlaceholderDirective;
+  dummySubscription: Subscription;
+  constructor(private cpFactoryResolver: ComponentFactoryResolver) {
+  }
 
   onOpenMenu() {
     this.expandMenu = true;
@@ -17,4 +24,17 @@ export class AppComponent {
   onCloseMenu() {
     this.expandMenu = false;
   }
+
+  // =============================================================================================
+  createComponent() {
+    const dummyComponentFactory = this.cpFactoryResolver.resolveComponentFactory(DummyComponent);
+    const vcRef = this.dummyHost.VCref;
+    vcRef.clear();
+    const componentRef = vcRef.createComponent(dummyComponentFactory);
+    this.dummySubscription = componentRef.instance.closeDummy.subscribe( () => {
+      this.dummySubscription.unsubscribe();
+      vcRef.clear();
+    });
+  }
+  // =============================================================================================
 }

@@ -7,26 +7,33 @@
           <use href="assets/svg/arrow-left.svg#arrow-left"></use>
         </svg>
       </a>
-  
+
     </div>
-  
     <div class="fav">
-      <span>
+      <a routerLink="favourite" (click)="close()">
+        <span>
         {{ favCount }}
           <svg>
             <use href="assets/svg/heart.svg#heart"></use>
           </svg>
       </span>
+      </a>
     </div>
-  
+
     <ul>
-      <li><a href="#">
+      <li><a routerLink="aparts" (click)="close()">
+        <span>accueil</span>
+        <svg>
+          <use href="assets/svg/bail.svg#bail"></use>
+        </svg>
+      </a></li>
+      <li><a routerLink="rental" (click)="close()">
         <span>louer</span>
         <svg>
           <use href="assets/svg/bail.svg#bail"></use>
         </svg>
       </a></li>
-      <li><a href="#">
+      <li><a routerLink="buy" (click)="close()">
         <span>acheter</span>
         <svg>
           <use href="assets/svg/heart.svg#heart"></use>
@@ -39,7 +46,7 @@
         </svg>
       </a></li>
     </ul>
-  
+
     <div class="copyright">
       <p>LOCATIA <span>&#x2122;</span> BY INCOLORIA <span>&#xa9;</span></p>
     </div>

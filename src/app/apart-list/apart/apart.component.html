@@ -1,0 +1,73 @@
+<div>
+  <div class="gallery">
+    <ul *ngFor="let src of apart.imgSrc; index as i">
+      <li><img src="assets/media/{{src}}" [alt]="i"></li>
+    </ul>
+    <ul class="nav_points">
+      <li><a><span></span></a></li>
+      <li><a><span></span></a></li>
+      <li><a><span></span></a></li>
+      <li><a><span></span></a></li>
+      <li><a><span></span></a></li>
+      <li><a><span class="selected"></span></a></li>
+    </ul>
+  </div>
+  <div class="details">
+    <div class="apart_id">
+      <p><span>#</span>{{apart.id}}</p>
+    </div>
+    <div class="apart_price">
+      <div class="pusher"></div>
+      <div>
+        <p>{{apart.price}}</p>
+        <small>dh</small>
+        <span>nuité</span>
+      </div>
+      <div>
+        <p>{{apart.type}}</p>
+      </div>
+
+    </div>
+    <div class="apart_location">
+      <span class="label">ville</span>
+      <p>{{apart.location}}</p>
+    </div>
+    <div class="apart_mix">
+        <ul>
+          <li>
+            <span class="label">surface</span>
+            <p>{{apart.specs.surface}}<i></i></p>
+          </li>
+          <li>
+            <span class="label">pièces</span>
+            <p>{{apart.specs.pieces < 10 ? '0' + apart.specs.pieces: apart.specs.pieces}}<i></i></p>
+          </li>
+          <li>
+            <span class="label">chambres</span>
+            <p>{{apart.specs.rooms < 10 ? '0' + apart.specs.rooms : apart.specs.rooms}}<i></i></p>
+          </li>
+        </ul>
+        <div class="apart_mix--description">
+          <p>{{apart.description}}</p>
+        </div>
+    </div>
+    <div class="apart_phone">
+      <div class="message">
+        <a>
+          <svg>
+<!--            <use href="assets/svg/message.svg#message"></use>-->
+          </svg>
+        </a>
+      </div>
+      <div class="call">
+        <a>
+          <svg>
+            <use href="assets/svg/phone.svg#phone"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+

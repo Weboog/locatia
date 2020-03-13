@@ -1,7 +1,13 @@
+@media screen and (min-width: 500px) {
+  .header{
+    padding: 3rem 0 2rem;
+  }
+}
 header{
   display: grid;
   grid-template-columns: 25% 1fr 25%;
   padding: 2rem 0;
+  background-color: white;
   .menu_icon{
     display: flex;
     justify-content: center;

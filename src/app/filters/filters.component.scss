@@ -1,5 +1,10 @@
+@media (min-width: 500px) {
+  .filters{
+    width: 60vw !important;
+  }
+}
 .filters{
-  transition: all .2s ease-in;
+  transition: all .1s ease-in;
     position: absolute;
     left: 0;
     right: 0;
