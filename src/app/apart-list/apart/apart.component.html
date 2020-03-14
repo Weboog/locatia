@@ -1,3 +1,4 @@
+<!--
 <div>
   <div class="gallery">
     <ul *ngFor="let src of apart.imgSrc; index as i">
@@ -36,18 +37,18 @@
         <ul>
           <li>
             <span class="label">surface</span>
-            <p>{{apart.specs.surface}}<i></i></p>
+            <p>{{apart.specs.surface}} M<sup>2</sup> <i></i></p>
           </li>
           <li>
             <span class="label">pièces</span>
-            <p>{{apart.specs.pieces < 10 ? '0' + apart.specs.pieces: apart.specs.pieces}}<i></i></p>
+            <p>{{apart.specs.pieces < 10 ? '0' + apart.specs.pieces: apart.specs.pieces}} P<i></i></p>
           </li>
           <li>
             <span class="label">chambres</span>
-            <p>{{apart.specs.rooms < 10 ? '0' + apart.specs.rooms : apart.specs.rooms}}<i></i></p>
+            <p>{{apart.specs.rooms < 10 ? '0' + apart.specs.rooms : apart.specs.rooms}} C<i></i></p>
           </li>
         </ul>
-        <div class="apart_mix--description">
+        <div class="apart_mix&#45;&#45;description">
           <p>{{apart.description}}</p>
         </div>
     </div>
@@ -55,7 +56,7 @@
       <div class="message">
         <a>
           <svg>
-<!--            <use href="assets/svg/message.svg#message"></use>-->
+&lt;!&ndash;            <use href="assets/svg/message.svg#message"></use>&ndash;&gt;
           </svg>
         </a>
       </div>
@@ -70,4 +71,71 @@
   </div>
 </div>
 
+-->
 
+<div class="card_container">
+  <div class="gallery">
+    <ul>
+      <li><a ><img src="assets/media/img-1.jpg"></a></li>
+    </ul>
+  </div>
+  <div class="details">
+    <div class="gallery_nav">
+      <ul>
+        <li><a></a></li>
+        <li><a></a></li>
+        <li><a></a></li>
+        <li><a></a></li>
+        <li><a class="selected"></a></li>
+        <li><a></a></li>
+      </ul>
+    </div>
+    <div class="apart_id">
+      <span>#</span>
+      <p>E-7810</p>
+    </div>
+    <div class="price">
+      <p>3500</p>
+      <small>dh</small>
+      <span class="period"> / mois</span>
+      <span class="type">maison.</span>
+    </div>
+    <div class="location">
+      <span>ville</span>
+      <p>marrakech <i class="dot"></i> </p>
+    </div>
+    <div class="specs">
+      <div class="surface">
+        <span>surface</span>
+        <p>75 <span>m<sup>2</sup></span> <i class="dot"></i> </p>
+      </div>
+      <div class="pieces">
+        <span>pieces</span>
+        <p>03 <span>p</span> <i class="dot"></i> </p>
+      </div>
+      <div class="rooms">
+        <span>chambres</span>
+        <p>02 <span>c</span> <i class="dot"></i> </p>
+      </div>
+      <div class="description">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, culpa.</p>
+      </div>
+    </div>
+    <div class="contact">
+      <div class="message">
+        <a>
+          <svg>
+            <use href="assets/svg/sprite.svg#message"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="call">
+        <a href="tel:0626629199">
+          <svg>
+            <use href="assets/svg/sprite.svg#call"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
