@@ -14,6 +14,7 @@ import {BuyCommerceComponent} from './buy/buy-commerce/buy-commerce.component';
 import {FavouriteComponent} from './favourite/favourite.component';
 import {ApartListComponent} from './apart-list/apart-list.component';
 import {ApartDetailComponent} from './apart-list/apart-detail/apart-detail.component';
+import {RecommendationsComponent} from './recommendations/recommendations.component';
 
 
 const routes: Routes = [
@@ -34,7 +35,8 @@ const routes: Routes = [
       {path: 'land', component: BuyLandComponent},
       {path: 'commerce', component: BuyCommerceComponent}
     ]},
-  // {path: '**', component: ApartComponent}
+  {path: 'recommendations', component: RecommendationsComponent},
+  {path: '**', component: ApartListComponent}
 
 ];
 

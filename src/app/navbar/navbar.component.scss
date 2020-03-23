@@ -42,23 +42,27 @@
   display: flex;
   justify-content: flex-end;
   padding-right: 23vw;
-  span{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 3rem;
-    border: 1px solid lightgrey;
-    padding: .5rem 1rem;
-    width: 6rem;
-    font-size: 1.3rem;
-    font-weight: 500;
-    color: #4E4E4E;
-    svg{
-      width: 2rem;
-      height: 2rem;
-      fill: #ff0099;
+  a{
+    text-decoration: none;
+    span{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 3rem;
+      border: 1px solid lightgrey;
+      padding: .5rem 1rem;
+      width: 6rem;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #4E4E4E;
+      svg{
+        width: 2rem;
+        height: 2rem;
+        fill: #ff0099;
+      }
     }
   }
+
 }
 ul{
   list-style: none;
@@ -83,10 +87,11 @@ ul{
         // background-color: orangered;
         justify-self: end;
         margin-right: 1.5rem;
+        align-self: center;
       }
       svg{
-        width: 2rem;
-        height: 2rem;
+        width: 2.5rem;
+        height: 2.5rem;
         fill: rgba(black, .4);
         justify-self: center;
         // background-color: blue;

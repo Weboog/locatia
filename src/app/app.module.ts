@@ -28,6 +28,7 @@ import { DummyComponent } from './dummy/dummy.component';
 import { ApartListComponent } from './apart-list/apart-list.component';
 import { ApartComponent } from './apart-list/apart/apart.component';
 import { ApartDetailComponent } from './apart-list/apart-detail/apart-detail.component';
+import { RecommendationsComponent } from './recommendations/recommendations.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { ApartDetailComponent } from './apart-list/apart-detail/apart-detail.com
     ApartListComponent,
     ApartComponent,
     ApartDetailComponent,
+    RecommendationsComponent,
   ],
   imports: [
     BrowserModule,
