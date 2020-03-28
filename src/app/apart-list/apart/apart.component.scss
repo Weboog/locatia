@@ -7,24 +7,8 @@
     width: 100%;
     border-radius: 4rem 4rem 0 0;
     overflow: hidden;
-    .carousel{
-      ol.carousel-indicators{
-        bottom: 2.5rem;
-        z-index: 2;
-        li{
-          width: 1rem;
-          height: 1rem;
-          border-radius: 50%;
-          background-color: lighten($color: #414141, $amount: 5);
-          &.active{
-            background-color: #ff0099;
-          }
-        }
-      }
-      .carousel-control-prev-icon, .carousel-control-next-icon{
-        width: 4rem;
-        height: 4rem;
-      }
+    img{
+      width: 100%;
     }
   }
   svg{

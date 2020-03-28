@@ -1,0 +1,10 @@
+<div class="slide">
+    <div id="id-{{ id }}" class="slider" [ngStyle]="{'width.vw': (items.length) * 100}">
+      <div class="slider_item">
+        <img [src]="imgSources[0].src" alt="image-1">
+      </div>
+    </div>
+</div>
+<div  class="controls">
+  <button id="control-{{ id }}-{{ button.direction }}" *ngFor="let button of buttons" [class]="button.class" (click)="move($event, button.direction)">{{ button.label }}</button>
+</div>

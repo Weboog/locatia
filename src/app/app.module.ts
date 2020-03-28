@@ -29,6 +29,7 @@ import { ApartListComponent } from './apart-list/apart-list.component';
 import { ApartComponent } from './apart-list/apart/apart.component';
 import { ApartDetailComponent } from './apart-list/apart-detail/apart-detail.component';
 import { RecommendationsComponent } from './recommendations/recommendations.component';
+import { CarouselComponent } from './shared/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { RecommendationsComponent } from './recommendations/recommendations.comp
     ApartComponent,
     ApartDetailComponent,
     RecommendationsComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,

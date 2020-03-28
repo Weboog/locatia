@@ -9,6 +9,7 @@ import {Apart} from '../../shared/custom-types/apart';
 export class ApartComponent implements OnInit {
 
   @Input() apart: Apart;
+  @Input() galleryId: number;
   constructor() { }
 
   ngOnInit(): void {

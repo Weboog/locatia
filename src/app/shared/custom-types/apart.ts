@@ -1,3 +1,5 @@
+import {Carousel} from '../carousel/carousel';
+
 export interface Apart {
 
   id: string;
@@ -18,6 +20,6 @@ export interface Apart {
     },
     offer: boolean
   };
-  imgSrc: string[];
+  images: Carousel[];
   description: string;
 }
