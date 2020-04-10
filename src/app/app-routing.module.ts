@@ -15,6 +15,7 @@ import {FavouriteComponent} from './favourite/favourite.component';
 import {ApartListComponent} from './apart-list/apart-list.component';
 import {ApartDetailComponent} from './apart-list/apart-detail/apart-detail.component';
 import {RecommendationsComponent} from './recommendations/recommendations.component';
+import {RentalStartComponent} from './rental/rental-start/rental-start.component';
 
 
 const routes: Routes = [
@@ -24,10 +25,11 @@ const routes: Routes = [
     ]},
   {path: 'favourite', component: FavouriteComponent},
   {path: 'rental', component: RentalComponent, children: [
+      {path: '', component: RentalStartComponent},
       {path: 'classic', component: RentalClassicComponent},
       {path: 'vacancy', component: RentalVacancyComponent},
       {path: 'temporal', component: RentalTemporalComponent},
-      {path: 'commerce', component: RentalCommerceComponent}
+      {path: 'commerce', component: RentalCommerceComponent},
     ]},
   {path: 'buy', component: BuyComponent, children: [
       {path: 'apart', component: BuyApartmentComponent},

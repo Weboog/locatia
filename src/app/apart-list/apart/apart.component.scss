@@ -1,12 +1,16 @@
 .card_container{
   display: grid;
-  width: 80vw;
+  width: 85vw;
+  transition: all .1s ease-in;
+  transform-origin: center;
   .gallery{
+    transition: all .2s ease-in;
     grid-column: 1 / 2;
     grid-row: 1 / 4;
     width: 100%;
     border-radius: 4rem 4rem 0 0;
     overflow: hidden;
+    box-shadow:  0 0 .5rem rgba(black, .2);
     img{
       width: 100%;
     }
@@ -17,6 +21,7 @@
     fill: white;
   }
   .details{
+    transition: all .2s ease-in;
     z-index: 1;
     grid-column: 1 / 2;
     grid-row: 3 / 7;
@@ -28,6 +33,7 @@
     padding: 3rem;
     font-family: 'Montserrat', sans-serif;
     color: white;
+    box-shadow:  0 0 .5rem rgba(black, .2);
     i.dot{
       display: block;
       width: 0.5rem;
@@ -149,7 +155,7 @@
       .description{
         grid-row: 1 / -1;
         grid-column: 2 / -1;
-
+        cursor: pointer;
         p{
           position: relative;
           margin-right: -3rem;
@@ -194,4 +200,32 @@
       }
     }
   }
+}
+
+.divider{
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem 0;
+}
+.divider::after{
+  content: '';
+  display: block;
+  width: 3rem;
+  height: .5rem;
+  background-color: #4E4E4E;
+  border-radius: 1rem;
+}
+
+.onDetails{
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.unRound{
+  border-radius: unset !important;
 }

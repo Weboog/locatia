@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Apart} from '../shared/custom-types/apart';
 
 @Injectable({
@@ -16,11 +16,11 @@ export class ApartsService {
       specs: {surface: 75, pieces: 3, rooms: 2},
       images: [
         {id: 1, src: 'https://cdn.pixabay.com/photo/2017/02/24/12/22/apartment-2094699_960_720.jpg'},
-        {id: 2, src: 'https://cdn.pixabay.com/photo/2017/02/24/12/23/bathroom-2094716_960_720.jpg'},
-        {id: 3, src: 'https://cdn.pixabay.com/photo/2017/02/24/12/22/kitchen-2094707_960_720.jpg'},
-        {id: 4, src: 'https://cdn.pixabay.com/photo/2018/05/25/17/52/home-3429674_960_720.jpg'},
-        {id: 5, src: 'https://cdn.pixabay.com/photo/2017/02/24/12/22/apartment-2094702_960_720.jpg'},
-        {id: 6, src: 'https://cdn.pixabay.com/photo/2016/02/18/22/25/window-1208277_960_720.jpg'}
+        {id: 2, src: 'http://deelay.me/1000/https://cdn.pixabay.com/photo/2017/02/24/12/23/bathroom-2094716_960_720.jpg'},
+        {id: 3, src: 'http://deelay.me/1000/https://cdn.pixabay.com/photo/2017/02/24/12/22/kitchen-2094707_960_720.jpg'},
+        {id: 4, src: 'http://deelay.me/1000/https://cdn.pixabay.com/photo/2018/05/25/17/52/home-3429674_960_720.jpg'},
+        {id: 5, src: 'http://deelay.me/1000/https://cdn.pixabay.com/photo/2017/02/24/12/22/apartment-2094702_960_720.jpg'},
+        {id: 6, src: 'http://deelay.me/1000/https://cdn.pixabay.com/photo/2016/02/18/22/25/window-1208277_960_720.jpg'}
       ],
       // tslint:disable-next-line:max-line-length
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
@@ -82,5 +82,9 @@ export class ApartsService {
 
   getAparts() {
     return this.aparts.slice();
+  }
+
+  getDescription(id: number) {
+    return this.aparts[id].description;
   }
 }

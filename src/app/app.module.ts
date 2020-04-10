@@ -23,13 +23,14 @@ import { BuyHouseComponent } from './buy/buy-house/buy-house.component';
 import { BuyLandComponent } from './buy/buy-land/buy-land.component';
 import { BuyCommerceComponent } from './buy/buy-commerce/buy-commerce.component';
 import { FavouriteComponent } from './favourite/favourite.component';
-import { PlaceholderDirective } from './placeholder.directive';
+import { PlaceholderDirective } from './shared/placeholder/placeholder.directive';
 import { DummyComponent } from './dummy/dummy.component';
 import { ApartListComponent } from './apart-list/apart-list.component';
 import { ApartComponent } from './apart-list/apart/apart.component';
 import { ApartDetailComponent } from './apart-list/apart-detail/apart-detail.component';
 import { RecommendationsComponent } from './recommendations/recommendations.component';
 import { CarouselComponent } from './shared/carousel/carousel.component';
+import { RentalStartComponent } from './rental/rental-start/rental-start.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { CarouselComponent } from './shared/carousel/carousel.component';
     ApartDetailComponent,
     RecommendationsComponent,
     CarouselComponent,
+    RentalStartComponent,
   ],
   imports: [
     BrowserModule,

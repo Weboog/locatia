@@ -1,6 +1,6 @@
 import {Component, ComponentFactoryResolver, ViewChild} from '@angular/core';
 import {DummyComponent} from './dummy/dummy.component';
-import {PlaceholderDirective} from './placeholder.directive';
+import {PlaceholderDirective} from './shared/placeholder/placeholder.directive';
 import {Subscription} from 'rxjs';
 
 @Component({
@@ -28,7 +28,7 @@ export class AppComponent {
   // =============================================================================================
   createComponent() {
     const dummyComponentFactory = this.cpFactoryResolver.resolveComponentFactory(DummyComponent);
-    const vcRef = this.dummyHost.VCref;
+    const vcRef = this.dummyHost.viewContainerRef;
     vcRef.clear();
     const componentRef = vcRef.createComponent(dummyComponentFactory);
     this.dummySubscription = componentRef.instance.closeDummy.subscribe( () => {

@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap');
+//@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 *{
   padding: 0;
   margin: 0;
@@ -12,7 +13,7 @@ html{
   font-family: 'Montserrat', sans-serif !important;
 }
 body{
-  height: 1300px;
+  //height: 1300px;
   overflow-x: hidden;
 }
 .price.ng-touched{
