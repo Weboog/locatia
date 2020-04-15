@@ -24,13 +24,16 @@ import { BuyLandComponent } from './buy/buy-land/buy-land.component';
 import { BuyCommerceComponent } from './buy/buy-commerce/buy-commerce.component';
 import { FavouriteComponent } from './favourite/favourite.component';
 import { PlaceholderDirective } from './shared/placeholder/placeholder.directive';
-import { DummyComponent } from './dummy/dummy.component';
-import { ApartListComponent } from './apart-list/apart-list.component';
-import { ApartComponent } from './apart-list/apart/apart.component';
-import { ApartDetailComponent } from './apart-list/apart-detail/apart-detail.component';
+import { ApartListComponent } from './aparts/apart-list/apart-list.component';
+import { ApartComponent } from './aparts/apart-list/apart/apart.component';
+import { ApartDetailComponent } from './aparts/apart-detail/apart-detail.component';
 import { RecommendationsComponent } from './recommendations/recommendations.component';
 import { CarouselComponent } from './shared/carousel/carousel.component';
 import { RentalStartComponent } from './rental/rental-start/rental-start.component';
+import { BuyStartComponent } from './buy/buy-start/buy-start.component';
+import { ApartsComponent } from './aparts/aparts.component';
+import { HereMapComponent } from './here-map/here-map.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -55,18 +58,21 @@ import { RentalStartComponent } from './rental/rental-start/rental-start.compone
     BuyCommerceComponent,
     FavouriteComponent,
     PlaceholderDirective,
-    DummyComponent,
     ApartListComponent,
     ApartComponent,
     ApartDetailComponent,
     RecommendationsComponent,
     CarouselComponent,
     RentalStartComponent,
+    BuyStartComponent,
+    ApartsComponent,
+    HereMapComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

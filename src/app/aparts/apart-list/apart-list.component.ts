@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ApartsService} from './aparts.service';
-import {Apart} from '../shared/custom-types/apart';
+import {ApartsService} from '../aparts.service';
+import {Apart} from '../../shared/custom-types/apart';
 
 @Component({
   selector: 'app-apart-list',

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Apart} from '../../shared/custom-types/apart';
+import {Apart} from '../../../shared/custom-types/apart';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-apart',
@@ -12,7 +13,7 @@ export class ApartComponent implements OnInit {
   scrollY = 0;
   @Input() apart: Apart;
   @Input() carouselId: number;
-  constructor() { }
+  constructor( private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
@@ -33,15 +34,17 @@ export class ApartComponent implements OnInit {
     }
   }
 
-  onDescription() {
-    this.detailed = !this.detailed;
+  onDescription(id: number) {
+    // console.log('funck');
+    this.router.navigate([`aparts/${id}`]);
+    /*this.detailed = !this.detailed;
     this.adaptImages(this.detailed);
     if (this.detailed) {
       this.scrollY = window.scrollY;
       window.scrollTo(0, 0);
     } else {
       window.scrollTo(0, this.scrollY);
-    }
+    }*/
   }
 
 }

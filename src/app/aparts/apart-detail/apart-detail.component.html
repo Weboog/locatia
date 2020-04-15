@@ -1,0 +1,55 @@
+<div class="details-container">
+  <div class="back">
+    <a routerLink="/aparts">
+      <svg>
+        <use href="assets/svg/arrow-left.svg#arrow-left"></use>
+      </svg>
+    </a>
+  </div>
+  <div class="gallery">
+    <app-carousel [imgSources]="apart.images" id="0"></app-carousel>
+  </div>
+  <div class="details">
+    <section>
+      <h2 class="title">caractéristiques.</h2>
+      <div class="content">
+        <div class="id"><span>#</span>{{apart.id}}</div>
+        <div class="price">
+          <div></div>
+          <div class="data">
+            <div *ngIf="apart.oldPrice" class="old">{{apart.oldPrice}}</div>
+            <div class="current">{{apart.price}}</div>
+            <div class="units">
+              <p>DH</p>
+              <p>mois</p>
+            </div>
+            <div class="type">{{apart.type}}</div>
+          </div>
+        </div>
+        <div class="city">
+          <span class="label">ville</span>
+          <p class="value">{{apart.location}}<i class="dot"></i></p>
+        </div>
+        <div class="components">
+          <div class="surface">
+            <span class="label">surface</span>
+            <p class="value">{{apart.specs.surface < 10 ? '0'+apart.specs.surface : apart.specs.surface}} <span>m<sup>2</sup></span><i class="dot"></i></p>
+           </div>
+          <div class="pieces">
+            <span class="label">pièces</span>
+            <p class="value">{{apart.specs.pieces < 10 ? '0'+apart.specs.pieces : apart.specs.pieces}} <span>P</span><i class="dot"></i></p></div>
+          <div class="rooms">
+            <span class="label">chambres</span>
+            <p class="value">{{apart.specs.rooms < 10 ? '0'+apart.specs.rooms : apart.specs.rooms}} <span>C</span><i class="dot"></i></p></div>
+          <div *ngIf="apart.specs.floors" class="floors">
+            <span class="label">étages</span>
+            <p class="value">{{apart.specs.floors < 10 ? '0'+apart.specs.floors : apart.specs.floors}} <span>E</span><i class="dot"></i></p></div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2 class="title">position sur map.</h2>
+      <app-here-map></app-here-map>
+    </section>
+  </div>
+</div>

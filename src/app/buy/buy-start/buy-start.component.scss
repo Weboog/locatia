@@ -32,14 +32,14 @@
       display: grid;
       justify-content: right;
       &::after{
-          position: absolute;
-          right: 3rem;
-          bottom: -2rem;
-          content: '';
-          width: 2.6rem;
-          height: 1px;
-          background-color: #E5E5E5;
-        }
+        position: absolute;
+        right: 3rem;
+        bottom: -2rem;
+        content: '';
+        width: 2.6rem;
+        height: 1px;
+        background-color: #E5E5E5;
+      }
       > div {
         display: grid;
         row-gap: .6rem;
@@ -100,5 +100,14 @@
   }
   100%{
     right: 0;
+  }
+}
+
+@keyframes balloon {
+  0%{
+    transform: scale(0, 0);
+  }
+  100%{
+    transform: scale(1, 1);
   }
 }

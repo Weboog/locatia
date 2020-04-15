@@ -10,7 +10,7 @@ export class ApartsService {
     {
       id: 'A-2701',
       price: 350,
-      type: 'appartement',
+      type: 'chambre d\'hotel',
       location: 'marrakech',
       phone: '0626629199',
       specs: {surface: 75, pieces: 3, rooms: 2},
@@ -27,6 +27,7 @@ export class ApartsService {
     },
     {
       id: 'B-0387',
+      oldPrice: 350,
       price: 250,
       type: 'maison',
       location: 'kenitra',
@@ -79,6 +80,10 @@ export class ApartsService {
     }
   ];
   constructor() { }
+
+  getApart(id: number) {
+    return this.aparts[id] as Apart;
+  }
 
   getAparts() {
     return this.aparts.slice();
