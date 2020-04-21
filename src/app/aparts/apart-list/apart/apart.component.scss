@@ -4,6 +4,7 @@
   transition: all .1s ease-in;
   transform-origin: center;
   .gallery{
+    position: relative;
     transition: all .2s ease-in;
     grid-column: 1 / 2;
     grid-row: 1 / 4;
@@ -13,6 +14,29 @@
     box-shadow:  0 0 .5rem rgba(black, .2);
     img{
       width: 100%;
+    }
+    .favourite{
+      position: absolute;
+      z-index: 1;
+      left: 50%;
+      top: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translateX(-50%);
+      cursor: pointer;
+      //background-color: #fff;
+      //border-radius: 50%;
+      //width: 4.5rem;
+      //height: 4.5rem;
+      svg{
+        transition: all .2s ease-in;
+        width: 3.2rem;
+        //height: 3.2rem;
+      }
+    }
+    .fav_clicked{
+      fill: #ff0099;
     }
   }
   svg{

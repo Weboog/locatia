@@ -5,6 +5,7 @@ export interface Apart {
   id: string;
   oldPrice?: number;
   price: number;
+  period: string;
   type: string;
   location: string;
   phone: string;

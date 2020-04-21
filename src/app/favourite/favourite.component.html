@@ -1,6 +1,6 @@
 <div class="favourite_container">
   <h1>mes favoris</h1>
-  <h3>35 en favoris</h3>
+  <h3>{{count}} favoris</h3>
   <div class="favourite_list">
     <div class="favourite">
       <div class="bgImage">
@@ -9,7 +9,7 @@
       <div class="gradient"></div>
       <div class="elements">
         <div class="id"><span>#</span>2710</div>
-        <a class="delete">
+        <a class="delete" (click)="delete('36215499')">
           <svg>
             <use href="assets/svg/sprite.svg#delete"></use>
           </svg>
@@ -27,7 +27,7 @@
             <p>75 m<sup>2</sup>.</p>
           </div>
           <div class="pieces">
-            <span class="label">piéces</span>
+            <span class="label">pièces</span>
             <p>03 P.</p>
           </div>
           <div class="rooms">

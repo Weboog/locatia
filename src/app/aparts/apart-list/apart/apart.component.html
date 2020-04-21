@@ -1,36 +1,47 @@
 <div class="card_container" [ngClass]="{onDetails: detailed, unRound: detailed}">
   <div class="gallery" [ngClass]="{unRound: detailed}">
+    <div class="favourite">
+      <a (click)="onFavourite(apart.id)">
+        <svg [ngStyle]="{'fill': favourite ? '#FF0099' : 'none', stroke: favourite ? '#FF0099': '#FFF'}">
+          <use href="assets/svg/sprite.svg#fav"></use>
+        </svg>
+      </a>
+    </div>
     <app-carousel [imgSources]="apart.images" [id]="carouselId" [onDetails]="detailed"></app-carousel>
   </div>
   <div class="details" (click)="onDescription(carouselId)" [ngClass]="{unRound: detailed}">
     <div class="apart_id">
       <span>#</span>
-      <p>E-7810</p>
+      <p>{{apart.id}}</p>
 <!--      <div class="divider"></div>-->
     </div>
     <div class="price">
-      <p>3500</p>
+      <p>{{apart.price}}</p>
       <small>dh</small>
-      <span class="period"> / mois</span>
-      <span class="type">maison.</span>
+      <span class="period"> / {{apart.period}}</span>
+      <span class="type">{{apart.type}}.</span>
 <!--      <div class="divider"></div>-->
     </div>
     <div class="location">
       <span>ville</span>
-      <p>marrakech <i class="dot"></i> </p>
+      <p>{{apart.location}} <i class="dot"></i> </p>
     </div>
     <div class="specs">
       <div class="surface">
         <span>surface</span>
-        <p>75 <span>m<sup>2</sup></span> <i class="dot"></i> </p>
+        <p>{{apart.specs.surface}} <span>m<sup>2</sup></span> <i class="dot"></i> </p>
       </div>
       <div class="pieces">
         <span>pieces</span>
-        <p>03 <span>p</span> <i class="dot"></i> </p>
+        <p>{{apart.specs.pieces < 10 ? '0'+apart.specs.pieces : apart.specs.pieces}} <span>p</span> <i class="dot"></i> </p>
       </div>
       <div class="rooms">
         <span>chambres</span>
-        <p>02 <span>c</span> <i class="dot"></i> </p>
+        <p>{{apart.specs.rooms < 10 ? '0'+apart.specs.rooms : apart.specs.rooms}} <span>c</span> <i class="dot"></i> </p>
+      </div>
+      <div *ngIf="apart.specs.floors" class="rooms">
+        <span>étages</span>
+        <p>{{apart.specs.floors < 10 ? '0'+apart.specs.floors : apart.specs.floors}} <span>e</span> <i class="dot"></i> </p>
       </div>
       <div class="description">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, culpa.</p>
