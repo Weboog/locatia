@@ -12,7 +12,8 @@
     <div class="fav">
       <a routerLink="favourite" (click)="close()">
         <span>
-        {{ favCount }}
+          <b *ngIf="favCount > 0">{{ favCount < 10  ? '0' + favCount : favCount }}</b>
+          <b *ngIf="favCount === 0">VIDE</b>
           <svg>
             <use href="assets/svg/heart.svg#heart"></use>
           </svg>

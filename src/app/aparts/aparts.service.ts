@@ -83,6 +83,7 @@ export class ApartsService {
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     }
   ];
+  registeredAparts: Apart[] = [];
   constructor() { }
 
   getApart(id: number) {
@@ -93,6 +94,15 @@ export class ApartsService {
     return this.aparts.slice();
   }
 
+  getRegisteredAparts( indexes: string[]) {
+    this.registeredAparts = [];
+    indexes.forEach( id => {
+      this.registeredAparts.push(this.aparts.find( apart => {
+        return apart.id === id;
+      }));
+    });
+    return this.registeredAparts.slice();
+  }
   getDescription(id: number) {
     return this.aparts[id].description;
   }

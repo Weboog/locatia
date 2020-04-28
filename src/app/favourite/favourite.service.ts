@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Subject} from "rxjs";
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,6 @@ import {Subject} from "rxjs";
 export class FavouriteService {
 
   favChange = new Subject<number>();
-
   constructor() { }
 
   getLength() {
@@ -37,7 +36,6 @@ export class FavouriteService {
       // Register new apart
       registeredAparts.registered.push(id);
       localStorage.setItem('registeredAparts', JSON.stringify(registeredAparts));
-      console.log(this.getRegistered());
     } else {
       // Delete found apart
       const i = registeredAparts.registered.indexOf(id);
@@ -46,4 +44,12 @@ export class FavouriteService {
     }
     this.favChange.next(this.getLength());
   }
+
+  /*deleteApart(id: string) {
+    const registeredAparts = this.getRegistered();
+    const i = registeredAparts.registered.indexOf(id);
+    registeredAparts.registered.splice(i, 1);
+    localStorage.setItem('registeredAparts', JSON.stringify(registeredAparts));
+    this.favChange.next(this.getLength());
+  }*/
 }

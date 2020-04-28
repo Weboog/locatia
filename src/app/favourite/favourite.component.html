@@ -1,42 +1,43 @@
 <div class="favourite_container">
   <h1>mes favoris</h1>
-  <h3>{{count}} favoris</h3>
+  <h3 *ngIf="count > 0">{{count}} favoris</h3>
+  <h3 *ngIf="count === 0">liste des favoris vide</h3>
   <div class="favourite_list">
-    <div class="favourite">
+    <div class="favourite" *ngFor="let apart of aparts; index as i" [id]="'favourite-'+i">
       <div class="bgImage">
-        <img src="assets/media/img-1.jpg" alt="">
+        <img [src]="apart.images[0].src" src="assets/media/img-1.jpg" alt="">
       </div>
       <div class="gradient"></div>
       <div class="elements">
-        <div class="id"><span>#</span>2710</div>
-        <a class="delete" (click)="delete('36215499')">
+        <div class="id"><span>#</span>{{apart.id}}</div>
+        <a class="delete" (click)="delete(apart.id, i)">
           <svg>
             <use href="assets/svg/sprite.svg#delete"></use>
           </svg>
         </a>
-        <div class="type">maison</div>
+        <div class="type">{{apart.type}}</div>
         <div class="price">
           <div class="old"></div>
-          <div class="current">350</div>
+          <div class="current">{{apart.price}}</div>
           <div class="unit">DH</div>
-          <div class="period">nuité</div>
+          <div class="period">{{apart.period}}</div>
         </div>
         <div class="components">
           <div class="surface">
             <span class="label">surface</span>
-            <p>75 m<sup>2</sup>.</p>
+            <p>{{apart.specs.surface}} M<sup>2</sup>.</p>
           </div>
           <div class="pieces">
             <span class="label">pièces</span>
-            <p>03 P.</p>
+            <p>{{apart.specs.pieces}} P.</p>
           </div>
           <div class="rooms">
             <span class="label">chambres</span>
-            <p>02 C.</p>
+            <p>{{apart.specs.rooms}} C.</p>
           </div>
-          <div class="floors">
+          <div class="floors" *ngIf="apart.specs.floors">
             <span class="label">étages</span>
-            <p>02 E.</p>
+            <p>{{apart.specs.floors}} E.</p>
           </div>
         </div>
       </div>

@@ -34,6 +34,8 @@ import { BuyStartComponent } from './buy/buy-start/buy-start.component';
 import { ApartsComponent } from './aparts/aparts.component';
 import { HereMapComponent } from './here-map/here-map.component';
 import {HttpClientModule} from '@angular/common/http';
+import { LocalFiltersComponent } from './filters/local-filters/local-filters.component';
+import { LocalOptionsComponent } from './shared/local-options/local-options.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +69,8 @@ import {HttpClientModule} from '@angular/common/http';
     BuyStartComponent,
     ApartsComponent,
     HereMapComponent,
+    LocalFiltersComponent,
+    LocalOptionsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,46 @@
+.options_wrapper{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg{
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+  > div{
+    background-color: #ff0099;
+    overflow: hidden;
+    border-radius: 2rem;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 30rem;
+    color: white;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 1rem 0;
+    box-shadow:  0 0 .5rem rgba(black, .2);
+    > div {
+      display: flex;
+      align-items: center;
+      span{
+        margin-left: .5rem;
+      }
+    }
+  }
+  .divider{
+    width: .1rem;
+    height: 2rem;
+    background-color: white;
+  }
+  .options_filter{
+    justify-self: center;
+  }
+  .options_sorting{
+    justify-self: center;
+  }
+}

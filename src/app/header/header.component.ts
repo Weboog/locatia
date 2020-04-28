@@ -19,7 +19,6 @@ export class HeaderComponent implements OnInit {
   }
 
   onShowFilters() {
-    // console.log('show filters');
     this.showFilters.emit();
   }
 

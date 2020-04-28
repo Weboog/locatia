@@ -1,1 +1,5 @@
 <router-outlet></router-outlet>
+<div class="overlay" [ngClass]="{showOverlay: showLocalfilters}">
+  <app-local-filters [slideUp]="showLocalfilters" (onCancel)="showLocalfilters = false"></app-local-filters>
+</div>
+<app-local-options (onFilters)="onLocalfilters()"></app-local-options>

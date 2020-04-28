@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   constructor( private favouriteService: FavouriteService) { }
 
   ngOnInit() {
+    this.favCount = this.favouriteService.getLength();
     this.favouriteService.favChange.subscribe( count => {
       this.favCount = count;
     });
@@ -27,5 +28,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   close() {
     this.onClose.emit();
+    // this.favSubscription.unsubscribe();
   }
 }

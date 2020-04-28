@@ -1,4 +1,5 @@
 .favourite_container{
+  margin-bottom: 5rem;
   > h1{
     font-weight: 100;
     font-size: 2rem;
@@ -27,6 +28,7 @@
   }
   .favourite_list{
     display: grid;
+    row-gap: 4rem;
     justify-content: center;
     .favourite{
       width: 85vw;
@@ -35,6 +37,7 @@
       overflow: hidden;
       border-radius: 2rem;
       box-shadow:  0 0 .5rem rgba(black, .2);
+      border-bottom: 3px solid #ff0099;
       svg{
         width: 3rem;
         height: 3rem;

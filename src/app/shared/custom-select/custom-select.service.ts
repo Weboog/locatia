@@ -14,14 +14,22 @@ export class CustomSelectService {
   @Output() onDroppedOne = new EventEmitter<string>();
   // @Output() onReset = new EventEmitter<any>();
   onReset = new Subject<any>();
-  private selectArray: SelectOption[] = [
-    { alias: 'type d\'exploitation', label: 'action', options: ['louer', 'acheter', 'passager'] },
-    { alias: 'type de demeure', label: 'type', options: ['appartement', 'duplexe', 'maison', 'ryad', 'villa', 'auberge'] },
-    { alias: 'ville / region', label: 'city', options: ['casablanca', 'marrakech', 'agadir', 'rabat', 'chefchaouen', 'kenitra'] }
+  localFilters = [
+    { alias: 'type de location', label: 'city', options: ['tout type', 'classique', 'vacances', 'temporaire', 'commerciale'] },
+    { alias: 'appartement', label: 'type', options: ['appartement', 'duplexe', 'maison', 'ryad', 'villa'] }
+  ];
+  selectArray = [
+    { alias: 'tout le maroc', label: 'city', options: ['casablanca', 'marrakech', 'agadir', 'rabat', 'chefchaouen', 'kenitra'] },
+    { alias: 'location', label: 'action', options: ['location', 'achat'] },
+    { alias: 'appartement', label: 'type', options: ['appartement', 'duplexe', 'maison', 'ryad', 'villa'] }
   ];
   constructor() { }
 
   getSelectOptions() {
     return this.selectArray.slice();
+  }
+
+  getLocalFilters() {
+    return this.localFilters.slice();
   }
 }

@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RentalComponent implements OnInit {
 
+  showLocalfilters = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onLocalfilters() {
+    this.showLocalfilters = !this.showLocalfilters;
   }
 
 }

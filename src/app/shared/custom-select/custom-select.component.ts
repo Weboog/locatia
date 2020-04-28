@@ -11,7 +11,7 @@ export class CustomSelectComponent implements OnInit {
   @Output() onItem = new EventEmitter<{label: string, value: string}>();
   @Input() selectOption: SelectOption;
   @ViewChild('wrapper', {static: true}) wrapper: ElementRef;
-  isDropDown = false;
+  @Input()isDropDown = false;
   selectedItem: string;
   constructor( private customSelectService: CustomSelectService) { }
 
@@ -31,11 +31,12 @@ export class CustomSelectComponent implements OnInit {
     this.customSelectService.onDroppedOne.emit(label);
   }
 
-  onSelectedItem(option: string) {
+  onSelectedItem(option: string, event) {
     this.isDropDown = false;
     this.selectedItem = option;
     this.onItem.emit({label: this.selectOption.label, value: option});
   }
+
 
 
 }
