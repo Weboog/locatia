@@ -15,7 +15,7 @@ export class CustomSelectService {
   // @Output() onReset = new EventEmitter<any>();
   onReset = new Subject<any>();
   localFilters = [
-    { alias: 'type de location', label: 'city', options: ['tout type', 'classique', 'vacances', 'temporaire', 'commerciale'] },
+    { alias: 'type de location', label: 'city', options: ['tout type', 'location classique', 'location de vacances', 'location temporaire', 'location commerciale'] },
     { alias: 'appartement', label: 'type', options: ['appartement', 'duplexe', 'maison', 'ryad', 'villa'] }
   ];
   selectArray = [

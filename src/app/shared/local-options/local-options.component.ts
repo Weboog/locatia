@@ -8,13 +8,18 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 export class LocalOptionsComponent implements OnInit {
 
   @Output() onFilters = new EventEmitter<boolean>();
+  @Output() onSorting = new EventEmitter<boolean>();
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onClick() {
+  onClickFilters() {
     this.onFilters.emit(true);
+  }
+
+  onClickSorting() {
+    this.onSorting.emit(true);
   }
 
 }

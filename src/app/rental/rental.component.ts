@@ -7,14 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RentalComponent implements OnInit {
 
-  showLocalfilters = false;
+  showLocalFilters = false;
+  showSorting = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onLocalfilters() {
-    this.showLocalfilters = !this.showLocalfilters;
+  onLocalFilters() {
+    this.showLocalFilters = !this.showLocalFilters;
   }
 
+  onSorting() {
+    this.showSorting = !this.showSorting;
+  }
 }
