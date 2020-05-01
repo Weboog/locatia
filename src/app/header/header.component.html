@@ -12,9 +12,10 @@
     </svg>
   </h1>
   <div class="fav">
-    <a (click)="onShowFilters()">
+    <a routerLink="favourite">
+      <span *ngIf="favCount > 0">{{ favCount < 10  ? '0' + favCount : favCount }}</span>
       <svg>
-        <use href="assets/svg/loop.svg#loop"></use>
+        <use href="assets/svg/sprite.svg#heart"></use>
       </svg>
     </a>
   </div>

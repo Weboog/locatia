@@ -1,5 +1,9 @@
 .select_wrapper{
+  transition: all .2s ease-in;
   margin-bottom: .8rem;
+  padding: .5rem 1rem 0;
+  border-radius: 0.8rem;
+  color: #4E4E4E;
     svg{
       transition: all .2s ease-in;
         width: 2rem;
@@ -11,10 +15,18 @@
         justify-content: space-between;
         align-items: center;
         //margin-bottom: .3rem;
-        padding: .5rem 1.5rem;
-        border-radius: .8rem;
-        border: 1px solid rgba(black, .2);
-          button{
+        padding: .8rem 0;
+        //border-radius: .8rem;
+        border-bottom: 1px solid #bbb;
+        span{
+          display: block;
+          width: 2.5rem;
+          img{
+            width: 100%;
+          }
+        }
+
+          a{
           flex-grow: 1;
           background: none;
           border: none;
@@ -23,20 +35,22 @@
           font-weight: 600;
           text-transform: uppercase;
           text-align: left;
-          color: #4e4e4e;
           outline: none;
+
+          //color: #4E4E4E;
         }
     }
     .items{
-      transition: all .2s ease-in;
+      transition: all .1s ease-in;
+      backface-visibility: hidden;
       height: 0;
       overflow: hidden;
       ul{
         list-style: none;
-        margin-top: .8rem;
+        //margin-top: .8rem;
         padding: 1rem 0;
-        background-color: #4e4e4e;
-        border-radius: .8rem;
+        //background-color: #4e4e4e;
+        border-radius: 0 0 0.8rem 0.8rem;
         display: grid;
         row-gap: .5rem;
         li{
@@ -44,7 +58,7 @@
             transition: all .2s ease-in;
             display: flex;
             //padding: .5rem 0;
-            padding-left: 2rem;
+            padding: 1.3rem 1rem;
             align-items: center;
             height: 2rem;
             font-size: 1.2rem;
@@ -65,8 +79,14 @@
   }
 }
 
+.dropDown{
+  background-color: #4E4E4E;
+  color: white;
+  padding: .5rem 2rem 0;
+}
+
 .marked{
-  background-color: lighten(#4e4e4e, 5);
+  //background-color: lighten(#4e4e4e, 5);
   &::before{
     content: '';
     display: inline-block;

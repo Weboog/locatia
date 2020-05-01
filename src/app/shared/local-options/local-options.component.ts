@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {FiltersService} from '../../filters/filters.service';
 
 @Component({
   selector: 'app-local-options',
@@ -9,13 +10,13 @@ export class LocalOptionsComponent implements OnInit {
 
   @Output() onFilters = new EventEmitter<boolean>();
   @Output() onSorting = new EventEmitter<boolean>();
-  constructor() { }
+  constructor( private filtersService: FiltersService) { }
 
   ngOnInit(): void {
   }
 
   onClickFilters() {
-    this.onFilters.emit(true);
+    this.filtersService.showFilter.next(true);
   }
 
   onClickSorting() {

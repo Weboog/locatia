@@ -1,11 +1,14 @@
-<div class="select_wrapper {{ selectOption.label }}" #wrapper>
+<div [ngClass]="{dropDown: isDropDown}" class="select_wrapper {{ selectOption.label }}" #wrapper>
     <div class="label">
-        <button role="button" type="button" (click)="onDropDown(selectOption.label)">{{selectedItem ? selectedItem : selectOption.alias}}</button>
+      <!--<span>
+        <img src="{{selectOption.icon}}" alt="city">
+      </span>-->
+        <a role="button" (click)="onDropDown(selectOption.label)">{{selectedItem ? selectedItem : selectOption.alias}}</a>
         <svg [ngClass]="{'rotateChevron': isDropDown}">
             <use href="assets/svg/chevron.svg#chevron"></use>
         </svg>
     </div>
-    <div class="items" [ngStyle]="{ 'height' : isDropDown ? [(selectOption.options.length)*2.5 + 2.3] +'rem' : 0}">
+    <div class="items" [ngStyle]="{ 'height' : isDropDown ? [(selectOption.options.length)*3 + 2.3] +'rem' : 0}">
       <ul>
         <li (click)="onSelectedItem(option, $event)" *ngFor="let option of selectOption.options">
           <a [ngClass]="{marked: selectedItem === option}">

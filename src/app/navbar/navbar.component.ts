@@ -10,20 +10,16 @@ import {Subscription} from 'rxjs';
 export class NavbarComponent implements OnInit, OnDestroy {
 
   favSubscription: Subscription;
-  favCount: number;
 
   @Output() onClose = new EventEmitter<any>();
-  constructor( private favouriteService: FavouriteService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.favCount = this.favouriteService.getLength();
-    this.favouriteService.favChange.subscribe( count => {
-      this.favCount = count;
-    });
+
   }
 
   ngOnDestroy(): void {
-    this.favSubscription.unsubscribe();
+    // this.favSubscription.unsubscribe();
   }
 
   close() {

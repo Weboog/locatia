@@ -3,6 +3,8 @@ import {CustomSelectService, SelectOption} from '../shared/custom-select/custom-
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {price} from '../custom-validators/price.validator';
 import {surface} from '../custom-validators/surface.validator';
+import {SwitchService} from "../shared/switch/switch.service";
+import {Switch} from "../shared/custom-types/switch";
 
 @Component({
   selector: 'app-filters',
@@ -22,11 +24,13 @@ export class FiltersComponent implements OnInit {
   @Input() slideUp = false;
   @Output() onCancel = new EventEmitter<null>();
   selectArray: SelectOption[];
+  switchArray: Switch[];
   formFilters: FormGroup;
-  constructor( private customSelectService: CustomSelectService) { }
+  constructor( private customSelectService: CustomSelectService, private switchService: SwitchService) { }
 
   ngOnInit(): void {
     this.selectArray = this.customSelectService.getSelectOptions();
+    this.switchArray = this.switchService.getSwitches();
     this.formFilters = new FormGroup({
       action: new FormControl(null, Validators.required),
       type: new FormControl(null, Validators.required),

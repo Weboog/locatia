@@ -10,6 +10,7 @@
         </button>
       </div>
       <div>
+      <app-switch [switchValues]="switchArray[0]" (onSwitch)="assignValue($event)"></app-switch>
       <app-custom-select *ngFor="let select of selectArray" [selectOption]="select" (onItem)="assignValue($event)"></app-custom-select>
       </div>
       <div class="specs">

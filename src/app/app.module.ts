@@ -34,9 +34,9 @@ import { BuyStartComponent } from './buy/buy-start/buy-start.component';
 import { ApartsComponent } from './aparts/aparts.component';
 import { HereMapComponent } from './here-map/here-map.component';
 import {HttpClientModule} from '@angular/common/http';
-import { LocalFiltersComponent } from './filters/local-filters/local-filters.component';
 import { LocalOptionsComponent } from './shared/local-options/local-options.component';
 import { SortingComponent } from './shared/sorting/sorting.component';
+import { SwitchComponent } from './shared/switch/switch.component';
 
 @NgModule({
   declarations: [
@@ -70,9 +70,9 @@ import { SortingComponent } from './shared/sorting/sorting.component';
     BuyStartComponent,
     ApartsComponent,
     HereMapComponent,
-    LocalFiltersComponent,
     LocalOptionsComponent,
     SortingComponent,
+    SwitchComponent,
   ],
   imports: [
     BrowserModule,

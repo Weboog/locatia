@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {FavouriteService} from '../favourite/favourite.service';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +10,14 @@ export class HeaderComponent implements OnInit {
 
   @Output() showMenu = new EventEmitter<null>();
   @Output() showFilters = new EventEmitter<null>();
-  constructor() { }
+  favCount: number;
+  constructor( private favouriteService: FavouriteService) { }
 
   ngOnInit() {
+    this.favCount = this.favouriteService.getLength();
+    this.favouriteService.favChange.subscribe( count => {
+      this.favCount = count;
+    });
   }
 
   onShowMenu() {

@@ -1,9 +1,5 @@
 <router-outlet></router-outlet>
-<div class="overlay" [ngClass]="{showOverlay: showLocalFilters}">
-  <app-local-filters [slideUp]="showLocalFilters" (onCancel)="showLocalFilters = false"></app-local-filters>
-</div>
 <div class="overlay" [ngClass]="{showOverlay: showSorting}">
   <app-sorting [slideUp]="showSorting" (onCancel)="showSorting = false"></app-sorting>
 </div>
-
 <app-local-options (onFilters)="onLocalFilters()" (onSorting)="onSorting()"></app-local-options>
