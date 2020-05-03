@@ -18,30 +18,26 @@ import {RecommendationsComponent} from './recommendations/recommendations.compon
 import {RentalStartComponent} from './rental/rental-start/rental-start.component';
 import {BuyStartComponent} from './buy/buy-start/buy-start.component';
 import {ApartsComponent} from './aparts/aparts.component';
+import {StartPageComponent} from './start-page/start-page.component';
 
 
 const routes: Routes = [
+  {path: '', component: StartPageComponent, pathMatch: 'full'},
   {path: 'aparts', component: ApartsComponent, children: [
       {path: '', component: ApartListComponent, pathMatch: 'full'},
       {path: ':id', component: ApartDetailComponent}
     ]},
   {path: 'favourite', component: FavouriteComponent},
   {path: 'rental', component: RentalComponent, children: [
-      {path: '', component: RentalStartComponent},
-      {path: 'classic', component: RentalClassicComponent},
-      {path: 'vacancy', component: RentalVacancyComponent},
-      {path: 'temporal', component: RentalTemporalComponent},
-      {path: 'commerce', component: RentalCommerceComponent},
+      {path: '', component: ApartListComponent},
+      {path: 'types', component: RentalStartComponent}
     ]},
   {path: 'buy', component: BuyComponent, children: [
-      {path: '', component: BuyStartComponent},
-      {path: 'apart', component: BuyApartmentComponent},
-      {path: 'house', component: BuyHouseComponent},
-      {path: 'land', component: BuyLandComponent},
-      {path: 'commerce', component: BuyCommerceComponent}
+      {path: '', component: ApartListComponent},
+      {path: 'types', component: BuyStartComponent}
     ]},
   {path: 'recommendations', component: RecommendationsComponent},
-  {path: '**', redirectTo: 'aparts'}
+  {path: '**', redirectTo: ''}
 
 ];
 

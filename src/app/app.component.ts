@@ -2,25 +2,29 @@ import {Component, ComponentFactoryResolver, OnInit, ViewChild} from '@angular/c
 import {DummyComponent} from './dummy/dummy.component';
 import {PlaceholderDirective} from './shared/placeholder/placeholder.directive';
 import {Subscription} from 'rxjs';
-import {FiltersService} from "./filters/filters.service";
+import {SharedService} from "./shared/shared.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
   expandMenu = false;
   filtersShown = false;
+  sortingShown = false;
   @ViewChild(PlaceholderDirective, {static: false}) dummyHost: PlaceholderDirective;
   dummySubscription: Subscription;
-  constructor(private cpFactoryResolver: ComponentFactoryResolver, private filtersService: FiltersService) {
+  constructor(private cpFactoryResolver: ComponentFactoryResolver, private sharedService: SharedService) {
   }
 
   ngOnInit(): void {
-    this.filtersService.showFilter.subscribe( show => {
-      this.filtersShown = show;
+    this.sharedService.showFilters.subscribe(bool => {
+      this.filtersShown = bool;
+    });
+    this.sharedService.showSorting.subscribe(bool => {
+      this.sortingShown = bool;
     });
   }
 

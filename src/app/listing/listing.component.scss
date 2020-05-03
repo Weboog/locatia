@@ -1,0 +1,8 @@
+.apart_container{
+  display: grid;
+  justify-content: center;
+  margin-bottom: 4rem;
+  &:not(:last-of-type){
+    //margin-bottom: 4rem;
+  }
+}

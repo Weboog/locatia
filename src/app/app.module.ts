@@ -37,6 +37,9 @@ import {HttpClientModule} from '@angular/common/http';
 import { LocalOptionsComponent } from './shared/local-options/local-options.component';
 import { SortingComponent } from './shared/sorting/sorting.component';
 import { SwitchComponent } from './shared/switch/switch.component';
+import { StartPageComponent } from './start-page/start-page.component';
+import { ListingComponent } from './listing/listing.component';
+import { BackgroundDirective } from './utils/directives/background.directive';
 
 @NgModule({
   declarations: [
@@ -73,6 +76,9 @@ import { SwitchComponent } from './shared/switch/switch.component';
     LocalOptionsComponent,
     SortingComponent,
     SwitchComponent,
+    StartPageComponent,
+    ListingComponent,
+    BackgroundDirective,
   ],
   imports: [
     BrowserModule,

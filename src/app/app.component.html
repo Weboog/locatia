@@ -9,6 +9,9 @@
   <div class="overlay" [ngClass]="{showOverlay: filtersShown}">
     <app-filters [slideUp]="filtersShown" (onCancel)="filtersShown = false"></app-filters>
   </div>
+  <div class="overlay" [ngClass]="{showOverlay: sortingShown}">
+    <app-sorting [slideUp]="sortingShown" (onCancel)="sortingShown = false"></app-sorting>
+  </div>
 </main>
 <footer>
 <!--  <button role="button" (click)="createComponent()">Dynamic</button>-->

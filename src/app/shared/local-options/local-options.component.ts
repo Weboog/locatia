@@ -1,5 +1,5 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FiltersService} from '../../filters/filters.service';
+import {Component, OnInit} from '@angular/core';
+import {SharedService} from '../shared.service';
 
 @Component({
   selector: 'app-local-options',
@@ -8,19 +8,17 @@ import {FiltersService} from '../../filters/filters.service';
 })
 export class LocalOptionsComponent implements OnInit {
 
-  @Output() onFilters = new EventEmitter<boolean>();
-  @Output() onSorting = new EventEmitter<boolean>();
-  constructor( private filtersService: FiltersService) { }
+  constructor(private sharedService: SharedService) { }
 
   ngOnInit(): void {
   }
 
   onClickFilters() {
-    this.filtersService.showFilter.next(true);
+    this.sharedService.showFilters.next(true);
   }
 
   onClickSorting() {
-    this.onSorting.emit(true);
+    this.sharedService.showSorting.next(true);
   }
 
 }

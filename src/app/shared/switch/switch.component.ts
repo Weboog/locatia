@@ -9,6 +9,7 @@ import {Switch} from '../custom-types/switch';
 })
 export class SwitchComponent implements OnInit {
 
+  @Input() bgColor: string;
   @Input() switchValues: Switch;
   @Output() onSwitch = new EventEmitter<{label: string, value: string}>();
 

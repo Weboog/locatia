@@ -1,5 +1,5 @@
 <div class="switch_container">
-  <div class="switch">
+  <div class="switch" [ngStyle]="{backgroundColor: bgColor}">
     <div class="switch_item">
       <input id="{{switchValues.label}}-1" type="radio" name="{{switchValues.label}}" value="{{switchValues.values[0]}}" checked>
       <label for="{{switchValues.label}}-1" (click)="onChange(switchValues.values[0])">{{switchValues.values[0]}}</label>
