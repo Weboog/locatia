@@ -3,8 +3,8 @@ import {CustomSelectService, SelectOption} from '../shared/custom-select/custom-
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {price} from '../custom-validators/price.validator';
 import {surface} from '../custom-validators/surface.validator';
-import {SwitchService} from "../shared/switch/switch.service";
-import {Switch} from "../shared/custom-types/switch";
+import {SwitchService} from '../shared/switch/switch.service';
+import {Switch} from '../shared/custom-types/switch';
 
 @Component({
   selector: 'app-filters',

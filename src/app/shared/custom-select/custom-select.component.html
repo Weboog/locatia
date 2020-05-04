@@ -1,8 +1,8 @@
 <div [ngClass]="{dropDown: isDropDown}" class="select_wrapper {{ selectOption.label }}" #wrapper>
     <div class="label">
-      <!--<span>
+      <span>
         <img src="{{selectOption.icon}}" alt="city">
-      </span>-->
+      </span>
         <a role="button" (click)="onDropDown(selectOption.label)">{{selectedItem ? selectedItem : selectOption.alias}}</a>
         <svg [ngClass]="{'rotateChevron': isDropDown}">
             <use href="assets/svg/chevron.svg#chevron"></use>

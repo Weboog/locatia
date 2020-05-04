@@ -15,6 +15,7 @@ export class CustomSelectService {
   @Output() onDroppedOne = new EventEmitter<string>();
   onReset = new Subject<any>();
   selectArray = [
+    // tslint:disable-next-line:max-line-length
     { icon: 'assets/svg/location.svg', alias: 'tout le maroc', label: 'city', options: ['casablanca', 'marrakech', 'agadir', 'rabat', 'chefchaouen', 'kenitra'] },
     { icon: 'assets/svg/type.svg', alias: 'appartement', label: 'type', options: ['appartement', 'duplexe', 'maison', 'ryad', 'villa'] }
   ];

@@ -1,6 +1,17 @@
 <div class="home_container">
   <section class="start_filter">
-    <app-switch [switchValues]="{label: 'action', values: ['louer', 'acheter']}" bgColor="transparent"></app-switch>
+    <form (ngSubmit)="onSubmit()" [formGroup]="filterReducedForm">
+      <div>
+        <app-switch [switchValues]="{label: 'action', values: ['louer', 'acheter']}" bgColor="transparent" (onSwitch)="assignValue($event)"></app-switch>
+        <app-custom-select *ngFor="let select of selectArray" [selectOption]="select" (onItem)="assignValue($event)"></app-custom-select>
+      </div>
+      <div>
+        <button type="submit">
+          <span>valider</span>
+          <span></span>
+        </button>
+      </div>
+    </form>
   </section>
   <section class="pannel"></section>
 </div>

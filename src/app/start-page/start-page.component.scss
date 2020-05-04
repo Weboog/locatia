@@ -1,6 +1,29 @@
 .home_container{
-  padding: 1rem;
-  .switch{
-    background: none;
+  .start_filter{
+    border-top: 2px solid #ff0099;
+    background-color: #F7F7F7;
+    padding: 2rem 4rem;
+    box-shadow: 0 4px 5px rgba(black, .25);
+    form{
+      display: grid;
+      row-gap: 1.5rem;
+      > div:nth-child(2) {
+        justify-self: end;
+        padding-right: 1rem;
+        padding-bottom: .8rem;
+      }
+      button[type=submit] {
+        border: none;
+        background-color: #ff0099;
+        padding: 1rem 1.5rem;
+        font-weight: 600;
+        font-size: 1.2rem;
+        border-radius: .5rem;
+        color: white;
+        text-transform: uppercase;
+        cursor: pointer;
+        outline: none;
+      }
+    }
   }
 }
