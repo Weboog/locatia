@@ -16,11 +16,12 @@
 <!--      <div class="divider"></div>-->
     </div>
     <div class="price">
+      <span class="type">{{apart.type}}</span>
       <p>{{apart.price}}</p>
-      <small>dh</small>
-      <span class="period"> / {{apart.period}}</span>
-      <span class="type">{{apart.type}}.</span>
-<!--      <div class="divider"></div>-->
+      <div>
+        <small>dh</small>
+        <span class="period"> / {{apart.period}}</span>
+      </div>
     </div>
     <div class="location">
       <span>ville</span>
@@ -43,23 +44,19 @@
         <span>étages</span>
         <p>{{apart.specs.floors < 10 ? '0'+apart.specs.floors : apart.specs.floors}} <span>e</span> <i class="dot"></i> </p>
       </div>
-      <div class="description">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, culpa.</p>
-      </div>
-<!--      <div class="divider"></div>-->
     </div>
     <div class="contact">
+      <div class="call">
+        <a href="tel:0626629199" (click)="onCall($event)">
+          <svg>
+            <use href="assets/svg/sprite.svg#call"></use>
+          </svg>
+        </a>
+      </div>
       <div class="message">
         <a>
           <svg>
             <use href="assets/svg/sprite.svg#message"></use>
-          </svg>
-        </a>
-      </div>
-      <div class="call">
-        <a href="tel:0626629199">
-          <svg>
-            <use href="assets/svg/sprite.svg#call"></use>
           </svg>
         </a>
       </div>

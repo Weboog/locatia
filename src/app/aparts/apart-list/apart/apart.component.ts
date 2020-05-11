@@ -50,7 +50,6 @@ export class ApartComponent implements OnInit {
   }
 
   onDescription(id: number) {
-    // console.log('funck');
     this.router.navigate([`aparts/${id}`]);
     /*this.detailed = !this.detailed;
     this.adaptImages(this.detailed);
@@ -60,6 +59,10 @@ export class ApartComponent implements OnInit {
     } else {
       window.scrollTo(0, this.scrollY);
     }*/
+  }
+
+  onCall(e: Event) {
+    e.stopPropagation();
   }
 
 }

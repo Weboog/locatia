@@ -11,7 +11,7 @@ export class ApartsService {
       id: 'A-2701',
       price: 350,
       period: 'nuité',
-      type: 'chambre d\'hotel',
+      type: 'hotel',
       location: 'marrakech',
       phone: '0626629199',
       specs: {surface: 75, pieces: 3, rooms: 2},

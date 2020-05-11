@@ -40,6 +40,7 @@ import { SwitchComponent } from './shared/switch/switch.component';
 import { StartPageComponent } from './start-page/start-page.component';
 import { ListingComponent } from './listing/listing.component';
 import { BackgroundDirective } from './utils/directives/background.directive';
+import { HighlightProductComponent } from './shared/highlight-product/highlight-product.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { BackgroundDirective } from './utils/directives/background.directive';
     StartPageComponent,
     ListingComponent,
     BackgroundDirective,
+    HighlightProductComponent,
   ],
   imports: [
     BrowserModule,

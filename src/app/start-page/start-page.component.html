@@ -12,6 +12,27 @@
         </button>
       </div>
     </form>
+    <p><i></i>2596 appartement sur marrakech.</p>
   </section>
-  <section class="pannel"></section>
+  <section class="pannel">
+    <div class="bg_video">
+      <video class="bg-video-content" autoplay muted loop>
+        <source [src]="'assets/media/videos/video.mp4'" type="video/mp4">
+        <source [src]="'assets/media/videos/video.webm'" type="video/webm">
+        not supported !
+      </video>
+    </div>
+    <p class="slogan">just making it simple for <span>you.</span></p>
+  </section>
+  <section class="highlight">
+    <div class="titles">
+      <h2 class="section_title">produit en <span class="pinky_bold">vedette.</span></h2>
+      <h3 class="section_subtitle">des produits phares selectionnés par nos équipes.</h3>
+    </div>
+    <div class="cards">
+      <app-highlight-product></app-highlight-product>
+      <app-highlight-product></app-highlight-product>
+      <app-highlight-product></app-highlight-product>
+    </div>
+  </section>
 </div>

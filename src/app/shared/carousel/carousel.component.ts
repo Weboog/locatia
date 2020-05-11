@@ -24,7 +24,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
 
   // Contains the whole css needed to style new created html element
   private placeHolderCreator(gallery: HTMLDivElement, index: number, currentItem: number) {
-    this.step = this.onDetails ? 100 : 85;
+    this.step = this.onDetails ? 100 : this.step;
     // PROGRAMMATIC HTML -----------------------------------
     const sliderPlaceHolder = document.createElement('div');
     sliderPlaceHolder.innerText = `CHARGEMENT D\'IMAGE...`;
@@ -83,7 +83,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   }
 
   private insertSlideItem(index: number) {
-    this.step = this.onDetails ? 100 : 85;
+    this.step = this.onDetails ? 100 : this.step;
     const gallery = document.querySelector(`#id-${this.id}`) as HTMLDivElement;
     const imgSrc = this.imgSources[index].src;
     ////////////////////////////////////////////////////
@@ -106,7 +106,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   }
 
   move(event, direction: number) {
-    this.step = this.onDetails ? 100 : 85;
+    this.step = this.onDetails ? 100 : this.step;
     const slider = event.target.parentNode.previousSibling.firstChild;
     // ******* LAZY LOADING *************//
     if (direction === 1 && !this.isLoading) {
