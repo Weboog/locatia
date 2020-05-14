@@ -1,6 +1,6 @@
 .card_container{
   display: grid;
-  width: 85vw;
+  width: 75vw;
   transition: all .1s ease-in;
   transform-origin: center;
   .gallery{
@@ -151,6 +151,7 @@
     }
     .location{
       text-transform: uppercase;
+      margin-bottom: .5rem;
       span{
         color: rgba($color: white, $alpha: .5);
       }

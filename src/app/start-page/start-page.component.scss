@@ -1,6 +1,7 @@
 .home_container{
   section{
-    &:not(:first-of-type)::after{
+    padding: 4rem;
+    /*&:not(:first-of-type)::after{
       content: '';
       display: block;
       width: 4rem;
@@ -8,8 +9,7 @@
       background-color: #bbbbbb;
       border-radius: 1rem;
       margin: 4rem auto 2rem;
-
-    }
+    }*/
   }
   .start_filter{
     //display: none;
@@ -79,10 +79,185 @@
     padding: 4rem;
     .cards{
       display: grid;
+      justify-content: center;
       row-gap: 2rem;
       margin-top: 4rem;
     }
   }
+  .about{
+    padding: 4rem;
+    &_content{
+      figure{
+        display: flex;
+        justify-content: center;
+        img{
+          width: 80%;
+        }
+      }
+      p{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #4E4E4E;
+        text-align: center;
+        font-size: 1.4rem;
+        span{
+          font-weight: 600;
+          font-size: .8rem;
+          color: darken(#4E4E4E, 5);
+          display: block;
+          text-align: center;
+          text-transform: uppercase;
+          padding: .5rem 1rem;
+          background-color: #EFEFEF;
+          border-radius: .5rem;
+          margin: 1rem;
+        }
+      }
+    }
+  }
+  .week_home{
+    background: url("../../assets/media/wide-bg.jpg") no-repeat center  ;
+    background-size: cover;
+    height: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .get_listed{
+    margin: 6rem 0;
+    padding: 3rem;
+    background-image: linear-gradient(99.69deg, #FF0099 0%, #BF157B 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    h2, h3, span {
+      color: white;
+    }
+    .form{
+      padding: 0 1rem;
+    }
+    form{
+      display: flex;
+      justify-content: space-between;
+      padding: .5rem 0;
+      border-bottom: 1px solid white;
+      & > * {
+        outline: none;
+      }
+      input[type=email] {
+        background: none;
+        border: none;
+        color: white;
+        padding: 0 .5rem;
+        font-weight: 600;
+        &::placeholder{
+          color: rgba(white, .5);
+        }
+      }
+      button{
+        display: flex;
+        align-items: center;
+        border: none;
+        background: none;
+        font-family: "Montserrat", sans-serif;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 1rem;
+        color: #4E4E4E;
+        &[role='button']{
+          color: rgba($color: #000000, $alpha: .5);
+        }
+        &::before{
+          content: '';
+          display: block;
+          width: .1rem;
+          height: 1.5rem;
+          background-color: rgba(white, .5);
+          margin-right: 1rem;
+        }
+        span{
+          margin-right: 0.3rem;
+        }
+        svg{
+          width: 2rem;
+          height: 2rem;
+          fill: white;
+        }
+      }
+    }
+
+  }
+  .footer{
+    .logo{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &::before, &::after{
+        content: '';
+        display: block;
+        width: 10rem;
+        height: .1rem;
+        background-color: rgba(black, .2);
+      }
+      svg{
+        width: 6rem;
+        height: 6rem;
+        margin: 0 1rem;
+        fill: rgba(black, .5);
+      }
+    }
+    .social{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      > div {
+        svg{
+          width: 2.5rem;
+          height: 2.5rem;
+          margin: 0 .5rem;
+        }
+      }
+    }
+    .menu{
+      margin: 2rem 0;
+      ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        li{
+          margin: .5rem 0;
+          a{
+            color: #4e4e4e;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+    .author{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #4E4E4E;
+      svg{
+        //transition: all .5s ease-in-out;
+        animation: heartBeats 1s infinite;
+        width: 2.5rem;
+        height: 2.5rem;
+        fill: #ff0099;
+        margin: .5rem;
+      }
+      span{
+        font-weight: 800;
+        color: #ff0099;
+      }
+    }
+  }
+}
+.titles{
+  margin-bottom: 4rem;
 }
 .section_title{
   font-weight: 400;
@@ -101,4 +276,19 @@
 .pinky_bold{
   color: #ff0099;
   font-weight: 800;
+}
+
+@keyframes heartBeats {
+
+  0%{
+    transform: scale(.66);
+  }
+  50%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(.66);
+  }
+
+
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Apart} from '../custom-types/apart';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-highlight-product',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HighlightProductComponent implements OnInit {
 
-  constructor() { }
+  detailed = false;
+  @Input() apart: Apart;
+  @Input() carouselId: number;
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  onDescription(id: number) {
+    this.router.navigate([`aparts/${id}`]);
   }
 
 }

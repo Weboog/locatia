@@ -16,23 +16,100 @@
   </section>
   <section class="pannel">
     <div class="bg_video">
-      <video class="bg-video-content" autoplay muted loop>
+      <video class="bg-video-content" [poster]="'assets/media/videos/video-placeholder.png'" autoplay muted loop>
         <source [src]="'assets/media/videos/video.mp4'" type="video/mp4">
         <source [src]="'assets/media/videos/video.webm'" type="video/webm">
-        not supported !
       </video>
     </div>
     <p class="slogan">just making it simple for <span>you.</span></p>
   </section>
   <section class="highlight">
     <div class="titles">
-      <h2 class="section_title">produit en <span class="pinky_bold">vedette.</span></h2>
+      <h2 class="section_title">biens en <span class="pinky_bold">vedette.</span></h2>
       <h3 class="section_subtitle">des produits phares selectionnés par nos équipes.</h3>
     </div>
-    <div class="cards">
-      <app-highlight-product></app-highlight-product>
-      <app-highlight-product></app-highlight-product>
-      <app-highlight-product></app-highlight-product>
+    <div class="cards" *ngFor="let apart of apartsArray; index as i">
+        <app-highlight-product [apart]="apart" [carouselId]="i"></app-highlight-product>
     </div>
   </section>
+  <section class="about">
+    <div class="titles">
+      <h2 class="section_title">en <span class="pinky_bold">principes.</span></h2>
+      <h3 class="section_subtitle">des pratiques sacrees pour vous mettre a l’aise.</h3>
+    </div>
+    <div class="about_content">
+      <figure>
+        <img [src]="'assets/media/illustrations/about.svg'" alt="">
+      </figure>
+      <p>
+        <span>aller droit au but.</span>
+        Locatia met en evidence le produit immobilier en s'appuyant sur des piliers artistiques et technologiques de dernier cri a savoir: la photo et la video immoblieres faites et traitees par notre equipe de photographes professionnels. Conception des tours de realite virtuelle 'LocatiaVR' qui vous met au milieu de l'espace du bien.
+        Experience utilisateur fluide qui compte le moindre detail de ce que vous cherchez.
+      </p>
+    </div>
+  </section>
+  <section class="week_home">
+    <div class="titles">
+      <h2 class="section_title">apparttemet de la <span class="pinky_bold">semaine.</span></h2>
+    </div>
+  </section>
+  <!--<section class="offers">
+    <div class="titles">
+      <h2 class="section_title">offres <span class="pinky_bold">exclusives.</span></h2>
+      <h3 class="section_subtitle">des offres exclusives suite a un large reseau d’agence et promoeteurs immobiliers.</h3>
+    </div>
+  </section>-->
+  <section class="get_listed">
+    <div class="titles">
+      <h2 class="section_title">vous êtes <span class="pinky_bold">propriétaire ?</span></h2>
+      <h3 class="section_subtitle">communiquez votre adresse email.</h3>
+    </div>
+    <div class="form">
+      <form [formGroup]="getListedform" (ngSubmit)="onGetListed()">
+        <input type="email" formControlName="email" name="email" placeholder="moi@email.com">
+        <button type="submit">
+          <span class="list_button_value">être listé</span>
+          <svg>
+            <use href="assets/svg/check.svg#check"></use>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </section>
+  <footer class="footer">
+    <h1 class="logo">
+      <svg>
+        <use href="assets/svg/logo.svg#logo"></use>
+      </svg>
+    </h1>
+    <div class="social">
+      <div class="twitter">
+        <svg>
+          <use href="assets/svg/sprite.svg#twitter"></use>
+        </svg>
+      </div>
+      <div class="instagram">
+        <svg>
+          <use href="assets/svg/sprite.svg#instagram"></use>
+        </svg>
+      </div>
+      <div class="facebook">
+        <svg>
+          <use href="assets/svg/sprite.svg#facebook"></use>
+        </svg>
+      </div>
+    </div>
+    <div class="menu">
+      <ul role="menu">
+        <li><a role="menuitem">accueil</a></li>
+        <li><a role="menuitem">louer</a></li>
+        <li><a role="menuitem">acheter</a></li>
+        <li><a role="menuitem">recommendation</a></li>
+        <li><a role="menuitem">contact</a></li>
+      </ul>
+    </div>
+    <div class="author">
+      <p>made with</p><svg><use href="assets/svg/sprite.svg#heart"></use></svg><p>by <span>herm.</span></p>
+    </div>
+  </footer>
 </div>

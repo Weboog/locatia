@@ -1,6 +1,43 @@
-<div class="card_container">
+<div class="card_container" [ngClass]="{onDetails: detailed, unRound: detailed}" (click)="onDescription(carouselId)">
   <figure>
-    <img src="https://cdn.pixabay.com/photo/2017/01/30/10/03/book-2020460_960_720.jpg" alt="">
+    <img [src]="apart.images[0].src" [alt]="apart.id">
   </figure>
-  <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+  <div class="details" [ngClass]="{unRound: detailed}">
+    <div class="apart_id">
+      <span>#</span>
+      <p>{{apart.id}}</p>
+      <!--      <div class="divider"></div>-->
+    </div>
+    <div class="price">
+<!--      <span class="type">{{apart.type}}</span>-->
+      <p>{{apart.price}}</p>
+      <div>
+        <small>dh</small>
+        <span class="period"> / {{apart.period}}</span>
+      </div>
+    </div>
+    <!--<div class="location">
+      <span>ville</span>
+      <p>{{apart.location}} <i class="dot"></i> </p>
+    </div>-->
+    <div class="specs">
+      <div class="surface">
+        <span>surface</span>
+        <p>{{apart.specs.surface}} <span>m<sup>2</sup></span> <i class="dot"></i> </p>
+      </div>
+      <div class="pieces">
+        <span>pieces</span>
+        <p>{{apart.specs.pieces < 10 ? '0'+apart.specs.pieces : apart.specs.pieces}} <span>p</span> <i class="dot"></i> </p>
+      </div>
+      <div class="rooms">
+        <span>chambres</span>
+        <p>{{apart.specs.rooms < 10 ? '0'+apart.specs.rooms : apart.specs.rooms}} <span>c</span> <i class="dot"></i> </p>
+      </div>
+      <div *ngIf="apart.specs.floors" class="rooms">
+        <span>étages</span>
+        <p>{{apart.specs.floors < 10 ? '0'+apart.specs.floors : apart.specs.floors}} <span>e</span> <i class="dot"></i> </p>
+      </div>
+    </div>
+  </div>
 </div>
+
