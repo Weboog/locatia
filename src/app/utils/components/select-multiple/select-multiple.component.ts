@@ -12,7 +12,7 @@ export class SelectMultipleComponent implements OnInit {
   @Input() selectOption: SelectOption;
   @ViewChild('wrapper', {static: true}) wrapper: ElementRef;
   @Input()isDropDown = false;
-  selectedMultipleItems: string[] = ['appartement'];
+  selectedMultipleItems: string[] = ['tout type'];
   constructor( private customSelectService: CustomSelectService) { }
 
   ngOnInit(): void {
@@ -21,22 +21,28 @@ export class SelectMultipleComponent implements OnInit {
         this.isDropDown = false;
       }
     });
-    this.customSelectService.onReset.subscribe( () => {
-      this.selectedMultipleItems = ['appartement'];
-    });
+    /*this.customSelectService.onReset.subscribe( () => {
+      this.selectedMultipleItems = ['tout type'];
+    });*/
   }
 
   onDropDown(label: string) {
     this.isDropDown = !this.isDropDown;
     this.customSelectService.onDroppedOne.emit(label);
+    this.onItem.emit({label: this.selectOption.label, value: this.selectedMultipleItems});
   }
 
   onSelectedItem(option: string, event) {
+    if (event.target.classList.contains('default')) {
+      this.selectedMultipleItems = ['tout type'];
+    }
     const found = this.selectedMultipleItems.find( item => {
       return item === option;
     });
-
     if (!found) {
+      if (this.selectedMultipleItems[0] === 'tout type') {
+        this.selectedMultipleItems = [];
+      }
       this.selectedMultipleItems.push(option);
     } else {
       const indexToDelete = this.selectedMultipleItems.indexOf(option);

@@ -46,13 +46,14 @@
   .items{
     transition: all .1s ease-in;
     backface-visibility: hidden;
-    height: 0;
+    //height: 0;
     overflow: hidden;
     ul{
+      height: 0;
+      max-height: 25rem;
+      overflow-y: scroll;
       list-style: none;
-      //margin-top: .8rem;
       padding: 1rem 0;
-      //background-color: #4e4e4e;
       border-radius: 0 0 0.8rem 0.8rem;
       display: grid;
       row-gap: .5rem;
@@ -86,6 +87,7 @@
           color: white;
           background-color: #ff0099;
           border-radius: 2rem;
+          margin-bottom: 1rem;
         }
 
       }

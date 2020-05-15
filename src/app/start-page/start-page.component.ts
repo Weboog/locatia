@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomSelectService, SelectOption} from '../shared/custom-select/custom-select.service';
 import {ApartsService} from '../aparts/aparts.service';
@@ -21,9 +21,9 @@ export class StartPageComponent implements OnInit {
     this.apartsArray = this.apartsService.getFeatured();
     this.selectArray = this.customSelectService.getSelectOptions();
     this.filterReducedForm = new FormGroup({
-      action: new FormControl(null),
-      city: new FormControl(null),
-      type: new FormControl(null)
+      action: new FormControl('rent'),
+      city: new FormControl('all'),
+      type: new FormControl('all')
     });
 
     this.getListedform = new FormGroup({
@@ -31,14 +31,12 @@ export class StartPageComponent implements OnInit {
     });
   }
 
-  assignValue(control: {label: string, value: string}) {
+  assignValue(control: {label: string, value: string | string[]}) {
     this.filterReducedForm.controls[control.label].setValue(control.value);
   }
 
   onSubmit() {
     console.log(this.filterReducedForm.value);
-    this.filterReducedForm.reset();
-    this.customSelectService.onReset.next();
   }
 
   onGetListed() {

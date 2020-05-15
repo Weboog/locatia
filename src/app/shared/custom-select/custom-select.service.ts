@@ -16,8 +16,10 @@ export class CustomSelectService {
   onReset = new Subject<any>();
   selectArray = [
     // tslint:disable-next-line:max-line-length
-    { icon: 'assets/svg/location.svg', alias: 'tout le maroc', label: 'city', options: ['casablanca', 'marrakech', 'agadir', 'rabat', 'chefchaouen', 'kenitra'] },
-    { icon: 'assets/svg/type.svg', alias: 'appartement', label: 'type', options: ['appartement', 'duplexe', 'maison', 'ryad', 'villa'] }
+    { icon: 'assets/svg/location.svg', alias: 'tout le maroc', label: 'city', options:
+        ['tout le maroc', 'casablanca', 'marrakech', 'agadir', 'rabat', 'salé', 'témara', 'kenitra', 'tanger', 'chefchaouen', 'el jadida', 'fès', 'meknès', 'oujda', 'tètouan', 'saidia', 'el houceima']
+    },
+    { icon: 'assets/svg/type.svg', alias: 'tout type', label: 'type', options: ['tout type', 'appartement', 'duplexe', 'maison', 'ryad', 'villa'] }
   ];
   constructor() { }
 

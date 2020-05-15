@@ -59,7 +59,7 @@
       height: 100%;
       object-fit: cover;
     }
-    padding: 4rem 4rem 0 4rem;
+    //padding: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -226,10 +226,13 @@
         li{
           margin: .5rem 0;
           a{
+            text-decoration: none;
             color: #4e4e4e;
             font-weight: 600;
             font-size: 1.2rem;
             text-transform: uppercase;
+            cursor: pointer;
+            padding: .2rem 1rem;
           }
         }
       }
