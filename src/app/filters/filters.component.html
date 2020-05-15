@@ -11,8 +11,8 @@
       </div>
       <div>
         <app-switch [switchValues]="switchArray[0]" (onSwitch)="assignValue($event)"></app-switch>
+        <app-custom-select [selectOption]="selectArray[0]" (onItem)="assignValue($event)"></app-custom-select>
         <app-select-multiple [selectOption]="selectArray[1]" (onItem)="assignValue($event)"></app-select-multiple>
-<!--      <app-custom-select *ngFor="let select of selectArray" [selectOption]="select" (onItem)="assignValue($event)"></app-custom-select>-->
       </div>
       <div class="specs">
         <div class="price" formGroupName="price">

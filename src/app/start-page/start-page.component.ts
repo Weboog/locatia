@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomSelectService, SelectOption} from '../shared/custom-select/custom-select.service';
 import {ApartsService} from '../aparts/aparts.service';
 import {Apart} from '../shared/custom-types/apart';
+import {StartPageService} from "./start-page.service";
 
 @Component({
   selector: 'app-start-page',
@@ -11,13 +12,18 @@ import {Apart} from '../shared/custom-types/apart';
 })
 export class StartPageComponent implements OnInit {
 
+  destinations: string[];
   apartsArray: Apart[] = [];
   selectArray: SelectOption[];
   filterReducedForm: FormGroup;
   getListedform: FormGroup;
-  constructor( private customSelectService: CustomSelectService, private apartsService: ApartsService) { }
+  constructor(
+    private customSelectService: CustomSelectService,
+    private apartsService: ApartsService,
+    private startPageService: StartPageService) { }
 
   ngOnInit(): void {
+    this.destinations = this.startPageService.getDestinations();
     this.apartsArray = this.apartsService.getFeatured();
     this.selectArray = this.customSelectService.getSelectOptions();
     this.filterReducedForm = new FormGroup({

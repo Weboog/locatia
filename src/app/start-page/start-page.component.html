@@ -60,6 +60,17 @@
       <h3 class="section_subtitle">des offres exclusives suite a un large reseau d’agence et promoeteurs immobiliers.</h3>
     </div>
   </section>-->
+  <section class="destinations">
+    <div class="titles">
+      <h2 class="section_title">nos <span class="pinky_bold">destinations.</span></h2>
+      <h3 class="section_subtitle">on couvre la plupart des villes et régions au maroc.</h3>
+    </div>
+    <ul class="city_list">
+      <li *ngFor="let destination of destinations">
+        <a routerLink="rental" [queryParams]="{city: destination}">{{destination}}</a>
+      </li>
+    </ul>
+  </section>
   <section class="get_listed">
     <div class="titles">
       <h2 class="section_title">vous êtes <span class="pinky_bold">propriétaire ?</span></h2>
