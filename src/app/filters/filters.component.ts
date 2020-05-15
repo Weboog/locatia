@@ -48,7 +48,7 @@ export class FiltersComponent implements OnInit {
     });
   }
 
-  assignValue(control: {label: string, value: string}) {
+  assignValue(control: {label: string, value: string | string[]}) {
     this.formFilters.controls[control.label].setValue(control.value);
   }
 
