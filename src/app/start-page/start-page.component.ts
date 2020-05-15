@@ -21,9 +21,9 @@ export class StartPageComponent implements OnInit {
     this.apartsArray = this.apartsService.getFeatured();
     this.selectArray = this.customSelectService.getSelectOptions();
     this.filterReducedForm = new FormGroup({
-      action: new FormControl('rent'),
-      city: new FormControl('all'),
-      type: new FormControl('appart')
+      action: new FormControl(null),
+      city: new FormControl(null),
+      type: new FormControl(null)
     });
 
     this.getListedform = new FormGroup({
@@ -37,6 +37,8 @@ export class StartPageComponent implements OnInit {
 
   onSubmit() {
     console.log(this.filterReducedForm.value);
+    this.filterReducedForm.reset();
+    this.customSelectService.onReset.next();
   }
 
   onGetListed() {

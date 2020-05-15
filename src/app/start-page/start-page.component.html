@@ -3,7 +3,8 @@
     <form (ngSubmit)="onSubmit()" [formGroup]="filterReducedForm">
       <div>
         <app-switch [switchValues]="{label: 'action', values: ['louer', 'acheter']}" bgColor="transparent" (onSwitch)="assignValue($event)"></app-switch>
-        <app-custom-select *ngFor="let select of selectArray" [selectOption]="select" (onItem)="assignValue($event)"></app-custom-select>
+        <app-custom-select [selectOption]="selectArray[0]" (onItem)="assignValue($event)"></app-custom-select>
+        <app-select-multiple [selectOption]="selectArray[1]" (onItem)="assignValue($event)"></app-select-multiple>
       </div>
       <div>
         <button type="submit">

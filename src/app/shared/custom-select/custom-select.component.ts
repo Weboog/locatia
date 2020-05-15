@@ -36,7 +36,4 @@ export class CustomSelectComponent implements OnInit {
     this.selectedItem = option;
     this.onItem.emit({label: this.selectOption.label, value: option});
   }
-
-
-
 }
