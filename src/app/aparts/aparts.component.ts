@@ -10,6 +10,7 @@ export class ApartsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

@@ -1,5 +1,6 @@
-import {Injectable} from '@angular/core';
+import {Injectable, Type} from '@angular/core';
 import {Apart} from '../shared/custom-types/apart';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -142,10 +143,15 @@ export class ApartsService {
     }
   ];
   registeredAparts: Apart[] = [];
-  constructor() { }
 
-  getApart(id: number) {
-    return this.aparts[id] as Apart;
+  constructor(private httpClient: HttpClient) { }
+
+  // http://locatia.web/apart/${id}
+  getApart(id: string) {
+    this.httpClient.get(`https://db-services.incoloria.com/apart/${id}`).subscribe(response => {
+      console.log(response);
+    });
+    // return this.aparts[id] as Apart;
   }
 
   getAparts() {

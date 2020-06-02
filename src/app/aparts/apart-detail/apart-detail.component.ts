@@ -14,7 +14,7 @@ export class ApartDetailComponent implements OnInit {
   constructor( private apartsService: ApartsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     this.apart = this.apartsService.getApart(id);
   }
 

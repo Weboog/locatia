@@ -4,6 +4,7 @@ import {CustomSelectService, SelectOption} from '../shared/custom-select/custom-
 import {ApartsService} from '../aparts/aparts.service';
 import {Apart} from '../shared/custom-types/apart';
 import {StartPageService} from "./start-page.service";
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-start-page',
