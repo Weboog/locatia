@@ -3,19 +3,18 @@ import {Carousel} from '../carousel/carousel';
 export interface Apart {
 
   id: string;
+  human_id: string;
   oldPrice?: number;
   price: number;
   period: string;
-  type: string;
-  location: string;
+  property: string;
+  city: string;
   phone: string;
-  gps?: string;
-  specs: {
-    surface: number,
-    pieces: number,
-    rooms: number,
-    floors?: number
-  };
+  location?: {lat: string, lng: string};
+  surface: number;
+  pieces: number;
+  rooms: number;
+  floors?: number;
   extras?: {
     virtualTourLink: string;
     promo: {
@@ -24,6 +23,6 @@ export interface Apart {
     },
     offer: boolean
   };
-  images: Carousel[];
+  images?: Carousel[];
   description: string;
 }

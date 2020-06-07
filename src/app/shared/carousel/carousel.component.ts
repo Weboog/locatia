@@ -47,6 +47,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    // console.log(this.imgSources);
     this.initCarousel();
   }
 

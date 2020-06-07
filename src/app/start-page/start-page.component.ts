@@ -3,8 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomSelectService, SelectOption} from '../shared/custom-select/custom-select.service';
 import {ApartsService} from '../aparts/aparts.service';
 import {Apart} from '../shared/custom-types/apart';
-import {StartPageService} from "./start-page.service";
-import { HttpClient } from '@angular/common/http';
+import {StartPageService} from './start-page.service';
 
 @Component({
   selector: 'app-start-page',

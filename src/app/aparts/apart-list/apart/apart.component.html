@@ -16,7 +16,7 @@
 <!--      <div class="divider"></div>-->
     </div>
     <div class="price">
-      <span class="type">{{apart.type}}</span>
+      <span class="type">{{apart.property}}</span>
       <p>{{apart.price}}</p>
       <div>
         <small>dh</small>
@@ -30,19 +30,19 @@
     <div class="specs">
       <div class="surface">
         <span>surface</span>
-        <p>{{apart.specs.surface}} <span>m<sup>2</sup></span> <i class="dot"></i> </p>
+        <p>{{apart.surface}} <span>m<sup>2</sup></span> <i class="dot"></i> </p>
       </div>
       <div class="pieces">
         <span>pieces</span>
-        <p>{{apart.specs.pieces < 10 ? '0'+apart.specs.pieces : apart.specs.pieces}} <span>p</span> <i class="dot"></i> </p>
+        <p>{{apart.pieces < 10 ? '0'+apart.pieces : apart.pieces}} <span>p</span> <i class="dot"></i> </p>
       </div>
       <div class="rooms">
         <span>chambres</span>
-        <p>{{apart.specs.rooms < 10 ? '0'+apart.specs.rooms : apart.specs.rooms}} <span>c</span> <i class="dot"></i> </p>
+        <p>{{apart.rooms < 10 ? '0'+apart.rooms : apart.rooms}} <span>c</span> <i class="dot"></i> </p>
       </div>
-      <div *ngIf="apart.specs.floors" class="rooms">
+      <div *ngIf="apart.floors" class="rooms">
         <span>étages</span>
-        <p>{{apart.specs.floors < 10 ? '0'+apart.specs.floors : apart.specs.floors}} <span>e</span> <i class="dot"></i> </p>
+        <p>{{apart.floors < 10 ? '0'+apart.floors : apart.floors}} <span>e</span> <i class="dot"></i> </p>
       </div>
     </div>
     <div class="contact">

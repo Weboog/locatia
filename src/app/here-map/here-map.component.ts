@@ -80,8 +80,8 @@ export class HereMapComponent implements OnInit, AfterViewInit {
       });
     }*/
 
-    const mymap = L.map('map').setView([33.971588, -6.849813], 11);
-    L.marker([33.971588, -6.849813]).addTo(mymap);
+    const mymap = L.map('map').setView([this.lat, this.lng], 11);
+    L.marker([this.lat, this.lng]).addTo(mymap);
     // tslint:disable-next-line:max-line-length
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
       // tslint:disable-next-line:max-line-length

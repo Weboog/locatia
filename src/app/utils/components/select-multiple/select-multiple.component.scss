@@ -81,6 +81,7 @@
       .validate{
         display: flex;
         justify-content: flex-end;
+        cursor: pointer;
         a{
           display: block;
           padding: .5rem 2rem;
@@ -120,3 +121,32 @@
     margin-right: 1rem;
   }
 }
+
+@media screen and (min-width: 768px){
+  .select_wrapper{
+    position: relative;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    min-width: 20rem;
+    transition: all .1s ease-in;
+    .label{
+      cursor: pointer;
+    }
+    .items{
+      position: absolute;
+      width: 100%;
+      left: 0;
+      z-index: 2;
+      ul{
+        background-color: #414041;
+        padding: 0 2rem;
+        li{
+          a{
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+

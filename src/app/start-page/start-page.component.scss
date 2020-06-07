@@ -13,7 +13,7 @@
   }
   .start_filter{
     //display: none;
-    border-top: 2px solid #ff0099;
+    //border-top: 2px solid #ff0099;
     background-color: #F7F7F7;
     padding: 2rem 4rem;
     box-shadow: 0 4px 5px rgba(black, .25);
@@ -36,6 +36,9 @@
         text-transform: uppercase;
         cursor: pointer;
         outline: none;
+        svg{
+          display: none;
+        }
       }
     }
     p{
@@ -61,7 +64,7 @@
     }
     //padding: 4rem;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     .slogan{
       font-weight: 800;
@@ -69,7 +72,6 @@
       color: white;
       text-shadow:  0 0 .5rem rgba(black, .2);
       text-transform: uppercase;
-      max-width: 30rem;
       span{
         color: #ff0099;
       }
@@ -206,7 +208,6 @@
         }
       }
     }
-
   }
   .footer{
     margin-top: 4rem;
@@ -317,4 +318,205 @@
   }
 
 
+}
+
+@media screen and (min-width: 768px) {
+  .home_container{
+    .start_filter{
+      form{
+        grid-template-columns: 1fr 10rem;
+        align-items: center;
+        > div:first-of-type{
+          display: grid;
+          align-items: center;
+          grid-template-columns: 1fr 2fr;
+          .select-components{
+            display: flex;
+            > * {
+              flex-grow: 1;
+            }
+          }
+        }
+        > div:last-of-type{
+          justify-self: end;
+          padding: 0;
+        }
+        button[type=submit]{
+          padding: 0;
+          font-size: 1.1rem;
+          background-color: transparent;
+          display: flex;
+          align-items: center;
+          color: #4e4e4e;
+          font-weight: 500;
+          svg{
+            display: inline-block;
+            width: 2.5rem;
+            height: 2.5rem;
+            fill: #FF0099;
+          }
+        }
+      }
+    }
+    .pannel{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50rem;
+      .slogan{
+        text-justify: inter-word;
+        text-align: center;
+      }
+    }
+    .highlight{
+      .titles{
+      }
+      .cards{
+        display: flex;
+        justify-content: center;
+        > *:not(:last-of-type) {
+          margin-right: 3rem;
+        }
+      }
+    }
+    .about{
+      .about_content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        figure{
+          max-width: 50%;
+        }
+        p{
+          max-width: 60%;
+        }
+      }
+
+    }
+    .destinations{
+      ul.city_list{
+        grid-template-columns: repeat(3, auto);
+        column-gap: 5rem;
+        li{
+          text-align: center;
+          &:last-of-type{
+            grid-column: 2 / 3;
+            grid-row: 6 / 7;
+          }
+          a{
+            transition: all .1s ease-in;
+            &:hover{
+              color: #FF0099;
+            }
+          }
+        }
+      }
+    }
+    .get_listed{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .titles{
+        margin-bottom: unset;
+        margin-right: 4rem;
+      }
+    }
+  }
+}
+@media screen and (min-width: 1024px){
+  section{
+    margin: 8rem 0;
+  }
+  .home_container{
+    .start_filter{
+      margin: 0;
+      form{
+        display: flex;
+        justify-content: space-between;
+        > div:first-of-type {
+          > div {
+            margin-left: 3rem;
+          }
+        }
+        > div:last-of-type {
+
+        }
+      }
+      p{
+        //display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        i{
+          margin-right: .5rem;
+          svg{
+            width: 1.5rem;
+            height: 1.5rem;
+            fill: #707070;
+          }
+        }
+      }
+    }
+    .pannel{
+      height: 70rem;
+      margin: 0;
+    }
+    .about{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .about_content{
+        //background-color: yellowgreen;
+        width: 60%;
+        flex-direction: unset;
+        align-items: stretch;
+        figure{
+          //width: 50%;
+        }
+        p{
+          text-align: left;
+          max-width: 45%;
+          span{
+            align-self: flex-start;
+            margin-left: 0;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+    .week_home{
+      height: 60rem;
+    }
+    .destinations{
+      ul.city_list{
+        grid-template-columns: repeat(4, auto);
+        li{
+          text-align: left;
+          &:last-of-type{
+            grid-column: unset;
+            grid-row: unset;
+          }
+        }
+      }
+    }
+    .get_listed{
+      margin: 8rem 0;
+      padding: 5rem;
+      .titles{
+        margin-right: 8rem;
+      }
+    }
+    .footer{
+      .menu{
+        ul{
+          flex-direction: row;
+          justify-content: center;
+          li{
+            a{
+
+            }
+          }
+        }
+      }
+    }
+  }
 }

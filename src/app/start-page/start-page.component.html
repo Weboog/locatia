@@ -3,21 +3,27 @@
     <form (ngSubmit)="onSubmit()" [formGroup]="filterReducedForm">
       <div>
         <app-switch [switchValues]="{label: 'action', values: ['louer', 'acheter']}" bgColor="transparent" (onSwitch)="assignValue($event)"></app-switch>
-        <app-custom-select [selectOption]="selectArray[0]" (onItem)="assignValue($event)"></app-custom-select>
-        <app-select-multiple [selectOption]="selectArray[1]" (onItem)="assignValue($event)"></app-select-multiple>
+        <div class="select-components">
+          <app-custom-select [selectOption]="selectArray[0]" (onItem)="assignValue($event)"></app-custom-select>
+          <app-select-multiple [selectOption]="selectArray[1]" (onItem)="assignValue($event)"></app-select-multiple>
+        </div>
       </div>
       <div>
-        <button type="submit">
+        <button class="btn_validate" type="submit">
           <span>valider</span>
-          <span></span>
+          <span>
+            <svg>
+              <use href="assets/svg/sprite.svg#check"></use>
+            </svg>
+          </span>
         </button>
       </div>
     </form>
-    <p><i></i>2596 appartement sur marrakech.</p>
+    <p><i><svg><use href="assets/svg/sprite.svg#info"></use></svg></i>2596 appartement sur marrakech.</p>
   </section>
   <section class="pannel">
     <div class="bg_video">
-      <video class="bg-video-content" [poster]="'assets/media/videos/video-placeholder.png'" autoplay muted loop>
+      <video class="bg-video-content" autoplay muted loop>
         <source [src]="'assets/media/videos/video.mp4'" type="video/mp4">
         <source [src]="'assets/media/videos/video.webm'" type="video/webm">
       </video>
@@ -29,9 +35,9 @@
       <h2 class="section_title">biens en <span class="pinky_bold">vedette.</span></h2>
       <h3 class="section_subtitle">des produits phares selectionnés par nos équipes.</h3>
     </div>
-    <div class="cards" *ngFor="let apart of apartsArray; index as i">
-        <app-highlight-product [apart]="apart" [carouselId]="i"></app-highlight-product>
-    </div>
+      <div class="cards">
+        <app-highlight-product *ngFor="let apart of apartsArray; index as i" [apart]="apart" [carouselId]="i"></app-highlight-product>
+      </div>
   </section>
   <section class="about">
     <div class="titles">
@@ -44,8 +50,8 @@
       </figure>
       <p>
         <span>aller droit au but.</span>
-        Locatia met en evidence le produit immobilier en s'appuyant sur des piliers artistiques et technologiques de dernier cri a savoir: la photo et la video immoblieres faites et traitees par notre equipe de photographes professionnels. Conception des tours de realite virtuelle 'LocatiaVR' qui vous met au milieu de l'espace du bien.
-        Experience utilisateur fluide qui compte le moindre detail de ce que vous cherchez.
+        Locatia met en evidence le produit immobilier en s'appuyant sur des piliers artistiques et technologiques de dernier cri a savoir: la photo et la video immoblieres faites et traitees par notre equipe de photographes professionnels. <!--Conception des tours de realite virtuelle 'LocatiaVR' qui vous met au milieu de l'espace du bien.
+        Experience utilisateur fluide qui compte le moindre detail de ce que vous cherchez.-->
       </p>
     </div>
   </section>

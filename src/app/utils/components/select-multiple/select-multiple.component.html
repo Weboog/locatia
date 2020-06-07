@@ -1,9 +1,9 @@
 <div [ngClass]="{dropDown: isDropDown}" class="select_wrapper {{ selectOption.label }}" #wrapper>
-  <div class="label">
+  <div class="label" (click)="onDropDown(selectOption.label)">
       <span>
         <img src="{{selectOption.icon}}" alt="city">
       </span>
-    <a role="button" (click)="onDropDown(selectOption.label)">
+    <a role="button">
       <span *ngFor="let selectedOne of selectedMultipleItems; index as i">
         {{selectedMultipleItems.length == 0 ? selectOption.alias : selectedOne}}
       </span>

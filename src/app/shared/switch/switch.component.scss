@@ -26,7 +26,22 @@
         text-transform: uppercase;
         padding: .8rem 0;
         border-radius: 3rem;
+        cursor: pointer;
       }
     }
+  }
+}
+
+@media screen and (min-width: 768px){
+  .switch_container{                          
+    .switch{
+      .switch_item{
+        label{
+          font-size: 1.1rem;
+          transition: all .1s ease-in;
+        }
+      }
+    }
+
   }
 }
