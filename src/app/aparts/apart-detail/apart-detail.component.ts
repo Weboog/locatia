@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {ApartsService} from '../aparts.service';
 import {Apart} from '../../shared/custom-types/apart';
 import {ActivatedRoute} from '@angular/router';
@@ -9,14 +9,15 @@ import {map} from 'rxjs/operators';
   templateUrl: './apart-detail.component.html',
   styleUrls: ['./apart-detail.component.scss']
 })
-export class ApartDetailComponent implements OnInit {
+export class ApartDetailComponent implements OnInit, AfterViewInit {
 
   apart: Apart;
+  id: string;
   constructor( private apartsService: ApartsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.apartsService.getApart(id)
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.apartsService.getApart(this.id)
         .pipe(map((apart: any) => {
             apart.images = apart.images.map((item, i) => {
               const directory = item.replace(/-[0-9].[a-z]{3}$/, '');
@@ -29,6 +30,10 @@ export class ApartDetailComponent implements OnInit {
         .subscribe(apart => {
       this.apart = apart;
     });
+  }
+
+  ngAfterViewInit() {
+    this.apartsService.incrementViewCount(this.id).subscribe(response => {});
   }
 
 }

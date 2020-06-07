@@ -105,4 +105,8 @@ export class ApartsService {
   getDescription(id: number) {
     return this.aparts[id].description;
   }
+
+  incrementViewCount(id: string) {
+    return this.httpClient.get(`https://db-services.incoloria.com/apart/increment/${id}`);
+  }
 }
