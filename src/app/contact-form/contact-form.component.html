@@ -1,0 +1,11 @@
+<div class="contact_form_container">
+  <p class="phone">+212 0 6 26 62 91 99</p>
+  <form [formGroup]="contactForm">
+    <input type="text" placeholder="Noms" formControlName="name">
+    <input type="text" placeholder="Email" formControlName="email">
+    <input type="text" placeholder="Telephone" formControlName="phone">
+    <textarea placeholder="message" rows="5"></textarea>
+    <p>This poster has agreed to provide a live video tour to renters. Feel free to inquire when contacting.</p>
+    <button type="submit">Envoyer</button>
+  </form>
+</div>

@@ -79,9 +79,10 @@ export class ApartsService {
 
   constructor(private httpClient: HttpClient) { }
 
-  // http://locatia.web/apart/${id}
+  // http://db-services.web/apart/${id}
+  // https://db-services.incoloria.com/apart/${id}
   getApart(id: string) {
-    return this.httpClient.get(`https://db-services.incoloria.com/apart/${id}`);
+    return this.httpClient.get(`http://db-services.web/apart/${id}`);
   }
 
   getAparts() {

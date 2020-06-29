@@ -15,7 +15,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   isLoading = false;
   step = 85;
   @Input() onDetails: boolean;
-  @Input() imgSources: Carousel[] = []; // Provided by carousel service
+  @Input() imgSources: Carousel[] = []; // Provided by aparts service
   @Input() id: number;
   buttons = [
     {class: 'button_prev', label: 'prev', direction: 0},

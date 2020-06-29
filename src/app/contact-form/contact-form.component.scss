@@ -1,0 +1,44 @@
+.contact_form_container{
+  position: relative;
+  background-color: #414040;
+  border-radius: 1rem 1rem 0 0;
+  padding: 2rem;
+  color: white;
+  //border: 1px solid #EFEFEF;
+  box-shadow:  0 0 1rem rgba(black, .25);
+  p{
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+  }
+  .phone{
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  input, textarea{
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #707070;
+    padding: 1rem .5rem;
+    color: white;
+    width: 100%;
+  }
+  button{
+    position: absolute;
+    left: 0;
+    margin-top: 2rem;
+    border: none;
+    outline: none;
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+    border-radius:  0 0 1rem 1rem;
+    border-top: 1px solid white;
+    background-color: #FF0099;
+    color: white;
+    font-weight: 600;
+    box-shadow:  0 .1rem 1rem rgba(black, .25);
+  }
+}

@@ -23,12 +23,19 @@ export class ApartDetailComponent implements OnInit, AfterViewInit {
               const directory = item.replace(/-[0-9].[a-z]{3}$/, '');
               return {id: i, src: 'assets/media/gallery/' + directory + '/' + item};
           });
+            // prepare coordinates
             const coordinates = apart.location.split(',');
             apart.location = {lat: coordinates[0], lng: coordinates[1]};
+            apart.address = apart.address.split(',');
+            // prepare external, internal and conditions
+            apart.external = apart.external.split(',');
+            apart.internal = apart.internal.split(',');
+            apart.conditions = apart.conditions.split(',');
             return apart;
         }))
         .subscribe(apart => {
       this.apart = apart;
+      console.log(apart);
     });
   }
 
