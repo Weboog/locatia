@@ -2,7 +2,7 @@ import {Component, ComponentFactoryResolver, OnInit, ViewChild} from '@angular/c
 import {DummyComponent} from './dummy/dummy.component';
 import {PlaceholderDirective} from './shared/placeholder/placeholder.directive';
 import {Subscription} from 'rxjs';
-import {SharedService} from "./shared/shared.service";
+import {SharedService} from './shared/shared.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +16,9 @@ export class AppComponent implements OnInit {
   sortingShown = false;
   @ViewChild(PlaceholderDirective, {static: false}) dummyHost: PlaceholderDirective;
   dummySubscription: Subscription;
-  constructor(private cpFactoryResolver: ComponentFactoryResolver, private sharedService: SharedService) {
+  constructor(
+      private cpFactoryResolver: ComponentFactoryResolver,
+      private sharedService: SharedService) {
   }
 
   ngOnInit(): void {

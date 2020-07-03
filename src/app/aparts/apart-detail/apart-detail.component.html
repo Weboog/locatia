@@ -41,13 +41,29 @@
           </div>
           <div class="pieces">
             <span class="label">pièces</span>
-            <p class="value">{{apart.pieces < 10 ? '0'+apart.pieces : apart.pieces}} <span>p</span><i class="dot"></i></p></div>
+            <p class="value">{{apart.pieces < 10 ? '0'+apart.pieces : apart.pieces}} <span class="measure_abbr">p</span><span class="measure_full">pieces</span><i class="dot"></i></p></div>
           <div class="rooms">
             <span class="label">chambres</span>
-            <p class="value">{{apart.rooms < 10 ? '0'+apart.rooms : apart.rooms}} <span>c</span><i class="dot"></i></p></div>
+            <p class="value">{{apart.rooms < 10 ? '0'+apart.rooms : apart.rooms}} <span class="measure_abbr">c</span><span class="measure_full">chambres</span><i class="dot"></i></p></div>
           <div *ngIf="apart.floors > 0" class="floors">
             <span class="label">étages</span>
-            <p class="value">{{apart.floors < 10 ? '0'+apart.floors : apart.floors}} <span>e</span><i class="dot"></i></p></div>
+            <p class="value">{{apart.floors < 10 ? '0'+apart.floors : apart.floors}} <span class="measure_abbr">e</span><span class="measure_full">etages</span><i class="dot"></i></p></div>
+        </div>
+        <div class="register">
+          <a>
+            <svg>
+              <use href="assets/svg/sprite.svg#heart"></use>
+            </svg>
+          </a>
+        </div>
+        <div class="contact">
+          <div class="contact_call">
+            <svg><use href="assets/svg/sprite.svg#call"></use></svg><span>06 63 20 95 94</span>
+          </div>
+          <span class="pink_dot"></span>
+          <div class="contact_message">
+            <svg><use href="assets/svg/sprite.svg#message"></use></svg><span>Envoyer un message</span>
+          </div>
         </div>
       </div>
     </section>
@@ -103,5 +119,4 @@
     </div>
 
   </div>
-
 </div>

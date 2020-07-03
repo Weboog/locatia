@@ -9,8 +9,8 @@ export interface Apart {
   period: string;
   property: string;
   city: string;
-  address: string[];
-  zip: number;
+  address?: string[];
+  zip?: number;
   phone: string;
   location?: {lat: string, lng: string};
   surface: number;

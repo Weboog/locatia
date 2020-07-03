@@ -23,6 +23,7 @@ export class StartPageComponent implements OnInit {
     private startPageService: StartPageService) { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.destinations = this.startPageService.getDestinations();
     this.apartsArray = this.apartsService.getFeatured();
     this.selectArray = this.customSelectService.getSelectOptions();

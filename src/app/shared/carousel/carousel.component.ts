@@ -13,7 +13,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   currentItem = 0;
   items: number[] = []; // Contain already loaded images to prevent reloading
   isLoading = false;
-  step = 85;
+  step = 0;
   @Input() onDetails: boolean;
   @Input() imgSources: Carousel[] = []; // Provided by aparts service
   @Input() id: number;
@@ -48,6 +48,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     // console.log(this.imgSources);
+    window.matchMedia('(min-width: 768px)').matches ? this.step = 100 : this.step = 85;
     this.initCarousel();
   }
 

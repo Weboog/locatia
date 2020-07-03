@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {ApartsService} from '../aparts.service';
 import {Apart} from '../../shared/custom-types/apart';
 import {ActivatedRoute} from '@angular/router';
@@ -9,13 +9,16 @@ import {map} from 'rxjs/operators';
   templateUrl: './apart-detail.component.html',
   styleUrls: ['./apart-detail.component.scss']
 })
-export class ApartDetailComponent implements OnInit, AfterViewInit {
+export class ApartDetailComponent implements OnInit, OnDestroy, AfterViewInit {
 
   apart: Apart;
   id: string;
+
   constructor( private apartsService: ApartsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
+    this.apartsService.showHeaderBottomBorder.next(false);
     this.id = this.route.snapshot.paramMap.get('id');
     this.apartsService.getApart(this.id)
         .pipe(map((apart: any) => {
@@ -37,6 +40,10 @@ export class ApartDetailComponent implements OnInit, AfterViewInit {
       this.apart = apart;
       console.log(apart);
     });
+  }
+
+  ngOnDestroy() {
+    this.apartsService.showHeaderBottomBorder.next(true);
   }
 
   ngAfterViewInit() {

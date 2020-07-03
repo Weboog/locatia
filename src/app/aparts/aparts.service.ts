@@ -1,11 +1,13 @@
 import {Injectable} from '@angular/core';
 import {Apart} from '../shared/custom-types/apart';
 import {HttpClient} from '@angular/common/http';
+import {Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApartsService {
+  showHeaderBottomBorder = new Subject<boolean>();
   aparts: Apart[];
   featuredAparts = [
     {
@@ -82,7 +84,7 @@ export class ApartsService {
   // http://db-services.web/apart/${id}
   // https://db-services.incoloria.com/apart/${id}
   getApart(id: string) {
-    return this.httpClient.get(`http://db-services.web/apart/${id}`);
+    return this.httpClient.get(`https://db-services.incoloria.com/apart/${id}`);
   }
 
   getAparts() {

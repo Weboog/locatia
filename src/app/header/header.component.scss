@@ -96,8 +96,10 @@ header{
     }
   }
 }
-@media screen and (min-width: 1024px){
-  .header{
 
-  }
+//////////////////////////////////////
+//Helpers
+.borderBottom{
+  border-bottom: 2px solid #FF0099;
+  box-shadow: 0 4px 5px rgba(black, .05);
 }

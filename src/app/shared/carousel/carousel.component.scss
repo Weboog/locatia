@@ -9,9 +9,9 @@
       width: 85vw;
       font-family: 'Montserrat', sans-serif;
       font-weight: 600;
-    }
-    img{
-      width: 100%;
+      img{
+        width: 100%;
+      }
     }
   }
 }
@@ -49,6 +49,20 @@
     display: none;
     border: none;
     padding: 1rem 2rem;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .slide{
+    background-color: yellow;
+    .slider{
+      &_item{
+        width: 100vw;
+        img{
+
+        }
+      }
+    }
   }
 }
 @keyframes fadeIn {
