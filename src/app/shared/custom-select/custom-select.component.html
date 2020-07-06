@@ -1,0 +1,20 @@
+<div [ngClass]="{dropDown: isDropDown}" class="select_wrapper {{ selectOption.label }}" #wrapper>
+    <div class="label" (click)="onDropDown(selectOption.label)">
+      <span>
+        <img src="{{selectOption.icon}}" alt="city">
+      </span>
+        <a role="button">{{selectedItem ? selectedItem : selectOption.alias}}</a>
+        <svg [ngClass]="{'rotateChevron': isDropDown}">
+            <use href="assets/svg/chevron.svg#chevron"></use>
+        </svg>
+    </div>
+    <div class="items">
+      <ul [ngStyle]="{ 'height' : isDropDown ? [(selectOption.options.length)*3 + 2.3] +'rem' : 0}">
+        <li (click)="onSelectedItem(option, $event)" *ngFor="let option of selectOption.options">
+          <a [ngClass]="{marked: selectedItem === option}">
+            {{ option }}
+          </a>
+        </li>
+      </ul>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<header class="header">
+  <div class="menu_icon">
+    <a (click)="onShowMenu()">
+      <svg>
+        <use href="assets/svg/menu.svg#menu"></use>
+      </svg>
+    </a>
+  </div>
+  <h1 class="logo">
+    <svg>
+      <use href="assets/svg/logo.svg#logo"></use>
+    </svg>
+  </h1>
+    <nav>
+      <a routerLink="">accueil</a>
+      <a routerLink="rental/types">louer</a>
+      <a routerLink="buy/types">acheter</a>
+      <a routerLink="recommendations">recommandations</a>
+    </nav>
+    <div class="fav">
+      <a routerLink="favourite">
+        <span *ngIf="favCount > 0">{{ favCount < 10  ? '0' + favCount : favCount }}</span>
+        <svg>
+          <use href="assets/svg/sprite.svg#heart"></use>
+        </svg>
+      </a>
+    </div>
+
+</header>

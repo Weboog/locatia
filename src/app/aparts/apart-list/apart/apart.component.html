@@ -1,0 +1,66 @@
+<div class="card_container" [ngClass]="{onDetails: detailed, unRound: detailed}">
+  <div class="gallery" [ngClass]="{unRound: detailed}">
+    <div class="favourite">
+      <a (click)="onFavourite(apart.id)">
+        <svg [ngStyle]="{'fill': favourite ? '#FF0099' : 'none', stroke: favourite ? '#FF0099': '#FFF'}">
+          <use href="assets/svg/sprite.svg#fav"></use>
+        </svg>
+      </a>
+    </div>
+    <app-carousel [imgSources]="apart.images" [id]="carouselId" [onDetails]="detailed"></app-carousel>
+  </div>
+  <div class="details" (click)="onDescription(carouselId)" [ngClass]="{unRound: detailed}">
+    <div class="apart_id">
+      <span>#</span>
+      <p>{{apart.id}}</p>
+<!--      <div class="divider"></div>-->
+    </div>
+    <div class="price">
+      <span class="type">{{apart.property}}</span>
+      <p>{{apart.price}}</p>
+      <div>
+        <small>dh</small>
+        <span class="period"> / {{apart.period}}</span>
+      </div>
+    </div>
+    <div class="location">
+      <span>ville</span>
+      <p>{{apart.location}} <i class="dot"></i> </p>
+    </div>
+    <div class="specs">
+      <div class="surface">
+        <span>surface</span>
+        <p>{{apart.surface}} <span>m<sup>2</sup></span> <i class="dot"></i> </p>
+      </div>
+      <div class="pieces">
+        <span>pieces</span>
+        <p>{{apart.pieces < 10 ? '0'+apart.pieces : apart.pieces}} <span>p</span> <i class="dot"></i> </p>
+      </div>
+      <div class="rooms">
+        <span>chambres</span>
+        <p>{{apart.rooms < 10 ? '0'+apart.rooms : apart.rooms}} <span>c</span> <i class="dot"></i> </p>
+      </div>
+      <div *ngIf="apart.floors" class="rooms">
+        <span>étages</span>
+        <p>{{apart.floors < 10 ? '0'+apart.floors : apart.floors}} <span>e</span> <i class="dot"></i> </p>
+      </div>
+    </div>
+    <div class="contact">
+      <div class="call">
+        <a href="tel:0626629199" (click)="onCall($event)">
+          <svg>
+            <use href="assets/svg/sprite.svg#call"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="message">
+        <a>
+          <svg>
+            <use href="assets/svg/sprite.svg#message"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,13 @@
+<div class="slide">
+    <div id="id-{{ id }}" class="slider" [ngStyle]="{'width.vw': (items.length) * (onDetails ? 100 : step)}">
+      <div class="slider_item">
+        <img [src]="imgSources[0].src" alt="image-1">
+      </div>
+    </div>
+</div>
+<div  class="controls">
+  <button id="control-{{ id }}-{{ button.direction }}" *ngFor="let button of buttons" [class]="button.class" (click)="move($event, button.direction)">{{ button.label }}</button>
+</div>
+<div class="dots">
+  <div class="dot" *ngFor="let dot of imgSources; index as i" [ngClass]="{ active: i === currentItem - 1}"></div>
+</div>

@@ -1,0 +1,51 @@
+<div class="filters" [ngClass]="{slide_up: slideUp}">
+  <form [formGroup]="formFilters" (ngSubmit)="onSubmit()">
+    <div class="buttons">
+      <button role="button" type="reset" (click)="onReset()">annuler</button>
+      <button type="submit">
+        <span>valider</span>
+        <svg>
+          <use href="assets/svg/check.svg#check"></use>
+        </svg>
+      </button>
+    </div>
+    <div class="sorting_wrapper">
+      <div class="sorting_block">
+        <h3>prix</h3>
+        <div class="switch">
+          <input id="sort_price_asc" type="radio" name="sort" value="price-0" formControlName="sort">
+          <label for="sort_price_asc">ascendant</label>
+          <input id="sort_price_desc" type="radio" name="sort" value="price-1" formControlName="sort">
+          <label for="sort_price_desc">descendant</label>
+        </div>
+      </div>
+      <div class="sorting_block">
+        <h3>superficie</h3>
+        <div class="switch">
+          <input id="sort_surface_asc" type="radio" name="sort" value="surface-0" formControlName="sort">
+          <label for="sort_surface_asc">ascendant</label>
+          <input id="sort_surface_desc" type="radio" name="sort" value="surface-1" formControlName="sort">
+          <label for="sort_surface_desc">descendant</label>
+        </div>
+      </div>
+      <div class="sorting_block">
+        <h3>nb. de pièces</h3>
+        <div class="switch">
+          <input id="sort_pieces_asc" type="radio" name="sort" value="pieces-0" formControlName="sort">
+          <label for="sort_pieces_asc">ascendant</label>
+          <input id="sort_pieces_desc" type="radio" name="sort" value="pieces-1" formControlName="sort">
+          <label for="sort_pieces_desc">descendant</label>
+        </div>
+      </div>
+      <div class="sorting_block">
+        <h3>nb. de chambres</h3>
+        <div class="switch">
+          <input id="sort_rooms_asc" type="radio" name="sort" value="rooms-0" formControlName="sort">
+          <label for="sort_rooms_asc">ascendant</label>
+          <input id="sort_rooms_desc" type="radio" name="sort" value="rooms-1" formControlName="sort">
+          <label for="sort_rooms_desc">descendant</label>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

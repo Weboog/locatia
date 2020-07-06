@@ -1,0 +1,16 @@
+h1{
+  font-weight: 100;
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 2rem 0;
+  color: darken(#FF0099, 10);
+}
+.apart_container{
+  display: grid;
+  justify-content: center;
+  margin-bottom: 4rem;
+  &:not(:last-of-type){
+    //margin-bottom: 4rem;
+  }
+}

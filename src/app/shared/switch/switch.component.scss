@@ -1,0 +1,47 @@
+.switch_container{
+  margin-bottom: .8rem;
+  .switch{
+    overflow: hidden;
+    border-radius: 5rem;
+    padding: .5rem;
+    background-color: #414040;
+    color: #B1B1B1;
+    display: flex;
+    justify-content: space-between;
+    .switch_item{
+      width: 50%;
+      text-align: center;
+      input{
+        display: none;
+        &:checked + label{
+          color: white;
+          background-color: #ff0099;
+        }
+      }
+      label{
+        transition: all .2s ease-in;
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: .8rem 0;
+        border-radius: 3rem;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px){
+  .switch_container{                          
+    .switch{
+      .switch_item{
+        label{
+          font-size: 1.1rem;
+          transition: all .1s ease-in;
+        }
+      }
+    }
+
+  }
+}

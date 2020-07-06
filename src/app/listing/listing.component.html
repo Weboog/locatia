@@ -1,0 +1,4 @@
+<div class="apart_container" *ngFor="let apart of apartItems; index as i">
+  <app-apart [apart]="apart" [carouselId]="i"></app-apart>
+</div>
+<app-local-options></app-local-options>

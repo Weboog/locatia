@@ -1,0 +1,46 @@
+<div class="favourite_container">
+  <h1>mes favoris</h1>
+  <h3 *ngIf="count > 0">{{count}} favoris</h3>
+  <h3 *ngIf="count === 0">liste des favoris vide</h3>
+  <div class="favourite_list">
+    <div class="favourite" *ngFor="let apart of aparts; index as i" [id]="'favourite-'+i">
+      <div class="bgImage">
+        <img [src]="apart.images[0].src" src="assets/media/img-1.jpg" alt="">
+      </div>
+      <div class="gradient"></div>
+      <div class="elements">
+        <div class="id"><span>#</span>{{apart.id}}</div>
+        <a class="delete" (click)="delete(apart.id, i)">
+          <svg>
+            <use href="assets/svg/sprite.svg#delete"></use>
+          </svg>
+        </a>
+        <div class="type">{{apart.type}}</div>
+        <div class="price">
+          <div class="old"></div>
+          <div class="current">{{apart.price}}</div>
+          <div class="unit">DH</div>
+          <div class="period">{{apart.period}}</div>
+        </div>
+        <div class="components">
+          <div class="surface">
+            <span class="label">surface</span>
+            <p>{{apart.specs.surface}} M<sup>2</sup>.</p>
+          </div>
+          <div class="pieces">
+            <span class="label">pièces</span>
+            <p>{{apart.specs.pieces}} P.</p>
+          </div>
+          <div class="rooms">
+            <span class="label">chambres</span>
+            <p>{{apart.specs.rooms}} C.</p>
+          </div>
+          <div class="floors" *ngIf="apart.specs.floors">
+            <span class="label">étages</span>
+            <p>{{apart.specs.floors}} E.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

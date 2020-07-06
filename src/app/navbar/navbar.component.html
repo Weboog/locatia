@@ -1,0 +1,58 @@
+<div class="navbar_container">
+
+  <div class="menu_container">
+    <div class="arrow">
+      <a (click)="close()">
+        <svg>
+          <use href="assets/svg/arrow-left.svg#arrow-left"></use>
+        </svg>
+      </a>
+
+    </div>
+    <div class="fav">
+      <!--<a routerLink="favourite" (click)="close()">
+        <span>
+          <b *ngIf="favCount > 0">{{ favCount < 10  ? '0' + favCount : favCount }}</b>
+          <b *ngIf="favCount === 0">VIDE</b>
+          <svg>
+            <use href="assets/svg/heart.svg#heart"></use>
+          </svg>
+      </span>
+      </a>-->
+    </div>
+
+    <ul>
+      <li><a routerLink="" (click)="close()">
+        <span>accueil</span>
+        <svg>
+          <use href="assets/svg/home.svg#home"></use>
+        </svg>
+      </a></li>
+      <li><a routerLink="rental/types" (click)="close()">
+        <span>louer</span>
+        <svg>
+          <use href="assets/svg/rent.svg#rent"></use>
+        </svg>
+      </a></li>
+      <li><a routerLink="buy/types" (click)="close()">
+        <span>acheter</span>
+        <svg>
+          <use href="assets/svg/buy.svg#buy"></use>
+        </svg>
+      </a></li>
+      <li><a routerLink="recommendations" (click)="close()">
+        <span>recommendations</span>
+        <svg>
+          <use href="assets/svg/recom.svg#recom"></use>
+        </svg>
+      </a></li>
+    </ul>
+
+    <div class="copyright">
+      <p>LOCATIA <span>&#x2122;</span> BY INCOLORIA <span>&#xa9;</span></p>
+    </div>
+  </div>
+
+  <div class="band"></div>
+
+</div>

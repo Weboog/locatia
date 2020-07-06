@@ -1,0 +1,104 @@
+.rental-container{
+  animation: slideEnter .2s ease-in;
+  position: relative;
+  display: grid;
+  justify-content: center;
+  row-gap: 2rem;
+  margin-bottom: 5rem;
+  color: #4E4E4E;
+  .rental-illustrations{
+    width: 85vw;
+    .illustration{
+      overflow: hidden;
+      border-radius: 1.5rem;
+      svg{
+        width: 100%;
+        height: 20rem;
+      }
+    }
+  }
+  h1{
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .rental-types{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 4rem;
+    .type{
+      position: relative;
+      display: grid;
+      justify-content: right;
+      &::after{
+          position: absolute;
+          right: 3rem;
+          bottom: -2rem;
+          content: '';
+          width: 2.6rem;
+          height: 1px;
+          background-color: #E5E5E5;
+        }
+      > div {
+        display: grid;
+        row-gap: .6rem;
+        justify-content: center;
+        width: 9.1rem;
+      }
+      &:nth-child(2n){
+        justify-content: left;
+        &::after{
+          left: 3rem;
+        }
+        &::before{
+          position: absolute;
+          top: 50%;
+          left: -2rem;
+          transform: translateY(-50%);
+          content: '';
+          width: 1px;
+          height: 2.6rem;
+          background-color: #E5E5E5;
+        }
+      }
+      .icon{
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
+      .divider{
+        justify-self: center;
+        width: 2rem;
+        height: 2px;
+        background-color: #ff0099;
+        border-radius: 5px;
+      }
+      p{
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 1.1rem;
+        span{
+          color: #ff0099;
+        }
+      }
+    }
+  }
+  img{
+    width: 100%;
+  }
+  svg{
+    width: 4.2rem;
+    height: 4.2rem;
+  }
+}
+
+@keyframes slideEnter {
+  0%{
+    right: -100vw;
+  }
+  100%{
+    right: 0;
+  }
+}
