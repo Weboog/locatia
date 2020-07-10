@@ -1,11 +1,28 @@
 <div class="contact_form_container">
   <p class="phone">+212 0 6 26 62 91 99</p>
   <form [formGroup]="contactForm">
-    <input type="text" placeholder="Noms" formControlName="name">
-    <input type="text" placeholder="Email" formControlName="email">
-    <input type="text" placeholder="Telephone" formControlName="phone">
-    <textarea placeholder="message" rows="5"></textarea>
-    <p>This poster has agreed to provide a live video tour to renters. Feel free to inquire when contacting.</p>
-    <button type="submit">Envoyer</button>
+    <div class="contact-form__input">
+      <input type="text" placeholder="Noms" formControlName="name" />
+      <svg><use href="assets/svg/sprite.svg#user"></use></svg>
+    </div>
+    <div class="contact-form__input">
+      <input type="text" placeholder="Email" formControlName="email" />
+      <svg><use href="assets/svg/sprite.svg#message"></use></svg>
+    </div>
+    <div class="contact-form__input">
+      <input type="text" placeholder="Telephone" formControlName="phone" />
+      <svg><use href="assets/svg/sprite.svg#call"></use></svg>
+    </div>
+    <div class="contact-form__input">
+      <input type="date" formControlName="date" />
+      <svg><use href="assets/svg/sprite.svg#calendar"></use></svg>
+    </div>
+    <h3 class="pink-text">Ajouter un message +</h3>
+    <p>
+      This poster has <span class="pink-text">agreed</span> to provide a live
+      video tour to renters. Feel free to inquire when
+      <span class="pink-text">contacting</span>.
+    </p>
+    <button type="submit">Envoyer le message</button>
   </form>
 </div>

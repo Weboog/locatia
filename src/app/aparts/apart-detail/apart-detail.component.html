@@ -9,114 +9,149 @@
   <div class="gallery">
     <app-carousel [imgSources]="apart.images" id="0"></app-carousel>
   </div>
-  <div class="specification">
-    <section>
-      <h2 class="title">caractéristiques.</h2>
-      <div class="content">
-        <div class="id">
-          <span class="pink">#</span>
-          <span>{{apart.human_id}}</span>
-          <p class="type pink_dot capital">{{apart.property}}</p>
-        </div>
-        <div class="price">
-          <div></div>
-          <div class="data">
-            <div *ngIf="apart.oldPrice" class="old">{{apart.oldPrice}}</div>
-            <div class="current">{{apart.price}}</div>
-            <div class="units">
-              <p>DH</p>
-              <p> / {{apart.period}}</p>
-            </div>
-          </div>
-        </div>
-        <div class="address">
-          <span class="label">adresse</span>
-          <p class="value"><span class="capital">{{apart.address[0]}}</span></p>
-          <p class="sub">{{apart.address[1]}}, {{apart.zip}} <span class="city capital pink_dot">{{apart.city}}</span></p>
-        </div>
-        <div class="components">
-          <div class="surface">
-            <span class="label">surface</span>
-            <p class="value">{{apart.surface < 10 ? '0'+apart.surface : apart.surface}} <span>m<sup>2</sup></span><i class="dot"></i></p>
-          </div>
-          <div class="pieces">
-            <span class="label">pièces</span>
-            <p class="value">{{apart.pieces < 10 ? '0'+apart.pieces : apart.pieces}} <span class="measure_abbr">p</span><span class="measure_full">pieces</span><i class="dot"></i></p></div>
-          <div class="rooms">
-            <span class="label">chambres</span>
-            <p class="value">{{apart.rooms < 10 ? '0'+apart.rooms : apart.rooms}} <span class="measure_abbr">c</span><span class="measure_full">chambres</span><i class="dot"></i></p></div>
-          <div *ngIf="apart.floors > 0" class="floors">
-            <span class="label">étages</span>
-            <p class="value">{{apart.floors < 10 ? '0'+apart.floors : apart.floors}} <span class="measure_abbr">e</span><span class="measure_full">etages</span><i class="dot"></i></p></div>
-        </div>
-        <div class="register">
+
+  <div class="wrapper">
+    <div class="gallery-media-navigators">
+      <ul>
+        <li>
           <a>
             <svg>
-              <use href="assets/svg/sprite.svg#heart"></use>
+              <use href="assets/svg/sprite.svg#video"></use>
             </svg>
+            Vidéo
           </a>
-        </div>
-        <div class="contact">
-          <div class="contact_call">
-            <svg><use href="assets/svg/sprite.svg#call"></use></svg><span>06 63 20 95 94</span>
+        </li>
+        <span class="pink_dot"></span>
+        <li>
+          <a>
+            <svg>
+              <use href="assets/svg/sprite.svg#box"></use>
+            </svg>
+            Tour 3D
+          </a>
+        </li>
+        <span class="pink_dot"></span>
+        <li>
+          <a>
+            <svg>
+              <use href="assets/svg/sprite.svg#film"></use>
+            </svg>
+            Vidéohive
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="details">
+      <section class="specification">
+        <h2 class="title">caractéristiques.</h2>
+        <div class="content">
+          <div class="id">
+            <span class="pink">#</span>
+            <span>{{ apart.human_id }}</span>
+            <p class="type property_pink-bg capital">
+              {{ apart.property }}
+            </p>
+            <a class="register">
+              <svg><use href="assets/svg/sprite.svg#heart"></use></svg>
+            </a>
           </div>
-          <span class="pink_dot"></span>
-          <div class="contact_message">
-            <svg><use href="assets/svg/sprite.svg#message"></use></svg><span>Envoyer un message</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-  <div class="wrapper">
-    <div>
-      <div class="details">
-        <section>
-          <h2 class="title">position sur map.</h2>
-          <app-here-map [lat]="apart.location.lat" [lng]="apart.location.lng"></app-here-map>
-        </section>
-        <section>
-          <h2 class="title">à propos.</h2>
-          <div class="description">
-            <h3>description.</h3>
-            <p>{{apart.description}}</p>
-          </div>
-          <div class="extrernal">
-            <h3>depuis l’extérieur.</h3>
-            <ul class="composers">
-              <li *ngFor="let ext of apart.external">
-                {{ext}}
-              </li>
-            </ul>
-          </div>
-          <div class="internal">
-            <h3>à l’intérieur.</h3>
-            <ul class="composers">
-              <li *ngFor="let int of apart.internal">
-                {{int}}
-              </li>
-            </ul>
-          </div>
-          <div class="recap">
-            <h2>Location journalière à :</h2>
-            <div class="recap_price">350 dh</div>
-            <div class="conditions">
-              <h4>Conditions à remplir</h4>
-              <ul>
-                <li *ngFor="let cond of apart.conditions">
-                  {{cond}}
-                </li>
-              </ul>
+          <div class="price">
+            <div *ngIf="apart.oldPrice" class="old">
+              {{ apart.oldPrice }}
+            </div>
+            <div class="current">{{ apart.price }}</div>
+            <div class="units">
+              <p>DH</p>
+              <p>/ {{ apart.period }}</p>
             </div>
           </div>
-        </section>
-      </div>
-      <div class="contact">
-        <div class="contact_form">
-          <app-contact-form></app-contact-form>
+          <div class="address">
+            <span class="label">adresse</span>
+            <p class="value">
+              <span class="capital">{{ apart.address[0] }}</span>
+            </p>
+            <p class="sub">
+              {{ apart.address[1] }} {{ apart.zip }}
+              <span class="city capital pink_dot">{{ apart.city }}</span>
+            </p>
+          </div>
+          <div class="components">
+            <div class="surface">
+              <span class="label">surface</span>
+              <p class="value">
+                {{ apart.surface < 10 ? "0" + apart.surface : apart.surface }}
+                <span>m<sup>2</sup></span>
+              </p>
+            </div>
+            <div class="pieces">
+              <span class="label">pièces</span>
+              <p class="value">
+                {{ apart.pieces < 10 ? "0" + apart.pieces : apart.pieces }}
+                <span class="measure_abbr">p</span
+                ><span class="measure_full">pieces</span>
+              </p>
+            </div>
+            <div class="rooms">
+              <span class="label">chambres</span>
+              <p class="value">
+                {{ apart.rooms < 10 ? "0" + apart.rooms : apart.rooms }}
+                <span class="measure_abbr">c</span
+                ><span class="measure_full">chambres</span>
+              </p>
+            </div>
+            <div *ngIf="apart.floors > 0" class="floors">
+              <span class="label">étages</span>
+              <p class="value">
+                {{ apart.floors < 10 ? "0" + apart.floors : apart.floors }}
+                <span class="measure_abbr">e</span
+                ><span class="measure_full">etages</span>
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+      <section>
+        <h2 class="title">à propos.</h2>
+        <div class="description">
+          <h3>description.</h3>
+          <p class="section-data">{{ apart.description }}</p>
+        </div>
+        <div class="extrernal">
+          <h3>depuis l’extérieur.</h3>
+          <ul class="composers section-data">
+            <li *ngFor="let ext of apart.external">
+              {{ ext }}
+            </li>
+          </ul>
+        </div>
+        <div class="internal">
+          <h3>à l’intérieur.</h3>
+          <ul class="composers section-data">
+            <li *ngFor="let int of apart.internal">
+              {{ int }}
+            </li>
+          </ul>
+        </div>
+        <div class="conditions">
+          <h4>Conditions à remplir</h4>
+          <ul>
+            <li *ngFor="let cond of apart.conditions">
+              {{ cond }}
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section>
+        <h2 class="title">position sur map.</h2>
+        <app-here-map
+          [lat]="apart.location.lat"
+          [lng]="apart.location.lng"
+        ></app-here-map>
+      </section>
     </div>
-
+    <div class="contact">
+      <app-contact-agent></app-contact-agent>
+      <app-contact-form class="contact_form"></app-contact-form>
+    </div>
   </div>
 </div>
