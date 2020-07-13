@@ -1,28 +1,43 @@
 <div class="contact_form_container">
-  <p class="phone">+212 0 6 26 62 91 99</p>
-  <form [formGroup]="contactForm">
-    <div class="contact-form__input">
-      <input type="text" placeholder="Noms" formControlName="name" />
-      <svg><use href="assets/svg/sprite.svg#user"></use></svg>
+  <p class="form-title">Formulaire de contact</p>
+  <form [formGroup]="contactForm" id="contact-form">
+    <div class="contact-form">
+      <div class="contact-form__input">
+        <input type="text" placeholder="Noms" formControlName="name" required />
+        <svg><use href="assets/svg/sprite.svg#user"></use></svg>
+      </div>
+      <div class="contact-form__input">
+        <input
+          type="text"
+          placeholder="Email"
+          formControlName="email"
+          required
+        />
+        <svg><use href="assets/svg/sprite.svg#message"></use></svg>
+      </div>
+      <div class="contact-form__input">
+        <input
+          type="text"
+          placeholder="Telephone"
+          formControlName="phone"
+          required
+        />
+        <svg><use href="assets/svg/sprite.svg#call"></use></svg>
+      </div>
+      <div class="contact-form__input">
+        <input type="datetime-local" formControlName="datetime" required />
+        <svg><use href="assets/svg/sprite.svg#calendar"></use></svg>
+      </div>
     </div>
-    <div class="contact-form__input">
-      <input type="text" placeholder="Email" formControlName="email" />
-      <svg><use href="assets/svg/sprite.svg#message"></use></svg>
-    </div>
-    <div class="contact-form__input">
-      <input type="text" placeholder="Telephone" formControlName="phone" />
-      <svg><use href="assets/svg/sprite.svg#call"></use></svg>
-    </div>
-    <div class="contact-form__input">
-      <input type="date" formControlName="date" />
-      <svg><use href="assets/svg/sprite.svg#calendar"></use></svg>
-    </div>
-    <h3 class="pink-text">Ajouter un message +</h3>
-    <p>
-      This poster has <span class="pink-text">agreed</span> to provide a live
-      video tour to renters. Feel free to inquire when
+    <h3 class="add-message">
+      <span>+</span>
+      Ajouter un message
+    </h3>
+    <p class="disclaimer">
+      This poster has <span>agreed</span> to provide a live video tour to
+      renters. Feel free to inquire when
       <span class="pink-text">contacting</span>.
     </p>
-    <button type="submit">Envoyer le message</button>
+    <button type="submit" class="send-message_btn">Envoyer</button>
   </form>
 </div>

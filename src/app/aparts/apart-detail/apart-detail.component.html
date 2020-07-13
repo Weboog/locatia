@@ -9,7 +9,6 @@
   <div class="gallery">
     <app-carousel [imgSources]="apart.images" id="0"></app-carousel>
   </div>
-
   <div class="wrapper">
     <div class="gallery-media-navigators">
       <ul>
@@ -18,7 +17,7 @@
             <svg>
               <use href="assets/svg/sprite.svg#video"></use>
             </svg>
-            Vidéo
+            <span class="gallery-btn-label">Vidéo</span>
           </a>
         </li>
         <span class="pink_dot"></span>
@@ -27,7 +26,7 @@
             <svg>
               <use href="assets/svg/sprite.svg#box"></use>
             </svg>
-            Tour 3D
+            <span class="gallery-btn-label">Tour 3D</span>
           </a>
         </li>
         <span class="pink_dot"></span>
@@ -36,117 +35,195 @@
             <svg>
               <use href="assets/svg/sprite.svg#film"></use>
             </svg>
-            Vidéohive
+            <span class="gallery-btn-label">Vidéohive</span>
           </a>
         </li>
       </ul>
     </div>
     <div class="details">
       <section class="specification">
-        <h2 class="title">caractéristiques.</h2>
-        <div class="content">
-          <div class="id">
-            <span class="pink">#</span>
-            <span>{{ apart.human_id }}</span>
-            <p class="type property_pink-bg capital">
-              {{ apart.property }}
-            </p>
-            <a class="register">
-              <svg><use href="assets/svg/sprite.svg#heart"></use></svg>
-            </a>
+        <div class="id">
+          <span class="apart-id"><span>#</span>{{ apart.human_id }}</span>
+          <p class="type">
+            {{ apart.property }}
+          </p>
+          <a class="register">
+            <svg><use href="assets/svg/sprite.svg#heart"></use></svg>
+          </a>
+        </div>
+        <div class="price">
+          <div *ngIf="apart.oldPrice" class="old">
+            {{ apart.oldPrice }}
           </div>
-          <div class="price">
-            <div *ngIf="apart.oldPrice" class="old">
-              {{ apart.oldPrice }}
-            </div>
-            <div class="current">{{ apart.price }}</div>
-            <div class="units">
-              <p>DH</p>
-              <p>/ {{ apart.period }}</p>
-            </div>
+          <div class="current">{{ apart.price }}</div>
+          <div class="units">
+            <p>DH</p>
+            <p>/ {{ apart.period }}</p>
           </div>
-          <div class="address">
-            <span class="label">adresse</span>
+        </div>
+        <div class="address">
+          <p class="value">
+            {{ apart.address[0] }}
+          </p>
+          <p class="sub">
+            {{ apart.address[1] }} {{ apart.zip }}
+            <span class="pink_dot"></span>
+            <span class="city capital">{{ apart.city }}</span>
+          </p>
+        </div>
+        <div class="components">
+          <div class="surface">
             <p class="value">
-              <span class="capital">{{ apart.address[0] }}</span>
+              {{ apart.surface < 10 ? "0" + apart.surface : apart.surface }}
             </p>
-            <p class="sub">
-              {{ apart.address[1] }} {{ apart.zip }}
-              <span class="city capital pink_dot">{{ apart.city }}</span>
-            </p>
+            &nbsp;
+            <span>m<sup>2</sup></span>
           </div>
-          <div class="components">
-            <div class="surface">
-              <span class="label">surface</span>
-              <p class="value">
-                {{ apart.surface < 10 ? "0" + apart.surface : apart.surface }}
-                <span>m<sup>2</sup></span>
-              </p>
-            </div>
-            <div class="pieces">
-              <span class="label">pièces</span>
-              <p class="value">
-                {{ apart.pieces < 10 ? "0" + apart.pieces : apart.pieces }}
-                <span class="measure_abbr">p</span
-                ><span class="measure_full">pieces</span>
-              </p>
-            </div>
-            <div class="rooms">
-              <span class="label">chambres</span>
-              <p class="value">
-                {{ apart.rooms < 10 ? "0" + apart.rooms : apart.rooms }}
-                <span class="measure_abbr">c</span
-                ><span class="measure_full">chambres</span>
-              </p>
-            </div>
-            <div *ngIf="apart.floors > 0" class="floors">
-              <span class="label">étages</span>
-              <p class="value">
-                {{ apart.floors < 10 ? "0" + apart.floors : apart.floors }}
-                <span class="measure_abbr">e</span
-                ><span class="measure_full">etages</span>
-              </p>
-            </div>
+          <div class="pieces">
+            <p class="value">
+              {{ apart.pieces < 10 ? "0" + apart.pieces : apart.pieces }}
+            </p>
+            &nbsp;
+            <span class="measure_full">pieces</span>
+          </div>
+          <div class="rooms">
+            <p class="value">
+              {{ apart.rooms < 10 ? "0" + apart.rooms : apart.rooms }}
+            </p>
+            &nbsp;
+            <span class="measure_full">chambres</span>
+          </div>
+          <div *ngIf="apart.floors > 0" class="floors">
+            <p class="value">
+              {{ apart.floors < 10 ? "0" + apart.floors : apart.floors }}
+            </p>
+            &nbsp;
+            <span class="measure_full">étages</span>
           </div>
         </div>
       </section>
-      <section>
-        <h2 class="title">à propos.</h2>
-        <div class="description">
-          <h3>description.</h3>
-          <p class="section-data">{{ apart.description }}</p>
-        </div>
-        <div class="extrernal">
-          <h3>depuis l’extérieur.</h3>
-          <ul class="composers section-data">
-            <li *ngFor="let ext of apart.external">
-              {{ ext }}
-            </li>
-          </ul>
-        </div>
-        <div class="internal">
-          <h3>à l’intérieur.</h3>
-          <ul class="composers section-data">
-            <li *ngFor="let int of apart.internal">
-              {{ int }}
-            </li>
-          </ul>
-        </div>
-        <div class="conditions">
-          <h4>Conditions à remplir</h4>
-          <ul>
-            <li *ngFor="let cond of apart.conditions">
-              {{ cond }}
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section>
-        <h2 class="title">position sur map.</h2>
-        <app-here-map
-          [lat]="apart.location.lat"
-          [lng]="apart.location.lng"
-        ></app-here-map>
+      <section class="main-content">
+        <article class="apart-content">
+          <h2 class="title">à propos.</h2>
+          <div class="description">
+            <h3>description.</h3>
+            <p>{{ apart.description }}</p>
+          </div>
+          <div class="external">
+            <h3>depuis l’extérieur.</h3>
+            <ul class="composers">
+              <li *ngFor="let ext of apart.external">
+                {{ ext }}
+              </li>
+            </ul>
+          </div>
+          <div class="internal">
+            <h3>à l’intérieur.</h3>
+            <ul class="composers">
+              <li *ngFor="let int of apart.internal">
+                {{ int }}
+              </li>
+            </ul>
+          </div>
+          <div class="conditions">
+            <h3>conditions d’exploitation.</h3>
+            <ul class="composers">
+              <li *ngFor="let cond of apart.conditions">
+                {{ cond }}
+              </li>
+            </ul>
+          </div>
+        </article>
+        <article class="disclaimer">
+          <p>
+            Vous pouvez demander au responsable du bien a propos des conditions
+            de location et des frais secondaire qui peuvent être applique ou de
+            nature fréquente comme cotisation syndicale etc...
+          </p>
+        </article>
+        <article class="map">
+          <h2 class="title">position sur map.</h2>
+          <div>
+            <app-here-map
+              [lat]="apart.location.lat"
+              [lng]="apart.location.lng"
+            ></app-here-map>
+          </div>
+        </article>
+        <article class="open-hours">
+          <h2 class="title">horaire de travail</h2>
+          <div>
+            <p class="summer-alert">
+              <svg><use href="assets/svg/sprite.svg#alert"></use></svg>
+              Pendant la période d’été nous retardons 2 heures de plus le soir.
+            </p>
+            <ul class="datetime-info">
+              <li>
+                <p class="day">Lundi</p>
+                <span class="separator"></span>
+                <div class="hours">
+                  <p>10:35</p>
+                  <span class="pink_dot"></span>
+                  <p>17:30</p>
+                </div>
+              </li>
+              <li>
+                <p class="day">Mardi</p>
+                <span class="separator"></span>
+                <div class="hours">
+                  <p>10:35</p>
+                  <span class="pink_dot"></span>
+                  <p>17:30</p>
+                </div>
+              </li>
+              <li>
+                <p class="day">Mercredi</p>
+                <span class="separator"></span>
+                <div class="hours">
+                  <p>10:35</p>
+                  <span class="pink_dot"></span>
+                  <p>17:30</p>
+                </div>
+              </li>
+              <li>
+                <p class="day">Jeudi</p>
+                <span class="separator"></span>
+                <div class="hours">
+                  <p>10:35</p>
+                  <span class="pink_dot"></span>
+                  <p>17:30</p>
+                </div>
+              </li>
+              <li>
+                <p class="day">Samedi</p>
+                <span class="separator"></span>
+                <div class="hours">
+                  <p>08:30</p>
+                  <span class="pink_dot"></span>
+                  <p>18:30</p>
+                </div>
+              </li>
+              <li>
+                <p class="day">Dimanche</p>
+                <span class="separator"></span>
+                <div class="hours">
+                  <p>08:30</p>
+                  <span class="pink_dot"></span>
+                  <p>18:30</p>
+                </div>
+              </li>
+              <li>
+                <p class="day">Lundi</p>
+                <span class="separator"></span>
+                <div class="hours">
+                  <p>10:35</p>
+                  <span class="pink_dot"></span>
+                  <p>17:30</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
       </section>
     </div>
     <div class="contact">

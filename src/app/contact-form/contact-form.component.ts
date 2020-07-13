@@ -16,7 +16,7 @@ export class ContactFormComponent implements OnInit {
       email: new FormControl(null),
       phone: new FormControl(null),
       message: new FormControl(null),
-      date: new FormControl(null),
+      datetime: new FormControl(null),
     });
   }
 }

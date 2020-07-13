@@ -5,16 +5,24 @@
   <app-header (showMenu)="onOpenMenu()"></app-header>
 </header>
 <main>
-<router-outlet></router-outlet>
-  <div class="overlay" [ngClass]="{showOverlay: filtersShown}">
-    <app-filters [slideUp]="filtersShown" (onCancel)="filtersShown = false"></app-filters>
-  </div>
-  <div class="overlay" [ngClass]="{showOverlay: sortingShown}">
-    <app-sorting [slideUp]="sortingShown" (onCancel)="sortingShown = false"></app-sorting>
+  <div class="mx-144">
+    <router-outlet></router-outlet>
+    <div class="overlay" [ngClass]="{ showOverlay: filtersShown }">
+      <app-filters
+        [slideUp]="filtersShown"
+        (onCancel)="filtersShown = false"
+      ></app-filters>
+    </div>
+    <div class="overlay" [ngClass]="{ showOverlay: sortingShown }">
+      <app-sorting
+        [slideUp]="sortingShown"
+        (onCancel)="sortingShown = false"
+      ></app-sorting>
+    </div>
   </div>
 </main>
 <footer>
-<!--  <button role="button" (click)="createComponent()">Dynamic</button>-->
+  <!--  <button role="button" (click)="createComponent()">Dynamic</button>-->
+  <app-footer></app-footer>
 </footer>
 <!--<ng-template appPlaceholder></ng-template>-->
-
