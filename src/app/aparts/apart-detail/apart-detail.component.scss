@@ -290,9 +290,12 @@
               display: flex;
               align-items: center;
               margin-bottom: 2rem;
+              margin-left: 1.6rem;
               svg {
                 width: 2rem;
                 height: 2rem;
+                min-width: 1.5rem;
+                min-height: 1.5rem;
                 fill: transparent;
                 margin-right: 0.8rem;
               }
@@ -395,6 +398,7 @@
             &.open-hours {
               ul.datetime-info {
                 justify-self: start;
+                margin-left: 1.6rem;
               }
             }
           }
@@ -416,6 +420,11 @@
       .contact {
         grid-column: 3 / -1;
         grid-row: 1 / -1;
+        position: relative;
+        .contact-sticky {
+          position: sticky;
+          top: 10rem;
+        }
       }
     }
   }
