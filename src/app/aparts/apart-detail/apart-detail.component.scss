@@ -121,7 +121,6 @@
           grid-template-columns: repeat(2, max-content);
           grid-template-rows: repeat(2, max-content);
           column-gap: 0.5rem;
-          align-items: end;
           .old {
             grid-column: 1 / 2;
             grid-row: 1 / 2;
