@@ -13,7 +13,7 @@ export class ListingComponent implements OnInit {
   constructor(private apartsService: ApartsService) { }
 
   ngOnInit(): void {
-    this.apartItems = this.apartsService.getAparts();
+    // this.apartItems = this.apartsService.getAparts();
   }
 
 }

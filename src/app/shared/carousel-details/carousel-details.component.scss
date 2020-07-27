@@ -1,0 +1,53 @@
+.carousel-advanced_container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .slide{
+    overflow: hidden;
+    //background-color: cadetblue;
+    .slider{
+      transition: all .5s cubic-bezier(0,.19,.06,.99);
+      display: flex;
+      &_item{
+        color: white;
+        padding: 0 .5rem;
+        font-size: 2rem;
+        img{
+          width: 100%;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  button.control_button{
+    position: absolute;
+    top: 50%;
+    border: none;
+    transform: translateY(-50%);
+    //background-color: rgba(black, .7);
+    background: none;
+    border-radius: 0 2rem 2rem 0;
+    color: white;
+    padding: 1rem;
+    outline: none;
+    cursor: pointer;
+
+    svg{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all .2s ease-in;
+      width: 3rem;
+      height: 3rem;
+      fill: white;
+    }
+    &:first-of-type{
+      left: .5rem;
+    }
+    &:last-of-type{
+      right: .5rem;
+      transform: rotate(180deg);
+    }
+  }
+}

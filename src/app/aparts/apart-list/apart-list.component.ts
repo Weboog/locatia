@@ -13,7 +13,10 @@ export class ApartListComponent implements OnInit {
   constructor(private apartsService: ApartsService) { }
 
   ngOnInit(): void {
-    this.apartsArray = this.apartsService.getAparts();
+    this.apartsService.getAparts().subscribe( (aparts: Apart[]) => {
+      this.apartsArray = aparts;
+      console.log(aparts);
+    });
   }
 
 }

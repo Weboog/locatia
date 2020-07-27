@@ -22,9 +22,10 @@
     margin-left: .3rem;
   }
   > *{
-    width: 85vw;
+    //width: 85vw;
   }
   .back{
+    display: none;
     padding: 2rem 0;
     svg{
       width: 3rem;
@@ -211,10 +212,10 @@
     }
   }
   .gallery{
+    position: relative;
     overflow: hidden;
-    border-radius: 1rem;
-    height: 20rem;
-    box-shadow:  0 0 .5rem rgba(black, .2);
+    //border-radius: 1rem;
+    //height: 24rem;
   }
   .details{
     display: grid;
@@ -270,20 +271,21 @@
 @media screen and (min-width: 1024px){
   .details-container{
     display: grid;
-    justify-content: unset;
+    justify-content: center;
     margin: 0;
     .gallery{
       height: 50rem;
+      width: 85vw;
     }
     .specification{
+      width: 85vw;
       grid-row: 1 / 2;
       section{
-        width: 70vw;
+        width: 85vw;
         .title{
           display: none;
         }
         .content{
-          //background-color: greenyellow;
           grid-template-columns: 1fr auto 1fr;
           align-items: center;
           row-gap: 1rem;
@@ -366,7 +368,7 @@
     }
     .wrapper{
       > div {
-        width: 70vw;
+        width: 85vw;
         .details{
           ul.composers{
             grid-template-columns: repeat(4, auto);

@@ -6,9 +6,15 @@
       </svg>
     </a>
   </div>
-  <div class="gallery">
-    <app-carousel [imgSources]="apart.images" id="0"></app-carousel>
-  </div>
+  <!--<div class="gallery">
+    <app-carousel [imgSources]="apart.images" id="0" [onDetails]="true"></app-carousel>
+  </div>-->
+  <app-carousel-details
+          [elemArray]="[0,1,2,3,4,5]"
+          [viewWidth]="85"
+          [itemsPerView]="2"
+          [stepPerView]="false">
+  </app-carousel-details>
   <div class="specification">
     <section>
       <h2 class="title">caractéristiques.</h2>

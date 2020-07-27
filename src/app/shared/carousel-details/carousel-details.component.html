@@ -1,0 +1,17 @@
+<div class="carousel-advanced_container">
+    <div class="slide" >
+        <div class="slider" #slider>
+            <div class="slider_item" *ngFor="let item of elemArray">
+                <img [src]="'assets/media/gallery/d48a8d420202c881f037a5b866ee239e33/d48a8d420202c881f037a5b866ee239e33-'+item+'.jpg'" alt="">
+                <!--<h1>{{item}}</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid consectetur consequatur cupiditate doloribus exercitationem inventore labore magni perspiciatis quidem.</p>-->
+            </div>
+        </div>
+    </div>
+    <button class="control_button" (click)="move('left')">
+        <svg><use href="assets/svg/sprite.svg#chevron"></use></svg>
+    </button>
+    <button class="control_button" (click)="move('right')">
+        <svg><use href="assets/svg/sprite.svg#chevron"></use></svg>
+    </button>
+</div>

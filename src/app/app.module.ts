@@ -43,6 +43,7 @@ import { BackgroundDirective } from './utils/directives/background.directive';
 import { HighlightProductComponent } from './shared/highlight-product/highlight-product.component';
 import { SelectMultipleComponent } from './utils/components/select-multiple/select-multiple.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { CarouselDetailsComponent } from './shared/carousel-details/carousel-details.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     HighlightProductComponent,
     SelectMultipleComponent,
     ContactFormComponent,
+    CarouselDetailsComponent,
   ],
   imports: [
     BrowserModule,

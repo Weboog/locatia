@@ -2,12 +2,20 @@
     <div id="id-{{ id }}" class="slider" [ngStyle]="{'width.vw': (items.length) * (onDetails ? 100 : step)}">
       <div class="slider_item">
         <img [src]="imgSources[0].src" alt="image-1">
+        <img [src]="imgSources[1].src" alt="image-2">
       </div>
     </div>
+    <div class="dots">
+        <div class="dot" *ngFor="let dot of imgSources; index as i" [ngClass]="{ active: i === currentItem - 1}"></div>
+    </div>
 </div>
-<div  class="controls">
-  <button id="control-{{ id }}-{{ button.direction }}" *ngFor="let button of buttons" [class]="button.class" (click)="move($event, button.direction)">{{ button.label }}</button>
-</div>
-<div class="dots">
-  <div class="dot" *ngFor="let dot of imgSources; index as i" [ngClass]="{ active: i === currentItem - 1}"></div>
-</div>
+<button id="control-{{ id }}-{{ buttons[0].direction }}" [class]="buttons[0].class" (click)="move($event, buttons[0].direction)">
+    <svg (click)="preventDispatch($event, 0)">
+        <use href="assets/svg/sprite.svg#chevron"></use>
+    </svg>
+</button>
+<button id="control-{{ id }}-{{ buttons[1].direction }}" [class]="buttons[1].class" (click)="move($event, buttons[1].direction)">
+    <svg (click)="preventDispatch($event, 1)">
+        <use href="assets/svg/sprite.svg#chevron"></use>
+    </svg>
+</button>

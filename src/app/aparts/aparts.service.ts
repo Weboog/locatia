@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Apart} from '../shared/custom-types/apart';
 import {HttpClient} from '@angular/common/http';
-import {Subject} from "rxjs";
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -88,8 +88,8 @@ export class ApartsService {
   }
 
   getAparts() {
-    // return this.httpClient.get('https://db-services.incoloria.com/apart/');
-    return this.aparts.slice();
+    return this.httpClient.get('https://db-services.incoloria.com/apart/');
+    // return this.aparts.slice();
   }
 
   getFeatured() {

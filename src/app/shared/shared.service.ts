@@ -5,7 +5,6 @@ import {Subject} from 'rxjs';
   providedIn: 'root'
 })
 export class SharedService {
-
   showFilters = new Subject<boolean>();
   showSorting = new Subject<boolean>();
 }
