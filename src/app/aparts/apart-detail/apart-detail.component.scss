@@ -4,32 +4,25 @@
   color: #4e4e4e;
   margin-bottom: 5rem;
   .back {
-    display: none;
-    //padding: 2rem 0;
-    //svg {
-    //  width: 3rem;
-    //  height: 2.5rem;
-    //}
-    //span.pink {
-    //  color: #ff0099;
-    //}
-    //svg {
-    //  fill: #ff0099;
-    //}
-    //i.dot {
-    //  display: inline-block;
-    //  width: 0.4rem;
-    //  height: 0.4rem;
-    //  border-radius: 50%;
-    //  background-color: #ff0099;
-    //  margin-left: 0.3rem;
-    //}
+    margin-top: 2rem;
+    a {
+      text-decoration: none;
+      font-size: 1.6rem;
+      color: #4e4e4e;
+      display: flex;
+      align-items: center;
+      width: max-content;
+      svg {
+        width: 3rem;
+        height: 2.5rem;
+        fill: currentColor;
+      }
+    }
   }
   .gallery {
+    position: relative;
     overflow: hidden;
-    height: 2rem;
-    width: 50%;
-    box-shadow: 0 0 0.5rem rgba(black, 0.2);
+    justify-self: center;
   }
   .wrapper {
     display: grid;

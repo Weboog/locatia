@@ -4,10 +4,17 @@
       <svg>
         <use href="assets/svg/arrow-left.svg#arrow-left"></use>
       </svg>
+      <span>Retour aux resultats</span>
     </a>
   </div>
   <div class="gallery">
-    <app-carousel [imgSources]="apart.images" id="0"></app-carousel>
+    <app-carousel-details
+      [elemArray]="[0, 1, 2, 3, 4, 5]"
+      [viewWidth]="85"
+      [itemsPerView]="2"
+      [stepPerView]="false"
+    >
+    </app-carousel-details>
   </div>
   <div class="wrapper">
     <div class="gallery-media-navigators">
