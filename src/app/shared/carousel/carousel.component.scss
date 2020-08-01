@@ -1,0 +1,131 @@
+.slide{
+  position: relative;
+  overflow: hidden;
+  .slider{
+    transition: margin .2s cubic-bezier(0,1.05,.8,.98);
+    display: flex;
+    &_item{
+      width: 100vw;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      img{
+        width: 100%;
+        box-shadow:  0 0 .5rem rgba(black, .2);
+      }
+    }
+  }
+}
+.dots{
+  position: absolute;
+  bottom: 1.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .dot{
+    transition: all .5s cubic-bezier(0,1,.49,1.25);
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 0 .5rem rgba(black, .25);
+    margin-right: .5rem;
+    &:last-of-type{
+      margin-right: 0;
+    }
+  }
+}
+button{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(black, .5);
+  color: white;
+  padding: 1rem 2rem;
+  outline: none;
+  svg{
+    width: 2rem;
+    height: 2rem;
+  }
+  &:first-of-type{
+    border-radius: 0 3rem 3rem 0;
+    left: 0;
+  }
+  &:last-of-type{
+    border-radius: 3rem 0 0 3rem;
+    right: 0;
+    svg{
+      transform: rotateZ(180deg);
+    }
+  }
+}
+.controls{
+  /*position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;*/
+}
+
+@media screen and (min-width: 768px){
+  .slide{
+    .slider{
+      &_item{
+        width: 100vw;
+        img{
+
+        }
+      }
+    }
+  }
+  .dots{
+    bottom: 14rem;
+  }
+}
+
+@media screen and (min-width: 1024px){
+
+  .slide{
+    .slider{
+      &_item{
+        width: unset;
+        &:not(:last-of-type){
+          margin-right: calc( 85vw * .5 / 100);
+        }
+        img{
+          width: calc(85vw * 50 / 100);
+          //width: 50%;
+        }
+      }
+    }
+  }
+
+  .dots{
+    bottom: 1rem;
+  }
+    button{
+      cursor: pointer;
+    }
+}
+@keyframes fadeIn {
+  25%  {opacity: .25}
+  50%  {opacity: .50}
+  75%  {opacity: .75}
+  100% {opacity: 1}
+}
+.active{
+  width: 1.5rem !important;
+  border-radius: 1rem !important;
+  background-color: #ff0099 !important;
+}
+.fadeInOut{
+  opacity: 1;
+  //margin-left: 0;
+}
+
+.resizeSliderItem{
+  width: 100vw !important;
+}
