@@ -1,0 +1,71 @@
+.contact-agent {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6rem;
+  .agent {
+    margin-bottom: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .agent-img {
+      margin-bottom: 1rem;
+      width: 8rem;
+      height: 8rem;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 7px solid #ffffff;
+      box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.13);
+      img {
+        height: 100%;
+      }
+    }
+    .agent_info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .agent_name {
+        font-size: 1.6rem;
+      }
+      .agent_agency {
+        color: #ff0099;
+      }
+    }
+  }
+  .contact_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    background-color: #fafafa;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    overflow: hidden;
+    > * {
+      flex-basis: 100%;
+    }
+    .contact_call,
+    .contact_message {
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      transition: all 0.2s ease-out;
+    }
+    .contact_call:hover,
+    .contact_message:hover {
+      background-color: #f1f1f1;
+    }
+    .contact_separator {
+      background-color: #ff0099;
+      flex-basis: 0.5rem;
+      height: 2.4rem;
+    }
+  }
+  svg {
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-right: 1rem;
+  }
+}

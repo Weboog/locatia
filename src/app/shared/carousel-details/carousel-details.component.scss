@@ -5,14 +5,12 @@
   align-items: center;
   .slide{
     overflow: hidden;
-    //background-color: cadetblue;
     .slider{
       transition: all .5s cubic-bezier(0,.19,.06,.99);
       display: flex;
       &_item{
         color: white;
         padding: 0 .5rem;
-        font-size: 2rem;
         img{
           width: 100%;
           cursor: pointer;
@@ -48,6 +46,20 @@
     &:last-of-type{
       right: .5rem;
       transform: rotate(180deg);
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .carousel-advanced_container {
+    .slide{
+      height: 39rem;
+      .slider{
+        &_item{
+          img{
+          }
+        }
+      }
     }
   }
 }

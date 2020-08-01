@@ -1,44 +1,114 @@
-.contact_form_container{
-  position: relative;
-  background-color: #414040;
-  border-radius: 1rem 1rem 0 0;
-  padding: 2rem;
-  color: white;
-  //border: 1px solid #EFEFEF;
-  box-shadow:  0 0 1rem rgba(black, .25);
-  p{
-    margin-top: 1.5rem;
-    font-size: 1.1rem;
-  }
-  .phone{
-    font-size: 1.2rem;
+.contact_form_container {
+  background-color: #fafafa;
+  border-radius: 1rem;
+  padding: 1rem 3rem;
+  color: #707070;
+  box-shadow: 0 0 0.5rem rgba(black, 0.25);
+  .form-title {
+    font-size: 1.8rem;
     font-weight: 600;
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin: 2.5rem 0;
   }
-  input, textarea{
-    background: none;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid #707070;
-    padding: 1rem .5rem;
-    color: white;
-    width: 100%;
-  }
-  button{
-    position: absolute;
-    left: 0;
-    margin-top: 2rem;
-    border: none;
-    outline: none;
-    text-align: center;
-    width: 100%;
-    padding: 1rem;
-    border-radius:  0 0 1rem 1rem;
-    border-top: 1px solid white;
-    background-color: #FF0099;
-    color: white;
-    font-weight: 600;
-    box-shadow:  0 .1rem 1rem rgba(black, .25);
+  #contact-form {
+    display: grid;
+    row-gap: 2.5rem;
+    .contact-form {
+      .contact-form__input {
+        position: relative;
+        border-bottom: 1px solid #b1b1b1;
+        padding: 1rem 0.5rem;
+        svg {
+          position: absolute;
+          top: 1.3rem;
+          left: 0;
+          width: 2rem;
+          height: 2rem;
+        }
+        input {
+          font-family: inherit;
+          font-size: inherit;
+          color: inherit;
+          font-weight: 600;
+          padding: 0.5rem 0.5rem 0.5rem 2.5rem;
+          background: none;
+          border: none;
+          outline: none;
+          width: 100%;
+          &::placeholder {
+            font-weight: 400;
+          }
+        }
+        input[type="datetime-local"] {
+          &::-webkit-calendar-picker-indicator {
+            opacity: 0;
+            width: 20%;
+          }
+          &::before {
+            content: "";
+            display: inline-block;
+            border-right: 2px solid #4e4e4e;
+            border-bottom: 2px solid #4e4e4e;
+            transform: rotate(45deg);
+            width: 1rem;
+            height: 1rem;
+            position: absolute;
+            right: 1rem;
+          }
+        }
+      }
+    }
+    .add-message {
+      font-size: 1.4rem;
+      color: #ff0099;
+      background-image: linear-gradient(to right, #eaeaea 50%, transparent 50%);
+      background-size: 200% 100%;
+      background-position: 85% bottom;
+      transition: all 0.2s ease-out;
+      cursor: pointer;
+      padding: 0.5rem 0.9rem;
+      width: max-content;
+      border-radius: 5rem;
+      &:hover {
+        background-position: left bottom;
+        border-radius: 1rem;
+      }
+      span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
+        margin-right: 1rem;
+        font-size: 2rem;
+        font-weight: 500;
+        //background-color: #eaeaea;
+        //width: 2rem;
+        //height: 2rem;
+        //border-radius: 50%;
+      }
+    }
+    .disclaimer {
+      font-weight: 500;
+      span {
+        color: #ff0099;
+      }
+    }
+    .send-message_btn {
+      justify-self: end;
+      border: none;
+      outline: none;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.6rem;
+      background-color: #ff0099;
+      color: white;
+      cursor: pointer;
+      padding: 1.5rem 2rem;
+      border-radius: 1rem;
+      transition: background-color 0.2s ease-out;
+      &:hover {
+        background-color: #cc007a;
+      }
+    }
   }
 }

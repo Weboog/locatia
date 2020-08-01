@@ -1,12 +1,13 @@
-#map{
-  height: 20rem;
+#map {
+  height: 40vh;
+  margin: 0 -1.1rem 0 -2.7rem;
   overflow: hidden;
   border-radius: 1rem;
-  box-shadow: 0 0 .5rem rgba(black, .2);
+  box-shadow: 0 0 0.5rem rgba(black, 0.2);
   z-index: 0;
 }
-@media screen and (min-width: 768px) {
-  #map{
-
+@media screen and (min-width: 1024px) {
+  #map {
+    margin: 0;
   }
 }

@@ -1,0 +1,89 @@
+.footer {
+  margin-top: 4rem;
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 10rem;
+      height: 0.1rem;
+      background-color: rgba(black, 0.2);
+    }
+    svg {
+      width: 6rem;
+      height: 6rem;
+      margin: 0 1rem;
+      fill: rgba(black, 0.5);
+    }
+  }
+  .social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > div {
+      svg {
+        width: 2.5rem;
+        height: 2.5rem;
+        margin: 0 0.5rem;
+      }
+    }
+  }
+  .menu {
+    margin: 2rem 0;
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      li {
+        margin: 0.5rem 0;
+        a {
+          text-decoration: none;
+          color: #4e4e4e;
+          font-weight: 600;
+          font-size: 1.2rem;
+          text-transform: uppercase;
+          cursor: pointer;
+          padding: 0.2rem 1rem;
+        }
+      }
+    }
+  }
+  .author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #4e4e4e;
+    svg {
+      //transition: all .5s ease-in-out;
+      animation: heartBeats 1s infinite;
+      width: 2.5rem;
+      height: 2.5rem;
+      fill: #ff0099;
+      margin: 0.5rem;
+    }
+    span {
+      font-weight: 800;
+      color: #ff0099;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .footer {
+    .menu {
+      ul {
+        flex-direction: row;
+        justify-content: center;
+        li {
+          a {
+          }
+        }
+      }
+    }
+  }
+}

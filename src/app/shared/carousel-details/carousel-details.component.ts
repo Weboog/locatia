@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-carousel-details',
@@ -12,17 +13,23 @@ export class CarouselDetailsComponent implements OnInit, AfterViewInit {
     @Input() viewWidth: number; // step of slide is calculated in vw
     @Input() itemsPerView: number;
     @Input() stepPerView: boolean;
+    id: string;
+    loadedItems = [];
+    step: number;
     slideWidth: number;
     itemWidth: number;
-    step: number;
     i = 0; // start item
 
-    constructor() {}
+    constructor( private activatedRoute: ActivatedRoute) {}
 
     ngOnInit(): void {
-        this.step = this.stepPerView ? this.viewWidth : this.viewWidth / this.itemsPerView;
-        this.slideWidth = this.viewWidth; // the width of screen's slide is equal to the step
-        this.itemWidth = this.slideWidth / this.itemsPerView; // we get item width from dividing screen width by number of wanted items
+      this.activatedRoute.paramMap.subscribe(paramMap => {
+        this.id = paramMap.get('id');
+      });
+      this.loadedItems.push(0, 1);
+      this.step = this.stepPerView ? this.viewWidth : this.viewWidth / this.itemsPerView;
+      this.slideWidth = this.viewWidth; // the width of screen's slide is equal to the step
+      this.itemWidth = this.slideWidth / this.itemsPerView; // we get item width from dividing screen width by number of wanted items
     }
 
     ngAfterViewInit(): void {
@@ -48,7 +55,6 @@ export class CarouselDetailsComponent implements OnInit, AfterViewInit {
     }
 
     move(direction: string) {
-
         const slider = this.slider.nativeElement;
         let length = this.elemArray.length / this.itemsPerView;
         if (!this.stepPerView) {
@@ -56,12 +62,16 @@ export class CarouselDetailsComponent implements OnInit, AfterViewInit {
                  length = this.elemArray.length - ( this.itemsPerView - 1 );
             }
         }
-
         while (this.i < length) {
             switch (direction) {
                 case 'right':
                     if (this.i + 1 < length) {
                         this.i++;
+                        if (!this.loadedItems.includes(this.i + 1)) {
+                          this.sliderItemCreator(slider, this.i);
+                        }
+                        // Remember loaded items
+                        this.loadedItems.push(this.i + 1);
                     }
                     slider.style.marginLeft = `calc( -${this.step}vw * ${this.i})`;
                     break;
@@ -74,5 +84,37 @@ export class CarouselDetailsComponent implements OnInit, AfterViewInit {
             break;
         }
     }
+
+  private sliderItemCreator(hostElement: HTMLDivElement, currentItem: number) {
+    // PROGRAMMATIC HTML -----------------------------------
+      const sliderItem = document.createElement('div');
+      // Styling the placeholder dynamically
+      sliderItem.className = 'slider_item';
+      sliderItem.style.width = `${this.itemWidth}vw`;
+      sliderItem.style.padding = ' 0 0.5rem';
+      sliderItem.style.display = 'flex';
+      sliderItem.style.justifyContent = 'center';
+      sliderItem.style.alignItems = 'center';
+      sliderItem.style.backgroundColor = '#FAFAFA';
+      sliderItem.style.backgroundClip = 'content-box';
+      sliderItem.innerHTML = `<div style="border-radius: 2rem; overflow: hidden;"><img src="assets/loaders/15.gif"><</div>`;
+      // Calling lazyLoading function to load and append image to sliderPlaceHolder
+      this.lazyLoadImage(sliderItem, currentItem);
+    // ADDING ELEMENTS TO VIEW -----------------------------
+      hostElement.append(sliderItem);
+  }
+
+  private lazyLoadImage(hostElement: HTMLDivElement, currentItem: number) {
+    const imageObject = new Image();
+    const imgSrc = `assets/media/gallery/${this.id}/${this.id}-${currentItem + 1}.jpg`;
+    imageObject.addEventListener('load', () => {
+      // this.isLoading = false;
+      hostElement.appendChild(imageObject);
+    });
+    imageObject.alt = `Image-${currentItem + 1}`;
+    imageObject.src = imgSrc;
+    imageObject.style.alignSelf = 'flex-start';
+    imageObject.style.width = '100%';
+  }
 
 }
