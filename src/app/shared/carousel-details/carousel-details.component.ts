@@ -23,6 +23,10 @@ export class CarouselDetailsComponent implements OnInit, AfterViewInit {
     constructor( private activatedRoute: ActivatedRoute) {}
 
     ngOnInit(): void {
+      if (window.matchMedia('(max-width: 411px)').matches) {
+        this.viewWidth = 100;
+        this.itemsPerView = 1;
+      }
       this.stepPerView = this.itemsPerView === 1;
       this.activatedRoute.paramMap.subscribe(paramMap => {
         this.id = paramMap.get('id');
@@ -92,13 +96,13 @@ export class CarouselDetailsComponent implements OnInit, AfterViewInit {
       // Styling the placeholder dynamically
       sliderItem.className = 'slider_item';
       sliderItem.style.width = `${this.itemWidth}vw`;
-      sliderItem.style.padding = ' 0 0.5rem';
+      sliderItem.style.padding = window.matchMedia('(max-width: 411px)').matches ?  '0' : '0 .5rem';
       sliderItem.style.display = 'flex';
       sliderItem.style.justifyContent = 'center';
       sliderItem.style.alignItems = 'center';
       sliderItem.style.backgroundColor = '#FAFAFA';
       sliderItem.style.backgroundClip = 'content-box';
-      sliderItem.innerHTML = `<div style="border-radius: 2rem; overflow: hidden;"><img src="assets/loaders/15.gif"></div>`;
+      sliderItem.innerHTML = `<div style="border-radius: 2rem; overflow: hidden; height: .5rem"><img src="assets/loaders/15.gif"></div>`;
       // Calling lazyLoading function to load and append image to sliderPlaceHolder
       this.lazyLoadImage(sliderItem, currentItem);
     // ADDING ELEMENTS TO VIEW -----------------------------
@@ -110,7 +114,9 @@ export class CarouselDetailsComponent implements OnInit, AfterViewInit {
     const imgSrc = `assets/media/gallery/${this.id}/${this.id}-${currentItem + 1}.jpg`;
     imageObject.addEventListener('load', () => {
       // this.isLoading = false;
-      hostElement.appendChild(imageObject);
+      // setTimeout( () => {
+        hostElement.appendChild(imageObject);
+      // }, 3000);
     });
     imageObject.alt = `Image-${currentItem + 1}`;
     imageObject.src = imgSrc;
