@@ -12,8 +12,8 @@ export class CarouselDetailsComponent implements OnInit, AfterViewInit {
     @Input() elemArray: any[]; // Elements to be displayed in carousel
     @Input() viewWidth: number; // step of slide is calculated in vw
     @Input() itemsPerView: number;
-    @Input() stepPerView: boolean;
     id: string;
+    stepPerView: boolean;
     loadedItems = [];
     step: number;
     slideWidth: number;
@@ -23,6 +23,7 @@ export class CarouselDetailsComponent implements OnInit, AfterViewInit {
     constructor( private activatedRoute: ActivatedRoute) {}
 
     ngOnInit(): void {
+      this.stepPerView = this.itemsPerView === 1;
       this.activatedRoute.paramMap.subscribe(paramMap => {
         this.id = paramMap.get('id');
       });
@@ -67,11 +68,11 @@ export class CarouselDetailsComponent implements OnInit, AfterViewInit {
                 case 'right':
                     if (this.i + 1 < length) {
                         this.i++;
-                        if (!this.loadedItems.includes(this.i + 1)) {
+                        if (this.elemArray.includes(this.i + 1) && !this.loadedItems.includes(this.i + 1)) {
                           this.sliderItemCreator(slider, this.i);
+                          // Remember loaded items
+                          this.loadedItems.push(this.i + 1);
                         }
-                        // Remember loaded items
-                        this.loadedItems.push(this.i + 1);
                     }
                     slider.style.marginLeft = `calc( -${this.step}vw * ${this.i})`;
                     break;
@@ -97,7 +98,7 @@ export class CarouselDetailsComponent implements OnInit, AfterViewInit {
       sliderItem.style.alignItems = 'center';
       sliderItem.style.backgroundColor = '#FAFAFA';
       sliderItem.style.backgroundClip = 'content-box';
-      sliderItem.innerHTML = `<div style="border-radius: 2rem; overflow: hidden;"><img src="assets/loaders/15.gif"><</div>`;
+      sliderItem.innerHTML = `<div style="border-radius: 2rem; overflow: hidden;"><img src="assets/loaders/15.gif"></div>`;
       // Calling lazyLoading function to load and append image to sliderPlaceHolder
       this.lazyLoadImage(sliderItem, currentItem);
     // ADDING ELEMENTS TO VIEW -----------------------------
