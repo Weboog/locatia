@@ -1,9 +1,10 @@
 .contact-agent {
   display: flex;
   flex-direction: column;
-  margin-bottom: 6rem;
+  margin-bottom: 1rem;
+  padding: 0 2rem;
   .agent {
-    margin-bottom: 3.5rem;
+    margin-bottom: 2.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,10 +36,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 1rem;
+    border-radius: .5rem;
     background-color: #fafafa;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
-    width: 100%;
+    //width: 100%;
     overflow: hidden;
     > * {
       flex-basis: 100%;
@@ -52,6 +53,9 @@
       justify-content: center;
       padding: 1rem;
       transition: all 0.2s ease-out;
+      span {
+        font-size: 1.2rem;
+      }
     }
     .contact_call:hover,
     .contact_message:hover {
@@ -64,8 +68,8 @@
     }
   }
   svg {
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 2rem;
+    height: 2rem;
     margin-right: 1rem;
   }
 }

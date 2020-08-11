@@ -1,9 +1,9 @@
 .contact_form_container {
-  background-color: #fafafa;
+  //background-color: #fafafa;
   border-radius: 1rem;
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
   color: #707070;
-  box-shadow: 0 0 0.5rem rgba(black, 0.25);
+  //box-shadow: 0 0 0.5rem rgba(black, 0.25);
   .form-title {
     font-size: 1.8rem;
     font-weight: 600;
@@ -60,6 +60,7 @@
     }
     .add-message {
       font-size: 1.4rem;
+      font-weight: 500;
       color: #ff0099;
       background-image: linear-gradient(to right, #eaeaea 50%, transparent 50%);
       background-size: 200% 100%;
@@ -68,10 +69,10 @@
       cursor: pointer;
       padding: 0.5rem 0.9rem;
       width: max-content;
-      border-radius: 5rem;
+      border-radius: .5rem;
       &:hover {
         background-position: left bottom;
-        border-radius: 1rem;
+        border-radius: .5rem;
       }
       span {
         display: inline-flex;
@@ -94,7 +95,7 @@
       }
     }
     .send-message_btn {
-      justify-self: end;
+      //justify-self: end;
       border: none;
       outline: none;
       text-align: center;
@@ -103,8 +104,8 @@
       background-color: #ff0099;
       color: white;
       cursor: pointer;
-      padding: 1.5rem 2rem;
-      border-radius: 1rem;
+      padding: 1rem;
+      border-radius: .5rem;
       transition: background-color 0.2s ease-out;
       &:hover {
         background-color: #cc007a;

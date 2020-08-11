@@ -1,6 +1,6 @@
 .details-container {
   display: grid;
-  row-gap: 4rem;
+  row-gap: 2rem;
   color: #4e4e4e;
   margin-bottom: 5rem;
   .back {
@@ -26,11 +26,12 @@
   }
   .wrapper {
     display: grid;
-    grid-gap: 4rem;
+    grid-gap: 2rem;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, auto);
     justify-items: start;
-    margin: 0 1.5rem;
+    //margin: 0 1.5rem;
+    >
     .gallery-media-navigators {
       grid-column: 1 / -1;
       grid-row: 1 / 2;
@@ -75,11 +76,15 @@
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: repeat(2, auto);
-      row-gap: 6rem;
+      row-gap: 2rem;
       .specification {
         display: grid;
         grid-template-rows: repeat(4, auto);
         grid-row-gap: 1rem;
+        margin: 0 1.5rem;
+        > div {
+          padding: 0 2rem;
+        }
         .id {
           font-weight: 600;
           grid-row: 1 / 2;
@@ -193,10 +198,13 @@
       }
       .main-content {
         display: grid;
-        grid-row-gap: 5rem;
+        grid-row-gap: 4rem;
+        .side_margin {
+          margin: 0 1.5rem;
+        }
         article {
           h2.title {
-            margin-bottom: 2.5rem;
+            //margin-bottom: 2.5rem;
             font-size: 2rem;
             font-weight: normal;
             text-transform: uppercase;
@@ -222,11 +230,11 @@
               }
             }
             ul.composers {
-              display: flex;
-              flex-wrap: wrap;
+              //display: flex;
+              //flex-wrap: wrap;
               font-size: 1.3rem;
               font-weight: 400;
-              align-items: flex-start;
+              //align-items: flex-start;
               li {
                 display: flex;
                 align-items: center;
@@ -248,6 +256,8 @@
             }
           }
           &.apart-content {
+            display: grid;
+            grid-row-gap: 2rem;
             .description {
               p {
                 margin-bottom: 1rem;
@@ -259,9 +269,7 @@
             }
             .conditions {
               ul.composers {
-                flex-direction: column;
-                flex-basis: auto;
-                flex-wrap: nowrap;
+
                 li {
                   margin-right: 0;
                 }
@@ -275,17 +283,24 @@
             box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.25);
             border-radius: 5px 5px 0 0;
             border-bottom: 2px solid #ff0099;
-            padding: 2.5rem;
+            padding: 2rem;
           }
           &.map {
+            //padding: 0 2rem;
+            > div {
+              padding: 0;
+              margin: 0;
+            }
           }
           &.open-hours {
             display: grid;
+            grid-row-gap: 2rem;
             .summer-alert {
               display: flex;
-              align-items: center;
-              margin-bottom: 2rem;
-              margin-left: 1.6rem;
+              align-items: flex-start;
+              //margin-bottom: 2rem;
+              //margin-left: 1.6rem;
+              //background-color: yellow;
               svg {
                 width: 2rem;
                 height: 2rem;
@@ -305,7 +320,7 @@
                 display: grid;
                 grid-template-columns: 1fr 7rem 1fr;
                 align-items: center;
-                font-size: 1.6rem;
+                font-size: 1.4rem;
                 font-weight: 500;
                 .day {
                 }
@@ -333,6 +348,7 @@
       grid-row: 3 / -1;
       justify-self: center;
       max-width: 50rem;
+      margin: 0 1.5rem;
       & *:first-letter {
         text-transform: capitalize;
       }

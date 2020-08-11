@@ -22,7 +22,6 @@
     position: absolute;
     top: 50%;
     border: none;
-    transform: translateY(-50%);
     //background-color: rgba(black, .7);
     background: none;
     border-radius: 0 2rem 2rem 0;
@@ -30,7 +29,6 @@
     padding: 1rem;
     outline: none;
     cursor: pointer;
-
     svg{
       display: flex;
       justify-content: center;
@@ -42,10 +40,11 @@
     }
     &:first-of-type{
       left: .5rem;
+      transform: translateY(-50%);
     }
     &:last-of-type{
       right: .5rem;
-      transform: rotate(180deg);
+      transform: translateY(-50%) rotate(180deg);
     }
   }
 }
