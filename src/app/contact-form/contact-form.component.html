@@ -1,35 +1,49 @@
+<!--suppress ALL -->
 <div class="contact_form_container">
   <p class="form-title">Formulaire de contact</p>
   <form [formGroup]="contactForm" id="contact-form">
     <div class="contact-form">
       <div class="contact-form__input">
-        <input type="text" placeholder="Noms" formControlName="name" required />
-        <svg><use href="assets/svg/sprite.svg#user"></use></svg>
+        <input formControlName="name" placeholder="Noms" required type="text"/>
+        <svg>
+          <use href="assets/svg/sprite.svg#user"></use>
+        </svg>
       </div>
       <div class="contact-form__input">
         <input
-          type="text"
-          placeholder="Email"
           formControlName="email"
+          placeholder="Email"
           required
-        />
-        <svg><use href="assets/svg/sprite.svg#message"></use></svg>
-      </div>
-      <div class="contact-form__input">
-        <input
           type="text"
-          placeholder="Telephone"
-          formControlName="phone"
-          required
         />
-        <svg><use href="assets/svg/sprite.svg#call"></use></svg>
+        <svg>
+          <use href="assets/svg/sprite.svg#message"></use>
+        </svg>
       </div>
       <div class="contact-form__input">
-        <input type="datetime-local" formControlName="datetime" required />
-        <svg><use href="assets/svg/sprite.svg#calendar"></use></svg>
+        <input formControlName="phone" placeholder="Telephone" required type="text"/>
+        <svg>
+          <use href="assets/svg/sprite.svg#call"></use>
+        </svg>
+      </div>
+      <div class="contact-form__input">
+        <input formControlName="datetime" required type="datetime-local"/>
+        <svg>
+          <use href="assets/svg/sprite.svg#calendar"></use>
+        </svg>
+      </div>
+      <div *ngIf="messageTextareaShown" class="contact-form__input">
+        <textarea formControlName="message" rows="3"></textarea>
+        <svg>
+          <use href="assets/svg/sprite.svg#calendar"></use>
+        </svg>
       </div>
     </div>
-    <h3 class="add-message">
+    <h3
+      (click)="onAddMessage()"
+      *ngIf="!messageTextareaShown"
+      class="add-message"
+    >
       <span>+</span>
       Ajouter un message
     </h3>
@@ -38,6 +52,6 @@
       renters. Feel free to inquire when
       <span class="pink-text">contacting</span>.
     </p>
-    <button type="submit" class="send-message_btn">Envoyer</button>
+    <button class="send-message_btn" type="submit">Envoyer</button>
   </form>
 </div>

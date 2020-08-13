@@ -39,34 +39,43 @@
       ul {
         display: flex;
         align-items: center;
-        > *:not(:last-child) {
-          margin-right: 1rem;
-        }
-        li a {
-          cursor: pointer;
-          background-color: #fafafa;
-          padding: 0.5rem 2rem;
-          border-radius: 5rem;
-          box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.25);
-          color: #4e4e4e;
-          font-weight: 600;
+        li {
           display: flex;
           align-items: center;
-          transition: all 0.2s ease-out;
-          svg {
-            width: 2.4rem;
-            height: 2.4rem;
-            fill: currentColor;
+          &:not(:first-child)::before {
+            content: "";
+            display: inline-block;
+            border-radius: 50%;
+            margin: 0 .7rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            background-color: #ff0099;
           }
-          .gallery-btn-label {
-            display: none;
+          a {
+            cursor: pointer;
+            background-color: #fafafa;
+            padding: 0.5rem 2rem;
+            border-radius: 5rem;
+            box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.25);
+            color: #4e4e4e;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s ease-out;
+            svg {
+              width: 2.4rem;
+              height: 2.4rem;
+              fill: currentColor;
+            }
+
+            .gallery-btn-label {
+              display: none;
+            }
+
+            &:hover {
+              background-color: #f1f1f1;
+            }
           }
-        }
-        li a:hover {
-          background-color: #f1f1f1;
-        }
-        span.pink_dot {
-          display: none;
         }
       }
     }
@@ -371,16 +380,15 @@
     .wrapper {
       .gallery-media-navigators {
         ul {
-          li a {
-            svg {
-              margin-right: 1rem;
+          li {
+            a {
+              svg {
+                margin-right: 1rem;
+              }
+              .gallery-btn-label {
+                display: unset;
+              }
             }
-            .gallery-btn-label {
-              display: unset;
-            }
-          }
-          span.pink_dot {
-            display: initial;
           }
         }
       }

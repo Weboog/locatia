@@ -8,6 +8,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ContactFormComponent implements OnInit {
   contactForm: FormGroup;
+  messageTextareaShown = false;
   constructor() {}
 
   ngOnInit(): void {
@@ -18,5 +19,9 @@ export class ContactFormComponent implements OnInit {
       message: new FormControl(null),
       datetime: new FormControl(null),
     });
+  }
+
+  onAddMessage() {
+    this.messageTextareaShown = true;
   }
 }
