@@ -31,8 +31,7 @@
     grid-template-rows: repeat(3, auto);
     justify-items: start;
     //margin: 0 1.5rem;
-    >
-    .gallery-media-navigators {
+    > .gallery-media-navigators {
       grid-column: 1 / -1;
       grid-row: 1 / 2;
       justify-self: center;
@@ -46,7 +45,7 @@
             content: "";
             display: inline-block;
             border-radius: 50%;
-            margin: 0 .7rem;
+            margin: 0 0.7rem;
             width: 0.5rem;
             height: 0.5rem;
             background-color: #ff0099;
@@ -278,7 +277,6 @@
             }
             .conditions {
               ul.composers {
-
                 li {
                   margin-right: 0;
                 }
@@ -362,6 +360,16 @@
         text-transform: capitalize;
       }
     }
+  }
+  .line-separator {
+    background-color: #ff0099;
+    width: 6rem;
+    height: 0.8rem;
+    border-radius: 1rem;
+    justify-self: center;
+  }
+  .featured-apparts {
+    justify-self: center;
   }
 }
 
