@@ -376,6 +376,7 @@
   }
   .featured-apparts {
     justify-self: center;
+    width: 60vw;
     .featured-appart-card {
       box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
       border-radius: 1rem;
@@ -467,8 +468,11 @@
         }
         .components {
           display: flex;
-          justify-content: space-between;
+          justify-content: center;
           align-items: center;
+          .pink_dot{
+            margin: 1rem;
+          }
         }
       }
     }
