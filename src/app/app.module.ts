@@ -45,6 +45,8 @@ import { SelectMultipleComponent } from "./utils/components/select-multiple/sele
 import { ContactFormComponent } from "./contact-form/contact-form.component";
 import { CarouselDetailsComponent } from "./shared/carousel-details/carousel-details.component";
 import { ContactAgentComponent } from "./contact-form/contact-agent/contact-agent.component";
+import { SliderModule } from "./shared/slider/slider.module";
+import { FeaturedAppartsComponent } from './aparts/apart-detail/featured-apparts/featured-apparts.component';
 
 @NgModule({
   declarations: [
@@ -89,12 +91,14 @@ import { ContactAgentComponent } from "./contact-form/contact-agent/contact-agen
     SelectMultipleComponent,
     ContactFormComponent,
     ContactAgentComponent,
+    FeaturedAppartsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    SliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

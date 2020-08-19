@@ -10,10 +10,8 @@
   <div class="gallery">
     <app-carousel-details
       [elemArray]="[0, 1, 2, 3, 4, 5]"
-      [viewWidth]="85"
       [itemsPerView]="2"
-    >
-    </app-carousel-details>
+      [viewWidth]="85"></app-carousel-details>
   </div>
   <div class="wrapper">
     <div class="gallery-media-navigators">
@@ -53,7 +51,9 @@
             {{ apart.property }}
           </p>
           <a class="register">
-            <svg><use href="assets/svg/sprite.svg#heart"></use></svg>
+            <svg>
+              <use href="assets/svg/sprite.svg#heart"></use>
+            </svg>
           </a>
         </div>
         <div class="price">
@@ -108,7 +108,7 @@
         </div>
       </section>
       <section class="main-content">
-        <article class="apart-content">
+        <article class="apart-content side_margin">
           <h2 class="title">à propos.</h2>
           <div class="description">
             <h3>description.</h3>
@@ -139,7 +139,7 @@
             </ul>
           </div>
         </article>
-        <article class="disclaimer">
+        <article class="disclaimer side_margin">
           <p>
             Vous pouvez demander au responsable du bien a propos des conditions
             de location et des frais secondaire qui peuvent être applique ou de
@@ -155,10 +155,12 @@
             ></app-here-map>
           </div>
         </article>
-        <article class="open-hours">
+        <article class="open-hours side_margin">
           <h2 class="title">horaire de travail</h2>
           <p class="summer-alert">
-            <svg><use href="assets/svg/sprite.svg#alert"></use></svg>
+            <svg>
+              <use href="assets/svg/sprite.svg#alert"></use>
+            </svg>
             Pendant la période d’été nous retardons 2 heures de plus le soir.
           </p>
           <ul class="datetime-info">
@@ -237,7 +239,10 @@
     </div>
   </div>
   <div class="line-separator"></div>
+  <h3 class="featured-apparts-title">Appartements Similaires</h3>
   <div class="featured-apparts">
-    Featured Apparts
+    <div>
+      <app-slider [slides]="slides"></app-slider>
+    </div>
   </div>
 </div>

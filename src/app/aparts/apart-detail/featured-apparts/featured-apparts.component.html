@@ -1,0 +1,36 @@
+<div class="featured-appart-card">
+  <div class="featured-appart-image">
+    <img [src]="data.images[0].src" alt="">
+  </div>
+  <section class="featured-appart-spec">
+    <div class="id">
+      <p class="apart-id">{{data.human_id}}</p>
+      <a class="register">
+        <svg><use href="assets/svg/sprite.svg#heart"></use></svg>
+      </a>
+    </div>
+    <div class="price">
+      <div class="current">{{data.price}}</div>
+      <div class="units">
+        <p class="currency">DH</p>
+        <p class="period">/ {{data.period}}</p>
+      </div>
+    </div>
+    <p class="address">
+      {{data.city}}
+    </p>
+    <div class="components">
+      <p class="surface">
+        {{data.surface}} M²
+      </p>
+      <span class="pink_dot"></span>
+      <p class="pieces">
+        {{data.pieces}} P
+      </p>
+      <span class="pink_dot"></span>
+      <p class="rooms">
+        {{data.rooms}} C
+      </p>
+    </div>
+  </section>
+</div>
