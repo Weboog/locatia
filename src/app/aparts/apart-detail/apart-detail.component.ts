@@ -3,6 +3,9 @@ import { ApartsService } from '../aparts.service';
 import { Apart } from '../../shared/custom-types/apart';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { SliderService } from '../../shared/slider/slider.service';
+import { FeaturedAppartsComponent } from './featured-apparts/featured-apparts.component';
+import { FeaturedAppartsService } from './featured-apparts/featured-apparts.service';
 
 @Component({
   selector: 'app-apart-detail',
@@ -12,9 +15,12 @@ import { map } from 'rxjs/operators';
 export class ApartDetailComponent implements OnInit, OnDestroy, AfterViewInit {
   apart: Apart;
   id: string;
+  slides;
 
   constructor(
+    private sliderService: SliderService,
     private apartsService: ApartsService,
+    private featuredAppartsService: FeaturedAppartsService,
     private route: ActivatedRoute
   ) {}
 
@@ -46,8 +52,12 @@ export class ApartDetailComponent implements OnInit, OnDestroy, AfterViewInit {
       )
       .subscribe((apart) => {
         this.apart = apart;
-        console.log(apart);
       });
+
+    this.slides = this.sliderService.getSlides(
+      FeaturedAppartsComponent,
+      this.featuredAppartsService.getFeaturedApparts()
+    );
   }
 
   ngOnDestroy() {
