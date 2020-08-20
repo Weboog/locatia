@@ -13,7 +13,7 @@ export class SliderService {
     for (const dt of data) {
       this.cardsArray.push(new SlideItem(component, data));
     }
-    console.log(this.cardsArray);
+    return this.cardsArray;
 
     // data.forEach((item) => {
       // this.cardsArray.push(new SlideItem(component, item));
