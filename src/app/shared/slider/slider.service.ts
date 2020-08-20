@@ -11,7 +11,8 @@ export class SliderService {
   public getSlides(component, data) {
 
     for (const dt of data) {
-      this.cardsArray.push(new SlideItem(component, data));
+      this.cardsArray.push(new SlideItem(component, dt));
+      console.log(data);
     }
     return this.cardsArray;
 
