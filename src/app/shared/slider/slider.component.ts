@@ -1,4 +1,14 @@
+<<<<<<< HEAD
 import { Component, ComponentFactoryResolver, Input, OnInit, ViewChild } from '@angular/core';
+=======
+import {
+  Component,
+  ComponentFactoryResolver,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+>>>>>>> cb9f0865b85f320fafa8e3f0b6890c643bb61294
 
 import { SliderDirective } from './slider.directive';
 import { SlideItem } from './slide-item';
@@ -31,11 +41,17 @@ export class SliderComponent implements OnInit {
     //     slide.component
     //   );
 
+<<<<<<< HEAD
     //   const componentRef = this.slideHost.viewContainerRef.createComponent<
     //     SliderModel
     //   >(componentFactory);
     //   componentRef.instance.data = slide.data;
     // });
+=======
+      const componentRef = this.slideHost.viewContainerRef.createComponent<SliderModel>(componentFactory);
+      componentRef.instance.data = slide.data;
+    });
+>>>>>>> cb9f0865b85f320fafa8e3f0b6890c643bb61294
 
     const slideItem = this.slides[this.currentSlideIndex];
 
