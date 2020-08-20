@@ -11,7 +11,8 @@
     <app-carousel-details
       [elemArray]="[0, 1, 2, 3, 4, 5]"
       [itemsPerView]="2"
-      [viewWidth]="85"></app-carousel-details>
+      [viewWidth]="85"
+    ></app-carousel-details>
   </div>
   <div class="wrapper">
     <div class="gallery-media-navigators">
@@ -79,28 +80,28 @@
         <div class="components">
           <div class="surface">
             <p class="value">
-              {{ apart.surface < 10 ? "0" + apart.surface : apart.surface }}
+              {{ apart.surface < 10 ? '0' + apart.surface : apart.surface }}
             </p>
             &nbsp;
             <span>m<sup>2</sup></span>
           </div>
           <div class="pieces">
             <p class="value">
-              {{ apart.pieces < 10 ? "0" + apart.pieces : apart.pieces }}
+              {{ apart.pieces < 10 ? '0' + apart.pieces : apart.pieces }}
             </p>
             &nbsp;
             <span class="measure_full">pieces</span>
           </div>
           <div class="rooms">
             <p class="value">
-              {{ apart.rooms < 10 ? "0" + apart.rooms : apart.rooms }}
+              {{ apart.rooms < 10 ? '0' + apart.rooms : apart.rooms }}
             </p>
             &nbsp;
             <span class="measure_full">chambres</span>
           </div>
           <div *ngIf="apart.floors > 0" class="floors">
             <p class="value">
-              {{ apart.floors < 10 ? "0" + apart.floors : apart.floors }}
+              {{ apart.floors < 10 ? '0' + apart.floors : apart.floors }}
             </p>
             &nbsp;
             <span class="measure_full">étages</span>
@@ -141,18 +142,15 @@
         </article>
         <article class="disclaimer side_margin">
           <p>
-            Vous pouvez demander au responsable du bien a propos des conditions
-            de location et des frais secondaire qui peuvent être applique ou de
-            nature fréquente comme cotisation syndicale etc...
+            Vous pouvez demander au responsable du bien a propos des conditions de location et des
+            frais secondaire qui peuvent être applique ou de nature fréquente comme cotisation
+            syndicale etc...
           </p>
         </article>
         <article class="map">
           <h2 class="title">position sur map.</h2>
           <div>
-            <app-here-map
-              [lat]="apart.location.lat"
-              [lng]="apart.location.lng"
-            ></app-here-map>
+            <app-here-map [lat]="apart.location.lat" [lng]="apart.location.lng"></app-here-map>
           </div>
         </article>
         <article class="open-hours side_margin">
@@ -241,7 +239,7 @@
   <div class="line-separator"></div>
   <h3 class="featured-apparts-title">Appartements Similaires</h3>
   <div class="featured-apparts">
-    <div>
+    <div class="slide-card">
       <app-slider [slides]="slides"></app-slider>
     </div>
   </div>

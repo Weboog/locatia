@@ -1,7 +1,13 @@
 <div class="slider">
-  <button (click)="onPreviousClick()">Previous</button>
-  <div class="slider-content">
-    <ng-template slideHost></ng-template>
-  </div>
-  <button (click)="onNextClick()">NEXT</button>
+  <a class="chevron" (click)="onPreviousClick()">
+    <svg>
+      <use href="assets/svg/sprite.svg#chevron"></use>
+    </svg>
+  </a>
+  <ng-template class="slider-content" slideHost></ng-template>
+  <a class="chevron rotate" (click)="onNextClick()">
+    <svg>
+      <use href="assets/svg/sprite.svg#chevron"></use>
+    </svg>
+  </a>
 </div>

@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { SliderService } from '../../shared/slider/slider.service';
 import { FeaturedAppartsComponent } from './featured-apparts/featured-apparts.component';
 import { FeaturedAppartsService } from './featured-apparts/featured-apparts.service';
+import { SlideItem } from 'src/app/shared/slider/slide-item';
 
 @Component({
   selector: 'app-apart-detail',
@@ -15,7 +16,7 @@ import { FeaturedAppartsService } from './featured-apparts/featured-apparts.serv
 export class ApartDetailComponent implements OnInit, OnDestroy, AfterViewInit {
   apart: Apart;
   id: string;
-  slides;
+  slides: SlideItem[];
 
   constructor(
     private sliderService: SliderService,
