@@ -1,22 +1,16 @@
-import {
-  Component,
-  ComponentFactoryResolver,
-  Input,
-  OnInit,
-  ViewChild,
-} from "@angular/core";
+import { Component, ComponentFactoryResolver, Input, OnInit, ViewChild } from '@angular/core';
 
-import { SliderDirective } from "./slider.directive";
-import { SlideItem } from "./slide-item";
+import { SliderDirective } from './slider.directive';
+import { SlideItem } from './slide-item';
 
 export interface SliderModel {
   data: any;
 }
 
 @Component({
-  selector: "app-slider",
-  templateUrl: "./slider.component.html",
-  styleUrls: ["./slider.component.scss"],
+  selector: 'app-slider',
+  templateUrl: './slider.component.html',
+  styleUrls: ['./slider.component.scss'],
 })
 export class SliderComponent implements OnInit {
   currentSlideIndex = 0;
@@ -27,35 +21,31 @@ export class SliderComponent implements OnInit {
 
   ngOnInit() {
     this.loadComponent();
-    console.log("Slides", this.slides);
-    console.log("Current Slide", this.slides[this.currentSlideIndex]);
+    console.log('Slides', this.slides);
+    console.log('Current Slide', this.slides[this.currentSlideIndex]);
   }
 
   loadComponent() {
-    this.slides.forEach((slide, index) => {
-      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
-        slide.component
-      );
+    // this.slides.forEach((slide, index) => {
+    //   const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
+    //     slide.component
+    //   );
 
-      const componentRef = this.slideHost.viewContainerRef.createComponent<
-        SliderModel
-      >(componentFactory);
-      componentRef.instance.data = slide.data;
-    });
+    //   const componentRef = this.slideHost.viewContainerRef.createComponent<
+    //     SliderModel
+    //   >(componentFactory);
+    //   componentRef.instance.data = slide.data;
+    // });
 
-    /*const slideItem = this.slides[this.currentSlideIndex];
+    const slideItem = this.slides[this.currentSlideIndex];
 
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
-      slideItem.component
-    );
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(slideItem.component);
 
-    const viewContainerRef = this.slideHost.viewContainerRef;
-    viewContainerRef.clear();
+    // const viewContainerRef = this.slideHost.viewContainerRef;
+    // viewContainerRef.clear();
 
-    const componentRef = viewContainerRef.createComponent<SliderModel>(
-      componentFactory
-    );
-    componentRef.instance.data = slideItem.data;*/
+    const componentRef = this.slideHost.viewContainerRef.createComponent<SliderModel>(componentFactory);
+    componentRef.instance.data = slideItem.data;
   }
 
   public onPreviousClick() {

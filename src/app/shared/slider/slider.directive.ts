@@ -1,7 +1,7 @@
-import { Directive, ViewContainerRef } from "@angular/core";
+import { Directive, ViewContainerRef } from '@angular/core';
 
 @Directive({
-  selector: "[slideHost]",
+  selector: '[slideHost]',
 })
 export class SliderDirective {
   constructor(public viewContainerRef: ViewContainerRef) {}

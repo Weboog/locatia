@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "start",
+      "problemMatcher": [],
+      "label": "npm: start",
+      "detail": "ng serve -o"
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: build",
+      "detail": "ng build --prod"
+    },
+    {
+      "type": "npm",
+      "script": "build-locatia",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: build Locatia",
+      "detail": "ng build --prod --base-href https://joebeurg.github.io/locatia/"
+    },
+    {
+      "type": "npm",
+      "script": "deploy-locatia",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: deploy Locatia to GitHub",
+      "detail": "ngh --dir dist/locatia"
+    }
+  ]
+}
