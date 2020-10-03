@@ -31,5 +31,11 @@
 		"ristiques",
 		"tages",
 		"étages"
+	],
+	"cSpell.ignoreWords": [
+		"downlevel",
+		"downlevel iteration",
+		"esnext",
+		"iteration"
 	]
 }

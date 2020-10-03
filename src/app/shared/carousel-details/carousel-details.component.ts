@@ -1,20 +1,13 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  Input,
-  OnInit,
-  ViewChild,
-} from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: "app-carousel-details",
-  templateUrl: "./carousel-details.component.html",
-  styleUrls: ["./carousel-details.component.scss"],
+  selector: 'app-carousel-details',
+  templateUrl: './carousel-details.component.html',
+  styleUrls: ['./carousel-details.component.scss'],
 })
 export class CarouselDetailsComponent implements OnInit, AfterViewInit {
-  @ViewChild("slider", { static: false }) slider: ElementRef;
+  @ViewChild('slider', { static: false }) slider: ElementRef;
   @Input() elemArray: any[]; // Elements to be displayed in carousel
   @Input() viewWidth: number; // step of slide is calculated in vw
   @Input() itemsPerView: number;
@@ -38,18 +31,14 @@ export class CarouselDetailsComponent implements OnInit, AfterViewInit {
       this.id = paramMap.get('id');
     });
     this.loadedItems.push(0, 1);
-    this.step = this.stepPerView
-      ? this.viewWidth
-      : this.viewWidth / this.itemsPerView;
+    this.step = this.stepPerView ? this.viewWidth : this.viewWidth / this.itemsPerView;
     this.slideWidth = this.viewWidth; // the width of screen's slide is equal to the step
     this.itemWidth = this.slideWidth / this.itemsPerView; // we get item width from dividing screen width by number of wanted items
   }
 
   ngAfterViewInit(): void {
     this.slider.nativeElement.parentNode.style.width = `${this.slideWidth}vw`; // Resize slide
-    this.slider.nativeElement.style.width = `${
-      this.itemWidth * this.elemArray.length
-    }vw`; // resize slider to be bigger or smaller
+    this.slider.nativeElement.style.width = `${this.itemWidth * this.elemArray.length}vw`; // resize slider to be bigger or smaller
     for (const item of this.slider.nativeElement.children) {
       item.style.width = `${this.itemWidth}vw`; // assigning right width to each element to fit slide scope
     }
@@ -84,10 +73,7 @@ export class CarouselDetailsComponent implements OnInit, AfterViewInit {
         case 'right':
           if (this.i + 1 < length) {
             this.i++;
-            if (
-              this.elemArray.includes(this.i + 1) &&
-              !this.loadedItems.includes(this.i + 1)
-            ) {
+            if (this.elemArray.includes(this.i + 1) && !this.loadedItems.includes(this.i + 1)) {
               this.sliderItemCreator(slider, this.i);
               // Remember loaded items
               this.loadedItems.push(this.i + 1);
@@ -95,7 +81,7 @@ export class CarouselDetailsComponent implements OnInit, AfterViewInit {
           }
           slider.style.marginLeft = `calc( -${this.step}vw * ${this.i})`;
           break;
-        case "left":
+        case 'left':
           if (this.i - 1 >= 0) {
             this.i--;
           }
@@ -107,18 +93,16 @@ export class CarouselDetailsComponent implements OnInit, AfterViewInit {
 
   private sliderItemCreator(hostElement: HTMLDivElement, currentItem: number) {
     // PROGRAMMATIC HTML -----------------------------------
-    const sliderItem = document.createElement("div");
+    const sliderItem = document.createElement('div');
     // Styling the placeholder dynamically
     sliderItem.className = 'slider_item';
     sliderItem.style.width = `${this.itemWidth}vw`;
-    sliderItem.style.padding = window.matchMedia("(max-width: 411px)").matches
-      ? "0"
-      : "0 .5rem";
-    sliderItem.style.display = "flex";
-    sliderItem.style.justifyContent = "center";
-    sliderItem.style.alignItems = "center";
-    sliderItem.style.backgroundColor = "#FAFAFA";
-    sliderItem.style.backgroundClip = "content-box";
+    sliderItem.style.padding = window.matchMedia('(max-width: 411px)').matches ? '0' : '0 .5rem';
+    sliderItem.style.display = 'flex';
+    sliderItem.style.justifyContent = 'center';
+    sliderItem.style.alignItems = 'center';
+    sliderItem.style.backgroundColor = '#FAFAFA';
+    sliderItem.style.backgroundClip = 'content-box';
     sliderItem.innerHTML = `<div style="border-radius: 2rem; overflow: hidden; height: .5rem"><img src="assets/loaders/15.gif"></div>`;
     // Calling lazyLoading function to load and append image to sliderPlaceHolder
     this.lazyLoadImage(sliderItem, currentItem);
@@ -128,10 +112,8 @@ export class CarouselDetailsComponent implements OnInit, AfterViewInit {
 
   private lazyLoadImage(hostElement: HTMLDivElement, currentItem: number) {
     const imageObject = new Image();
-    const imgSrc = `assets/media/gallery/${this.id}/${this.id}-${
-      currentItem + 1
-    }.jpg`;
-    imageObject.addEventListener("load", () => {
+    const imgSrc = `assets/media/gallery/${this.id}/${this.id}-${currentItem + 1}.jpg`;
+    imageObject.addEventListener('load', () => {
       // this.isLoading = false;
       // setTimeout( () => {
       hostElement.appendChild(imageObject);
@@ -139,7 +121,7 @@ export class CarouselDetailsComponent implements OnInit, AfterViewInit {
     });
     imageObject.alt = `Image-${currentItem + 1}`;
     imageObject.src = imgSrc;
-    imageObject.style.alignSelf = "flex-start";
-    imageObject.style.width = "100%";
+    imageObject.style.alignSelf = 'flex-start';
+    imageObject.style.width = '100%';
   }
 }

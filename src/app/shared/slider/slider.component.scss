@@ -1,8 +1,17 @@
 .slider {
   display: flex;
-  align-items: center;
   gap: 5rem;
-  .chevron {
+  overflow: hidden;
+  .slider-content {
+    display: flex;
+    gap: 2rem;
+  }
+  a.chevron {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, white 44%, transparent 100%);
+    position: relative;
+    z-index: 2;
     cursor: pointer;
     svg {
       fill: #4e4e4e;
