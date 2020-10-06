@@ -2,7 +2,7 @@ import { Component, ComponentFactoryResolver, Input, OnInit, ViewChild } from '@
 
 import { SliderDirective } from './slider.directive';
 import { SlideItem } from './slide-item';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { trigger, style, transition, animate } from '@angular/animations';
 
 export interface SliderModel {
   data: any;
@@ -13,30 +13,15 @@ export interface SliderModel {
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss'],
   animations: [
-    trigger('directionReverse', [
-      state(
-        'toLeft',
-        style({
-          transform: 'translateX(-25rem)',
-        })
-      ),
-      state(
-        'toRight',
-        style({
-          transform: 'translateX(0)',
-        })
-      ),
-      transition('toLeft => toRight', [animate('.5s')]),
-      transition('toRight => toLeft', [animate('0.5s')]),
+    trigger('carouselAnimation', [
+      transition('void => *', [style({ opacity: 0 }), animate('300ms', style({ opacity: 1 }))]),
+      transition('* => void', [animate('300ms', style({ opacity: 0 }))]),
     ]),
   ],
 })
 export class SliderComponent implements OnInit {
   currentSlideIndex = 0;
-  itemsPosition: string;
   @Input() slides: SlideItem[];
-  @Input() viewWidth: number;
-  @Input() itemsPerView: number;
   @ViewChild(SliderDirective, { static: true }) slideHost: SliderDirective;
 
   isInitial = false;
@@ -53,33 +38,30 @@ export class SliderComponent implements OnInit {
   }
 
   loadComponent() {
-    this.slides.forEach((slide) => {
+    this.slideHost.viewContainerRef.clear();
+    if (window.innerWidth > 875) {
+      this.slides.forEach((slide) => {
+        const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
+          slide.component
+        );
+        const componentRef = this.slideHost.viewContainerRef.createComponent<SliderModel>(
+          componentFactory
+        );
+        componentRef.instance.data = slide.data;
+      });
+    } else {
+      const slideItem = this.slides[this.currentSlideIndex];
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
-        slide.component
+        slideItem.component
       );
       const componentRef = this.slideHost.viewContainerRef.createComponent<SliderModel>(
         componentFactory
       );
-      componentRef.instance.data = slide.data;
-    });
-
-    // const slideItem = this.slides[this.currentSlideIndex];
-
-    // const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
-    //   slideItem.component
-    // );
-
-    // const viewContainerRef = this.slideHost.viewContainerRef;
-    // viewContainerRef.clear();
-
-    // const componentRef = this.slideHost.viewContainerRef.createComponent<SliderModel>(
-    //   componentFactory
-    // );
-    // componentRef.instance.data = slideItem.data;
+      componentRef.instance.data = slideItem.data;
+    }
   }
 
   public onChevronClick(direction: string) {
-    this.itemsPosition = direction;
     if (direction === 'next') {
       const next = this.currentSlideIndex + 1;
       this.currentSlideIndex = next === this.slides.length ? 0 : next;

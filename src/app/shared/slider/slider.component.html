@@ -1,13 +1,13 @@
 <div class="slider">
-  <a class="chevron" (click)="toggle()">
+  <a class="chevron" (click)="onChevronClick('prev')">
     <svg>
       <use href="assets/svg/sprite.svg#chevron"></use>
     </svg>
   </a>
-  <div class="slider-content" [@directionReverse]="isInitial ? 'left' : 'right'">
+  <div class="slider-content" @carouselAnimation>
     <ng-template slideHost></ng-template>
   </div>
-  <a class="chevron rotate" (click)="toggle()">
+  <a class="chevron rotate" (click)="onChevronClick('next')">
     <svg>
       <use href="assets/svg/sprite.svg#chevron"></use>
     </svg>

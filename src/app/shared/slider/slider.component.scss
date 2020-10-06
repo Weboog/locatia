@@ -1,10 +1,10 @@
 .slider {
   display: flex;
   gap: 5rem;
-  overflow: hidden;
   .slider-content {
     display: flex;
     gap: 2rem;
+    transition: all 1s ease;
   }
   a.chevron {
     display: flex;
