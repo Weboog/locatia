@@ -70,11 +70,11 @@ export class ApartsService {
   // http://db-services.web/apart/${id}
   // https://db-services.incoloria.com/apart/${id}
   getApart(id: string) {
-    return this.httpClient.get(`https://db-services.incoloria.com/apart/${id}`);
+    return this.httpClient.get(`https://db-services.web/apart/${id}`);
   }
 
   getAparts() {
-    return this.httpClient.get('https://db-services.incoloria.com/apart/');
+    return this.httpClient.get('https://db-services.web/apart/');
     // return this.aparts.slice();
   }
 

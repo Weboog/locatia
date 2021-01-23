@@ -24,6 +24,7 @@ export class FavouriteService {
       }
       return JSON.parse(registeredAparts);
     }
+    return {registered: 0};
   }
 
   registerApart(id: string) {
