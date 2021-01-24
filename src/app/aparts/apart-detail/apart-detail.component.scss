@@ -207,7 +207,7 @@
         display: grid;
         grid-row-gap: 4rem;
         .side_margin {
-          margin: 0 1.5rem;
+          margin: 0 2rem;
         }
         article {
           h2.title {
@@ -291,7 +291,9 @@
             padding: 2rem;
           }
           &.map {
-            //padding: 0 2rem;
+            display: grid;
+            grid-row-gap: 2rem;
+            padding: 0 2rem;
             > div {
               padding: 0;
               margin: 0;
@@ -418,14 +420,25 @@
 @media screen and (min-width: 1024px) {
   .details-container {
     .wrapper {
+      width: 90vw;
       .details {
         grid-column: 1 / span 2;
         grid-row: 1 / -1;
+        article {
+          &.open-hours {
+            .summer-alert {
+              font-size: 1.4rem;
+            }
+          }
+        }
       }
       .contact {
         grid-column: 3 / -1;
         grid-row: 1 / -1;
         position: relative;
+        padding: 2rem;
+        border-radius: 2rem;
+        background-color: rgba(grey, .05);
         .contact-sticky {
           position: sticky;
           top: 10rem;

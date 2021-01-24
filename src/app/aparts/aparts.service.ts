@@ -69,6 +69,7 @@ export class ApartsService {
 
   // http://db-services.web/apart/${id}
   // https://db-services.incoloria.com/apart/${id}
+  // http://boogstell-api.atwebpages.com/apart/
   getApart(id: string) {
     return this.httpClient.get(`https://db-services.web/apart/${id}`);
   }
