@@ -76,8 +76,9 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   }
 
   private initCarousel() {
-    this.items.push(this.imgSources[this.currentItem].id, this.imgSources[this.currentItem + 1].id);
-    this.currentItem = 1;
+    console.log(this.imgSources);
+    // this.items.push(this.imgSources[this.currentItem].id, this.imgSources[this.currentItem + 1].id);
+    // this.currentItem = 1;
   }
 
   private handleSliderTouch() {

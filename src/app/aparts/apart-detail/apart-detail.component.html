@@ -1,13 +1,13 @@
 <div class="details-container">
-  <div class="back">
-    <a routerLink="/aparts">
-      <svg>
-        <use href="assets/svg/arrow-left.svg#arrow-left"></use>
-      </svg>
-      <span>Retour aux résultats.</span>
-    </a>
-  </div>
   <div class="gallery">
+    <div class="back">
+      <a routerLink="/aparts">
+        <svg>
+          <use href="assets/svg/arrow-left.svg#arrow-left"></use>
+        </svg>
+        <span>Listing</span>
+      </a>
+    </div>
     <app-carousel-details
       [elemArray]="[0, 1, 2, 3, 4, 5]"
       [itemsPerView]="2"

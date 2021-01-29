@@ -19,13 +19,21 @@ export class ApartComponent implements OnInit {
   constructor( private router: Router, private route: ActivatedRoute, private favouriteService: FavouriteService) { }
 
   ngOnInit(): void {
-
+    const galleryPath = 'assets/media/gallery/';
     if (this.favouriteService.getRegistered()) {
       if (this.favouriteService.getRegistered(this.apart.id)) {
         this.favourite = true;
       }
     }
+    ////////////////////////////////////////////////////
 
+    const imgObj = new Image();
+    imgObj.addEventListener('load', () => {
+      console.log(imgObj.src);
+    });
+    imgObj.src = galleryPath + this.apart.id + '/' + this.apart.id + '-0.jpg';
+
+    ////////////////////////////////////////////////////
   }
 
   private adaptImages(detailed: boolean) {
@@ -50,7 +58,7 @@ export class ApartComponent implements OnInit {
   }
 
   onDescription(id: number) {
-    this.router.navigate([`aparts/${id}`]);
+    this.router.navigate([`aparts/${this.apart.id}`]);
     /*this.detailed = !this.detailed;
     this.adaptImages(this.detailed);
     if (this.detailed) {

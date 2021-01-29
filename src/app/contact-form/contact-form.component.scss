@@ -95,16 +95,16 @@
       }
     }
     .send-message_btn {
-      //justify-self: end;
+      justify-self: end;
       border: none;
       outline: none;
       text-align: center;
       font-weight: 600;
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       background-color: #ff0099;
       color: white;
       cursor: pointer;
-      padding: 1rem;
+      padding: 1rem 1.5rem;
       border-radius: .5rem;
       transition: background-color 0.2s ease-out;
       &:hover {
