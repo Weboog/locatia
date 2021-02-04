@@ -15,11 +15,12 @@
         </svg>
       </a>
     </div>
-<!--    <app-carousel-->
-<!--      [imgSources]="apart.images"-->
-<!--      [id]="carouselId"-->
-<!--      [onDetails]="detailed"-->
-<!--    ></app-carousel>-->
+    <app-carousel
+      [apartId]="apart.id"
+      [carouselId]="carouselId"
+      [onDetails]="detailed"
+      [imgSources]="apart.images"
+    ></app-carousel>
   </div>
   <div
     class="details"

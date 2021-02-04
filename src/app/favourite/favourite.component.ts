@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ApartsService} from '../aparts/aparts.service';
 import {Apart} from '../shared/custom-types/apart';
 import {FavouriteService} from './favourite.service';
-import {Subscription} from "rxjs";
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-favourite',

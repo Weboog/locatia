@@ -29,7 +29,7 @@ export class FavouriteService {
 
   registerApart(id: string) {
     const registeredAparts = this.getRegistered();
-    if (registeredAparts === undefined) {
+    if (registeredAparts.registered === 0) {
       localStorage.setItem('registeredAparts', `{"registered": [ "${id}" ]}`);
       return true;
     }

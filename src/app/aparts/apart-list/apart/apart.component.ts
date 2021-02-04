@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Apart} from '../../../shared/custom-types/apart';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FavouriteService} from '../../../favourite/favourite.service';
+import {GlobalContants} from '../../../common/global-contants';
 
 
 @Component({
@@ -19,19 +20,21 @@ export class ApartComponent implements OnInit {
   constructor( private router: Router, private route: ActivatedRoute, private favouriteService: FavouriteService) { }
 
   ngOnInit(): void {
-    const galleryPath = 'assets/media/gallery/';
+    const galleryPath = GlobalContants.gallery.remote + 'assets/media/gallery/';
     if (this.favouriteService.getRegistered()) {
       if (this.favouriteService.getRegistered(this.apart.id)) {
         this.favourite = true;
       }
     }
+
+    // console.log(this.apart);
     ////////////////////////////////////////////////////
 
-    const imgObj = new Image();
-    imgObj.addEventListener('load', () => {
-      console.log(imgObj.src);
-    });
-    imgObj.src = galleryPath + this.apart.id + '/' + this.apart.id + '-0.jpg';
+    // const imgObj = new Image();
+    // imgObj.addEventListener('load', () => {
+    //   console.log(imgObj.src);
+    // });
+    // imgObj.src = galleryPath + this.apart.id + '/' + this.apart.id + '-0.jpg';
 
     ////////////////////////////////////////////////////
   }

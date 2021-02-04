@@ -5,17 +5,17 @@
   <div class="favourite_list">
     <div class="favourite" *ngFor="let apart of aparts; index as i" [id]="'favourite-'+i">
       <div class="bgImage">
-        <img [src]="apart.images[0].src" src="assets/media/img-1.jpg" alt="">
+        <img [src]="apart.images[0].src" alt="">
       </div>
       <div class="gradient"></div>
       <div class="elements">
-        <div class="id"><span>#</span>{{apart.id}}</div>
+        <div class="id"><span>#</span>{{apart.human_id}}</div>
         <a class="delete" (click)="delete(apart.id, i)">
           <svg>
             <use href="assets/svg/sprite.svg#delete"></use>
           </svg>
         </a>
-        <div class="type">{{apart.type}}</div>
+        <div class="type">{{apart.property}}</div>
         <div class="price">
           <div class="old"></div>
           <div class="current">{{apart.price}}</div>
@@ -25,19 +25,19 @@
         <div class="components">
           <div class="surface">
             <span class="label">surface</span>
-            <p>{{apart.specs.surface}} M<sup>2</sup>.</p>
+            <p>{{apart.surface}} M<sup>2</sup>.</p>
           </div>
           <div class="pieces">
             <span class="label">pièces</span>
-            <p>{{apart.specs.pieces}} P.</p>
+            <p>{{apart.pieces}} P.</p>
           </div>
           <div class="rooms">
             <span class="label">chambres</span>
-            <p>{{apart.specs.rooms}} C.</p>
+            <p>{{apart.rooms}} C.</p>
           </div>
-          <div class="floors" *ngIf="apart.specs.floors">
+          <div class="floors" *ngIf="apart.floors > 0">
             <span class="label">étages</span>
-            <p>{{apart.specs.floors}} E.</p>
+            <p>{{apart.floors}} E.</p>
           </div>
         </div>
       </div>

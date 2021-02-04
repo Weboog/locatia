@@ -1,5 +1,7 @@
 import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {Carousel} from './carousel';
+import {GlobalContants} from '../../common/global-contants';
+import {Apart} from '../custom-types/apart';
 
 @Component({
   selector: 'app-carousel',
@@ -10,14 +12,16 @@ export class CarouselComponent implements OnInit, AfterViewInit {
 
   constructor() { }
 
+  @Input() onDetails: boolean;
+  @Input() apartId: string;
+  @Input() carouselId: number; // Unique id for each gallery on listing
+  @Input() imgSources: Carousel[] = [];
+
+  galleryPath = '';
   currentItem = 0;
   items: number[] = []; // Contain already loaded images to prevent reloading
   isLoading = false;
   step = 100;
-
-  @Input() onDetails: boolean;
-  @Input() imgSources: Carousel[] = []; // Provided by aparts service
-  @Input() id: number; // Unique id for each gallery on listing
 
   buttons = [
     {class: 'button_prev', label: 'Précédente', direction: 0},
@@ -28,6 +32,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     // window.matchMedia('(min-width: 1024px)').matches ? this.step = 85 : this.step = 100;
+    this.galleryPath = GlobalContants.gallery.remote + 'assets/media/gallery/' + this.apartId;
     this.initCarousel();
   }
 
@@ -48,11 +53,12 @@ export class CarouselComponent implements OnInit, AfterViewInit {
     if (direction === 1 && !this.isLoading) {
       if (this.currentItem < this.imgSources.length) {
         const safe = this.items.every( (item: number) => {
+          // @ts-ignore
           return item !== this.imgSources[this.currentItem].id;
         });
         if (safe) {
           this.isLoading = true;
-          this.items.push(this.imgSources[this.currentItem].id);
+          this.items.push(+this.imgSources[this.currentItem].id);
           this.insertSlideItem(this.currentItem);
           this.currentItem++;
         } else {
@@ -62,7 +68,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
       }
     } else if (direction === 0) {
       if (this.currentItem > 1) {
-        (document.querySelector(`#id-${this.id}`) as HTMLDivElement).style.marginLeft = `-${(this.currentItem - 2) * this.step}vw`;
+        (document.querySelector(`#id-${this.carouselId}`) as HTMLDivElement).style.marginLeft = `-${(this.currentItem - 2) * this.step}vw`;
         this.currentItem--;
       }
     }
@@ -71,21 +77,21 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   preventDispatch(event: Event, direction: number) {
     event.preventDefault();
     event.stopPropagation();
-    (document.querySelector(`#control-${this.id}-${direction}`) as HTMLButtonElement).click();
+    (document.querySelector(`#control-${this.carouselId}-${direction}`) as HTMLButtonElement).click();
     return false;
   }
 
   private initCarousel() {
-    console.log(this.imgSources);
-    // this.items.push(this.imgSources[this.currentItem].id, this.imgSources[this.currentItem + 1].id);
-    // this.currentItem = 1;
+    // console.log(this.galleryPath + '/' + this.imgSources[0].src);
+    this.items.push(this.imgSources[this.currentItem].id, this.imgSources[this.currentItem + 1].id);
+    this.currentItem = 1;
   }
 
   private handleSliderTouch() {
     // tslint:disable-next-line:one-variable-per-declaration
     let startX, endX, threshold;
     const step = 50;
-    const slider = document.querySelector(`#id-${this.id}`);
+    const slider = document.querySelector(`#id-${this.carouselId}`);
     slider.addEventListener('touchstart', (e: TouchEvent) => {
       e.preventDefault();
       startX = e.changedTouches[0].pageX;
@@ -96,9 +102,9 @@ export class CarouselComponent implements OnInit, AfterViewInit {
       threshold = Math.abs(endX - startX);
       if (threshold >= step) {
         if ( endX - startX < 0) {
-          (document.querySelector(`#control-${this.id}-1`) as HTMLButtonElement).click();
+          (document.querySelector(`#control-${this.carouselId}-1`) as HTMLButtonElement).click();
         } else if (endX - startX > 0) {
-          (document.querySelector(`#control-${this.id}-0`) as HTMLButtonElement).click();
+          (document.querySelector(`#control-${this.carouselId}-0`) as HTMLButtonElement).click();
         }
       }
     });
@@ -112,8 +118,8 @@ export class CarouselComponent implements OnInit, AfterViewInit {
     } else {
       imgWidth = '100%';
     }
-    const gallery = document.querySelector(`#id-${this.id}`) as HTMLDivElement;
-    const imgSrc = this.imgSources[currentItem].src;
+    const gallery = document.querySelector(`#id-${this.carouselId}`) as HTMLDivElement;
+    const imgSrc = this.galleryPath + '/' + this.imgSources[currentItem].src;
     ////////////////////////////////////////////////////
     this.placeHolderCreator(gallery, currentItem);
     ////////////////////////////////////////////////////

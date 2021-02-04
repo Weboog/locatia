@@ -1,15 +1,15 @@
-import { Injectable } from "@angular/core";
-import { Apart } from "../shared/custom-types/apart";
-import { HttpClient } from "@angular/common/http";
-import { Subject } from "rxjs";
+import { Injectable } from '@angular/core';
+import { Apart } from '../shared/custom-types/apart';
+import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
+import {GlobalContants} from '../common/global-contants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApartsService {
-  showHeaderBottomBorder = new Subject<boolean>();
-  aparts: Apart[];
 
+  showHeaderBottomBorder = new Subject<boolean>();
   featuredAparts = [
     {
       human_id: 'B-0387',
@@ -62,41 +62,41 @@ export class ApartsService {
       ]
     }
   ];
-
   registeredAparts: Apart[] = [];
 
   constructor(private httpClient: HttpClient) {}
 
-  // http://db-services.web/apart/${id}
-  // https://db-services.incoloria.com/apart/${id}
-  // http://boogstell-api.atwebpages.com/apart/
   getApart(id: string) {
-    return this.httpClient.get(`https://db-services.web/apart/${id}`);
+    return this.httpClient.get(`${GlobalContants.apiURL}/apart/${id}`);
   }
 
   getAparts() {
-    return this.httpClient.get('https://db-services.web/apart/');
+    return this.httpClient.get(`${GlobalContants.apiURL}/apart`);
     // return this.aparts.slice();
   }
 
   getRegisteredAparts(indexes: string[]) {
-    this.registeredAparts = [];
-    indexes.forEach((id) => {
-      this.registeredAparts.push(
-        this.aparts.find((apart) => {
-          return apart.id === id;
-        })
-      );
+    this.registeredAparts = []; // Initialize array of already registered afavourites
+    this.getAparts().subscribe((aparts: Apart[]) => {
+      indexes.forEach((id) => {
+        this.registeredAparts.push(
+          aparts.find((apart) => {
+            apart.images = [{id: 0, src: `${GlobalContants.gallery.remote}assets/media/gallery/${apart.id}/${apart.id}-0.jpg`}];
+            return apart.id === id;
+          })
+        );
+      });
     });
-    return this.registeredAparts.slice();
+    return this.registeredAparts;
   }
+
   getDescription(id: number) {
-    return this.aparts[id].description;
+    return this.registeredAparts[id].description;
   }
 
   incrementViewCount(id: string) {
     return this.httpClient.get(
-      `https://db-services.web/apart/increment/${id}`
+      `${GlobalContants.apiURL}/apart/increment/${id}`
     );
   }
 }
