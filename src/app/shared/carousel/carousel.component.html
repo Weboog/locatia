@@ -2,6 +2,8 @@
     <div id="id-{{ carouselId }}" class="slider" [ngStyle]="{'width.vw': (items.length) * (onDetails ? 100 : step)}">
       <div class="slider_item">
         <img [src]="galleryPath + '/' + imgSources[0].src" alt="image-1">
+      </div>
+      <div class="slider_item">
         <img [src]="galleryPath + '/' + imgSources[1].src" alt="image-2">
       </div>
     </div>

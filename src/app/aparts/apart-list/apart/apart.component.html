@@ -22,11 +22,7 @@
       [imgSources]="apart.images"
     ></app-carousel>
   </div>
-  <div
-    class="details"
-    (click)="onDescription(carouselId)"
-    [ngClass]="{ unRound: detailed }"
-  >
+  <div class="details" (click)="onDescription(carouselId)" [ngClass]="{ unRound: detailed }">
     <div class="apart_id">
       <span>#</span>
       <p>{{ apart.human_id }}</p>
