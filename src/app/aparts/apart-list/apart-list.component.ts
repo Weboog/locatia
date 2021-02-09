@@ -16,6 +16,8 @@ export class ApartListComponent implements OnInit {
     this.apartsService.getAparts().pipe(
       map( (aparts: Apart[]) => {
         aparts.forEach(apart => {
+          // const address = apart.address.toString().split(',');
+          // apart.address = address.splice(0 , 1);
           apart.images = [
             {id: 0, src: apart.id + '-0.jpg'},
             {id: 1, src: apart.id + '-1.jpg'}

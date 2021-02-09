@@ -12,6 +12,7 @@ export interface Apart {
   address?: string[];
   zip?: number;
   phone: string;
+  // agent?: {name: string, phone: string, agency: string};
   location?: {lat: string, lng: string};
   surface: number;
   pieces: number;

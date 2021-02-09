@@ -24,12 +24,11 @@
   </div>
   <div class="details" (click)="onDescription(carouselId)" [ngClass]="{ unRound: detailed }">
     <div class="apart_id">
-      <span>#</span>
-      <p>{{ apart.human_id }}</p>
+      <span>&#35;</span><p>{{ apart.human_id }}</p>
       <!--      <div class="divider"></div>-->
     </div>
     <div class="price">
-      <span class="type">{{ apart.property }}</span>
+      <span class="type"><i class="dot"></i>{{ apart.property }}</span>
       <p>{{ apart.price }}</p>
       <div>
         <small>dh</small>
@@ -37,8 +36,8 @@
       </div>
     </div>
     <div class="location">
-      <span>Adresse</span>
-      <p>{{ apart.address }} <i class="dot"></i></p>
+      <span>Ville</span>
+      <p>{{ apart.city }}</p>
     </div>
     <div class="specs">
       <div class="surface">
@@ -61,7 +60,7 @@
           <span>c</span> <i class="dot"></i>
         </p>
       </div>
-      <div *ngIf="apart.floors" class="rooms">
+      <div *ngIf="apart.floors > 0" class="rooms">
         <span>étages</span>
         <p>
           {{ apart.floors < 10 ? "0" + apart.floors : apart.floors }}
@@ -71,19 +70,19 @@
     </div>
     <div class="contact">
       <div class="call">
-        <a href="tel:0626629199" (click)="onCall($event)">
+        <a href="tel:{{apart.phone}}" (click)="onCall($event)">
           <svg>
-            <use href="assets/svg/sprite.svg#call"></use>
+            <use href="assets/svg/phone.svg#phone"></use>
           </svg>
         </a>
       </div>
-      <div class="message">
-        <a>
-          <svg>
-            <use href="assets/svg/sprite.svg#message"></use>
-          </svg>
-        </a>
-      </div>
+<!--      <div class="message">-->
+<!--        <a>-->
+<!--          <svg>-->
+<!--            <use href="assets/svg/messageText.svg#messageText"></use>-->
+<!--          </svg>-->
+<!--        </a>-->
+<!--      </div>-->
     </div>
   </div>
 </div>
