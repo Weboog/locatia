@@ -1,5 +1,12 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import {Switch} from '../custom-types/switch';
+import {SwitchService} from './switch.service';
 
 
 @Component({
@@ -9,13 +16,15 @@ import {Switch} from '../custom-types/switch';
 })
 export class SwitchComponent implements OnInit {
 
+  constructor(private switchService: SwitchService) { }
+
   @Input() bgColor: string;
   @Input() switchValues: Switch;
   @Output() onSwitch = new EventEmitter<{label: string, value: string}>();
-
-  constructor() { }
+  checkedIndex = 0;
 
   ngOnInit(): void {
+    this.switchService.setChecked(this.checkedIndex);
   }
 
   onChange(val: string) {

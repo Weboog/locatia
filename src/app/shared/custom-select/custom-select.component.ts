@@ -1,29 +1,43 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
 import {CustomSelectService, SelectOption} from './custom-select.service';
+import {Subscription} from 'rxjs';
+import {ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
   selector: 'app-custom-select',
   templateUrl: './custom-select.component.html',
   styleUrls: ['./custom-select.component.scss']
 })
-export class CustomSelectComponent implements OnInit {
+export class CustomSelectComponent implements OnInit, OnDestroy {
+  constructor( private customSelectService: CustomSelectService, private route: ActivatedRoute) { }
+
+  eventSubscription: Subscription;
+  onResetSubscription: Subscription;
 
   @Output() onItem = new EventEmitter<{label: string, value: string}>();
   @Input() selectOption: SelectOption;
+  @Input() isDropDown = false;
   @ViewChild('wrapper', {static: true}) wrapper: ElementRef;
-  @Input()isDropDown = false;
   selectedItem: string;
-  constructor( private customSelectService: CustomSelectService) { }
 
   ngOnInit(): void {
-    this.customSelectService.onDroppedOne.subscribe( label => {
+    this.eventSubscription = this.customSelectService.onDroppedOne.subscribe( label => {
       if (!this.wrapper.nativeElement.classList.contains(label)) {
         this.isDropDown = false;
       }
     });
-    this.customSelectService.onReset.subscribe( () => {
+    this.onResetSubscription = this.customSelectService.onReset.subscribe( () => {
       this.selectedItem = null;
     });
+
+    this.route.queryParamMap.subscribe((paramMap: ParamMap) => {
+      this.onSelectedItem(paramMap.get('city'));
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.eventSubscription.unsubscribe();
+    this.onResetSubscription.unsubscribe();
   }
 
   onDropDown(label: string) {
@@ -31,7 +45,7 @@ export class CustomSelectComponent implements OnInit {
     this.customSelectService.onDroppedOne.emit(label);
   }
 
-  onSelectedItem(option: string, event) {
+  onSelectedItem(option: string, event = null) {
     this.isDropDown = false;
     this.selectedItem = option;
     this.onItem.emit({label: this.selectOption.label, value: option});

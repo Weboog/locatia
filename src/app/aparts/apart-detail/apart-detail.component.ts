@@ -53,6 +53,7 @@ export class ApartDetailComponent implements OnInit, OnDestroy, AfterViewInit {
       )
       .subscribe(async (apart) => {
         this.apart = await apart;
+        console.log(this.apart);
       });
 
     this.slides = this.sliderService.getSlides(

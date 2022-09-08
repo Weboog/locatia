@@ -27,7 +27,7 @@ export class ApartListComponent implements OnInit {
       })
     ).subscribe((aparts: Apart[]) => {
       this.apartsArray = aparts;
-      console.log(this.apartsArray);
+      // console.log(this.apartsArray);
     });
   }
 }

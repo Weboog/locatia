@@ -11,6 +11,12 @@ export class SwitchService {
 
   constructor() { }
 
+  setChecked(index: number) {
+    const sw = document.querySelectorAll('input[type=radio]').item(index) as HTMLInputElement;
+    sw.setAttribute('checked', String(true));
+    // console.log('item to check is ' + index);
+  }
+
   getSwitches() {
     return this.switches.slice();
   }

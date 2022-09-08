@@ -5,6 +5,7 @@ import {price} from '../custom-validators/price.validator';
 import {surface} from '../custom-validators/surface.validator';
 import {SwitchService} from '../shared/switch/switch.service';
 import {Switch} from '../shared/custom-types/switch';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-filters',
@@ -26,9 +27,26 @@ export class FiltersComponent implements OnInit {
   selectArray: SelectOption[];
   switchArray: Switch[];
   formFilters: FormGroup;
-  constructor( private customSelectService: CustomSelectService, private switchService: SwitchService) { }
+
+  constructor(
+    private customSelectService: CustomSelectService,
+    private switchService: SwitchService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.router.events.subscribe((event: NavigationEnd) => {
+      if (event instanceof NavigationEnd) {
+        const action = event.url.split('?')[0].replace(/^\//g, '');
+        if (action === 'rental') {
+          this.switchService.setChecked(0);
+        } else if (action === 'buy') {
+          this.switchService.setChecked(1);
+        }
+      }
+    });
+
     this.selectArray = this.customSelectService.getSelectOptions();
     this.switchArray = this.switchService.getSwitches();
     this.formFilters = new FormGroup({

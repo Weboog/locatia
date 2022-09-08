@@ -8,7 +8,7 @@
             <use href="assets/svg/chevron.svg#chevron"></use>
         </svg>
     </div>
-    <div class="items">
+    <div  class="items">
       <ul [ngStyle]="{ 'height' : isDropDown ? [(selectOption.options.length)*3 + 2.3] +'rem' : 0}">
         <li (click)="onSelectedItem(option, $event)" *ngFor="let option of selectOption.options">
           <a [ngClass]="{marked: selectedItem === option}">

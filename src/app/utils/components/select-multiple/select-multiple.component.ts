@@ -11,7 +11,7 @@ export class SelectMultipleComponent implements OnInit {
   @Output() onItem = new EventEmitter<{label: string, value: string[]}>();
   @Input() selectOption: SelectOption;
   @ViewChild('wrapper', {static: true}) wrapper: ElementRef;
-  @Input()isDropDown = false;
+  @Input() isDropDown = false;
   selectedMultipleItems: string[] = ['tout type'];
   constructor( private customSelectService: CustomSelectService) { }
 
